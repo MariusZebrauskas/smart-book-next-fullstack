@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// logo
+
+.logo {
+  @media (max-width: 400px) {
+    display: none;
+  }
+}
+
+.submenuGSAP {
+  transform: translateY(-15rem);
+  position: absolute;
+  width: 100%;
+  display: none;
+  background: #1f2937;
+  z-index: -1;
+}
+.imageForDashboard {
+  // margin top
+  margin-top: 2rem;
+  /* Full height */
+  height: 100%;
+  max-height: 10rem;
+  min-width: size;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.max-w-2rem {
+  
+  max-width: 9rem;
+}
