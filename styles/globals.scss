@@ -56,3 +56,9 @@
     width: 100%;
   }
 }
+
+.fotterWithOnUltraWide{
+  @media (min-width: 1536px) {
+   min-width: 100%;
+  }
+}

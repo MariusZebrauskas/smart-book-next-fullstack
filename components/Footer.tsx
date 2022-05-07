@@ -19,7 +19,7 @@ const Footer = () => {
           : 'bg-gray-800 mt-20'
       }
     >
-      <div className='container px-6 py-8 mx-auto'>
+      <div className='container px-6 py-8 mx-auto fotterWithOnUltraWide'>
         <div className='text-center'>
           <a href='#' className='text-2xl font-bold text-white hover:text-gray-300'>
             Smart Book
