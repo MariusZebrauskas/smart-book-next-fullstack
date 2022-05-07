@@ -21,7 +21,7 @@ const IndexPage = () => {
     // set homepage varaibles
     dispatch(homePage());
     if (submenu) {
-      console.log('shlud close');
+     
       dispatch(closeSubmenu());
     }
   }, []);

@@ -31,4 +31,36 @@
 .max-w-2rem {
   max-width: 9rem;
 }
+
+@media (min-width: 912px) {
+  .footerMarginDashboard {
+    margin-top: 10rem;
+  }
+}
+
+@media (min-height: 1000px) {
+  .footerMarginDashboard {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+.footerMarginContact {
+  margin-top: 7rem;
+}
+
+@media (min-height: 965px) {
+  .footerMarginContact {
+    margin-top: 13rem;
+  }
+}
+
+@media (min-height: 1000px) {
+  .footerMarginContact {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
 /*# sourceMappingURL=globals.css.map */
