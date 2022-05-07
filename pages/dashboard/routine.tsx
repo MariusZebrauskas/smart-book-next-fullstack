@@ -33,8 +33,9 @@ const routine = () => {
   const [openPopUp, setOpenPopUp] = useState(false);
   const [dataToUpdate, setDataToUpdate] = useState<any>(null);
   const router = useRouter();
-  const [token, setToken] = useState(null || sessionStorage.getItem('token'));
+  const [token, setToken] = useState<null | string>(null);
 
+  
   // pop up handler
   const popUpWindow = (params: string, dataFromScreen: any) => {
     if (params === 'pop') {
@@ -89,6 +90,8 @@ const routine = () => {
 
     // get todo data
     if (user) {
+      
+        setToken(null || sessionStorage.getItem('token'))
       if (token !== null) {
         axios
           .post(`${HTTP()}/api/routine`, { token: token })

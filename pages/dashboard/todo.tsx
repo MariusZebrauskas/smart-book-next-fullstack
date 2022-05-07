@@ -50,7 +50,7 @@ const todo = () => {
   const [editeTodoValue, setEditeTodoValue] = useState<any>(null);
   const router = useRouter();
   let tokenFromSesion: any;
-  const [token, setToken] = useState(null || sessionStorage.getItem('token'));
+  const [token, setToken] = useState<null | string>(null);
   const [dataFromDB, setDataFromDb] = useState<any>([]);
 
   // on page loads
@@ -60,9 +60,12 @@ const todo = () => {
       router.push('/login');
       return;
     }
-
+    setToken(null || sessionStorage.getItem('token'))
     // get todo data
     if (user) {
+      
+   
+
       if (token !== null) {
         axios
           .post(`${HTTP()}/api/gettodos`, { token: token })

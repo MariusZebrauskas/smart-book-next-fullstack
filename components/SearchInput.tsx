@@ -15,7 +15,7 @@ interface T extends DefaultRootState {
 }
 
 const SearchInput = () => {
-  const [token, setToken] = useState(null || sessionStorage.getItem('token'));
+  const [token, setToken] = useState<null | string>(null);
 
   const ref = useRef<HTMLInputElement>(null);
   const todo: any = useSelector<T>((store) => store.todo);
@@ -74,6 +74,9 @@ const SearchInput = () => {
     // clean up function
     return () => document.removeEventListener('keypress', enter);
   });
+  useEffect(() => {
+    setToken(null || sessionStorage.getItem('token'));
+  }, []);
 
   return (
     <div className='flex justify-center mt-20 w-full '>
