@@ -7,7 +7,7 @@ export const HTTP = () => {
     return (url = 'http://localhost:3000');
   } else {
     // production code
-    return (url = "http://localhost:3000");
+    return (url = "https://6276b3b93b8ea029fd6de7a6--statuesque-entremet-93144a.netlify.app");
   }
 };
 
