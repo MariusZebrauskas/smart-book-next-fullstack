@@ -20,9 +20,9 @@ const Card = () => {
             Everithing in one <span className='text-blue-600 dark:text-blue-400'>aplication</span>
           </h2>
           <p className='mt-4 text-gray-600 dark:text-gray-400'>
-            Create one account and get 2 aplications for free. This aplication is easy to use, easy
-            to register and good time planing and organaising apliccation for a busy people to
-            track, add, edite, delite their tasks.
+          Create one account and get 2 applications for free. This application is easy to use, easy
+            to register and good time planning and organizing application for a busy people to
+            track, add, edit, and delete their tasks.
           </p>
 
           <div className='mt-8'>
