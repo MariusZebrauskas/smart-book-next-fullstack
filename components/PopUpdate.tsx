@@ -17,8 +17,12 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
       popUpWindow('submit');
       //close after submit
       popUpWindow('cancel');
+    } else if (condision === 'clear') {
+      // clear todo
+      dataToUpdate.message = ''
+      setDataToUpdate({...dataToUpdate})
     }
-    //
+    
   };
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -40,7 +44,6 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
       >
         {/* card */}
         <div className='mt-20 sm:mt-0'>
-    
           {/* <!--
       Background overlay, show/hide based on modal state.
       
@@ -88,10 +91,12 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
             </button>
             <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
               <div className='sm:flex sm:items-start '>
-                <div className='mx-auto flex-shrink-0 flex items-center justify-center
+                <div
+                  className='mx-auto flex-shrink-0 flex items-center justify-center
                  h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10
                  xl:opacity-0
-                 '>
+                 '
+                >
                   {/* <!-- Heroicon name: outline/exclamation --> */}
                   <svg
                     className='h-6 w-6 text-green-600 '
@@ -152,6 +157,18 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
               </div>
             </div>
             <div className=' px-4 py-3 sm:px-6 flex justify-end '>
+              <button
+                onClick={() => submitDataHandler('clear')}
+                type='button'
+                className='px-6 mr-6 py-2 border-2 cursor-pointer border-red-800
+            hover:text-gray-800 text-indigo-100 bg-red-900 font-medium text-xs leading-tight 
+               uppercase rounded hover:bg-grey-400 hover:bg-opacity-5
+               focus:outline-none focus:ring-0 
+               transition duration-150  ease-in-out z-10'
+              >
+                clear
+              </button>
+
               <button
                 onClick={() => submitDataHandler('submit')}
                 type='button'
