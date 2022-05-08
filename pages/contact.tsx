@@ -4,7 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
 import { contactPage } from '../redux/pageReducer';
 import { closeSubmenu } from '../redux/submenuReducer';
-
+import Success from '../components/Success';
+import Error from '../components/Error';
 interface T extends DefaultRootState {
   submenu: boolean;
 }
@@ -12,6 +13,8 @@ interface T extends DefaultRootState {
 const contact = () => {
   const dispatch = useDispatch();
   const submenu = useSelector<T>((store) => store.submenu);
+  const [successMessage, setSuccessMessage] = useState<null | string>(null);
+  const [errorMessage, setErrorMessage] = useState<null | string>(null);
   const [emailData, setEmailData] = useState({
     name: '',
     email: '',
@@ -68,13 +71,20 @@ const contact = () => {
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrorMessage(null);
+    setSuccessMessage(null);
     axios
       .post('/api/email', emailData)
       .then((response) => {
-        console.log(response);
+        const { success } = response.data;
+        if (success) {
+          setEmailData({ name: '', email: '', message: '' });
+          setSuccessMessage(response.data.message);
+        }
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage('Opps something went wrong');
       });
   };
   return (
@@ -138,6 +148,8 @@ const contact = () => {
           </button>
         </div>
       </div>
+      {successMessage && <Success success={successMessage} />}
+      {errorMessage && <Error error={successMessage} setError={setErrorMessage} />}
     </form>
   );
 };
