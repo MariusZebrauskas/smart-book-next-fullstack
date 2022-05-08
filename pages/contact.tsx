@@ -68,7 +68,7 @@ const contact = () => {
         Get in touch
       </h2>
       <p className='mt-10 text-center text-gray-600 dark:text-gray-400'>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        Tell us how can we help.
       </p>
 
       <div className='mt-10 '>

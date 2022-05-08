@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Card = () => {
@@ -16,22 +17,24 @@ const Card = () => {
 
         <div className='max-w-xl px-6 py-12 lg:max-w-5xl lg:w-1/2'>
           <h2 className='text-2xl font-bold text-gray-800 dark:text-white md:text-3xl'>
-            Build Your New <span className='text-blue-600 dark:text-blue-400'>Idea</span>
+            Everithing in one <span className='text-blue-600 dark:text-blue-400'>aplication</span>
           </h2>
           <p className='mt-4 text-gray-600 dark:text-gray-400'>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem modi reprehenderit
-            vitae exercitationem aliquid dolores ullam temporibus enim expedita aperiam mollitia
-            iure consectetur dicta tenetur, porro consequuntur saepe accusantium consequatur.
+            Create one account and get 2 aplications for free. This aplication is easy to use, easy
+            to register and good time planing and organaising apliccation for a busy people to
+            track, add, edite, delite their tasks.
           </p>
 
           <div className='mt-8'>
-            <a
-              href='#'
-              className='px-5 py-2 font-semibold text-gray-100 transition-colors duration-200 transform
-               bg-gray-900 rounded-md hover:bg-gray-700'
-            >
-              Start Now
-            </a>
+            <Link href='/dashboard'>
+              <a
+                href='#'
+                className='px-5 py-2 font-semibold text-gray-100 transition-colors duration-200 transform
+              bg-gray-900 rounded-md hover:bg-gray-700'
+              >
+                Start Now
+              </a>
+            </Link>
           </div>
         </div>
       </div>
