@@ -15,17 +15,27 @@ const Avatar = () => {
   const dispatch = useDispatch();
   const menu = useSelector<T>((store) => store.menu);
   const router = useRouter();
+  // submenu open close varaibele
+  let openSubMenu = false;
 
   const avatar = () => {
-    //   avatar animation
+    // close other menu if avatar menu open
     if (menu) {
-      gsap.to('.avatar-GSAP', { y: 32, duration: 0.2, opacity: 0, display: 'none' });
-      return dispatch(closeMenu());
-    } else if (!menu) {
+      dispatch(closeMenu());
+    }
+    if (!openSubMenu) {
+      // animation open submenu
       gsap.to('.avatar-GSAP', { y: 0, duration: 0.3, opacity: 1, display: 'block' });
-      return dispatch(openMenu());
+      // variable false = open submenu
+      return (openSubMenu = true);
+    } else if (openSubMenu) {
+      // animation close submenu
+      gsap.to('.avatar-GSAP', { y: 32, duration: 0.2, opacity: 0, display: 'none' });
+      // variable true = close submenu
+      return (openSubMenu = false);
     }
   };
+
   const closeSubmenu = () => {
     // close menu animation
     gsap.to('.avatar-GSAP', { y: 32, duration: 0.2, opacity: 0, display: 'none' });
@@ -40,7 +50,7 @@ const Avatar = () => {
   };
 
   return (
-    <div className=' absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
+    <div className=' absolute z-10 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
       {/* avatar */}
       <div className='ml-3 relative'>
         <div onClick={avatar}>

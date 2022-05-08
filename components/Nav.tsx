@@ -79,7 +79,7 @@ const Nav = () => {
       return dispatch(dashboardPage());
     }
   };
-  console.log('page:', page);
+  
 
   return (
     <nav className='bg-gray-800 '>

@@ -21,10 +21,7 @@ const DynamicCards: React.FC<Card> = ({ card }) => {
   const user: any = useSelector<T>((state) => state.user);
   const dispach = useDispatch();
 
-  // FIXME: todo + calendar json toekn verify  + functionality to add delete update !!!! DB
-  // FIXME: todo + calendar json toekn verify  + functionality to add delete update !!!! DB
-  // FIXME: todo + calendar json toekn verify  + functionality to add delete update !!!! DB
-  // FIXME: todo + calendar json toekn verify  + functionality to add delete update !!!! DB
+
 
   return (
     <Link key={card.id} href={user ? card.page : '/login'}>
