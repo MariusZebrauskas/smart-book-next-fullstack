@@ -14,7 +14,7 @@ const Footer = () => {
       className={
         page === 'dashboard'
           ? 'footerMarginDashboard bg-gray-800 '
-          : page === 'contact'
+          : page === 'contact' || page === 'unknown'
           ? 'footerMarginContact bg-gray-800 '
           : 'bg-gray-800 mt-20'
       }

@@ -19,10 +19,6 @@
 
 .imageForDashboard {
   margin-top: 2rem;
-  /* Full height */
-  height: 100%;
-  max-height: 10rem;
-  min-width: size;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -50,13 +46,7 @@
   margin-top: 7rem;
 }
 
-@media (min-height: 965px) {
-  .footerMarginContact {
-    margin-top: 13rem;
-  }
-}
-
-@media (min-height: 1000px) {
+@media (min-height: 857px) {
   .footerMarginContact {
     position: absolute;
     bottom: 0;

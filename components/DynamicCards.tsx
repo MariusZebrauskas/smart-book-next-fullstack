@@ -1,8 +1,7 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
-
-
 
 type Card = {
   card: {
@@ -21,9 +20,6 @@ interface T extends DefaultRootState {
 const DynamicCards: React.FC<Card> = ({ card }) => {
   const user: any = useSelector<T>((state) => state.user);
   const dispach = useDispatch();
- 
-
-
 
   // FIXME: todo + calendar json toekn verify  + functionality to add delete update !!!! DB
   // FIXME: todo + calendar json toekn verify  + functionality to add delete update !!!! DB
@@ -42,7 +38,13 @@ const DynamicCards: React.FC<Card> = ({ card }) => {
             {card.name}
           </h1>
         </div>
-        <img className='imageForDashboard' src={card.image} alt={card.alt} />
+        <Image
+          className='imageForDashboard'
+          src={card.image}
+          alt={card.alt}
+          width='200'
+          height='180'
+        />
       </div>
     </Link>
   );
