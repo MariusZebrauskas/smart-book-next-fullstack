@@ -16,12 +16,9 @@ const IndexPage = () => {
   const submenu = useSelector<T>((store) => store.submenu);
 
   useEffect(() => {
-  
-
     // set homepage varaibles
     dispatch(homePage());
     if (submenu) {
-     
       dispatch(closeSubmenu());
     }
   }, []);
@@ -33,12 +30,8 @@ const IndexPage = () => {
     }
   };
 
-
   return (
-    <header
-      onMouseEnter={onMouseEnter}
-      className='bg-white dark:bg-gray-800 mt-20 relative'
-    >
+    <header onMouseEnter={onMouseEnter} className='bg-white dark:bg-gray-800 mt-20 relative'>
       <div
         className='container flex flex-col px-6 py-10 mx-auto space-y-6 
       lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center'
@@ -49,10 +42,10 @@ const IndexPage = () => {
               className='text-2xl font-medium tracking-wide text-gray-800 dark:text-white
              lg:text-4xl'
             >
-              Find your premium new glasses exported from US
+              Build your routine and todos online in one flexible software.
             </h1>
             <p className='mt-2 text-gray-600 dark:text-gray-300'>
-              We work with the best remunated glasses dealers in US to find your new glasses.
+              Plan, manage and track all your tasks or routine in one flexible software. 
             </p>
             <div className='grid gap-6 mt-8 sm:grid-cols-2'>
               <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
@@ -71,7 +64,7 @@ const IndexPage = () => {
                   />
                 </svg>
 
-                <span className='mx-3'>Premium selection</span>
+                <span className='mx-3'>Routine callendar</span>
               </div>
 
               <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
@@ -90,7 +83,7 @@ const IndexPage = () => {
                   />
                 </svg>
 
-                <span className='mx-3'>Insurance</span>
+                <span className='mx-3'>Todo list</span>
               </div>
 
               <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
@@ -109,7 +102,7 @@ const IndexPage = () => {
                   />
                 </svg>
 
-                <span className='mx-3'>All legal documents</span>
+                <span className='mx-3'>All devices</span>
               </div>
 
               <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
@@ -128,7 +121,7 @@ const IndexPage = () => {
                   />
                 </svg>
 
-                <span className='mx-3'>From US glasses dealers</span>
+                <span className='mx-3'>No paiments</span>
               </div>
 
               <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
@@ -147,7 +140,7 @@ const IndexPage = () => {
                   />
                 </svg>
 
-                <span className='mx-3'>Payment Security</span>
+                <span className='mx-3'>Data security for free</span>
               </div>
 
               <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
@@ -166,7 +159,25 @@ const IndexPage = () => {
                   />
                 </svg>
 
-                <span className='mx-3'>Fast shipping (+ Express)</span>
+                <span className='mx-3'>Extreamly fast</span>
+              </div>
+              <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+                <svg
+                  className='w-5 h-5 mx-3'
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
+                    d='M5 13l4 4L19 7'
+                  />
+                </svg>
+
+                <span className='mx-3'>Easy to use</span>
               </div>
             </div>
           </div>
