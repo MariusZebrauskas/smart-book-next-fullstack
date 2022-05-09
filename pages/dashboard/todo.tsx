@@ -6,11 +6,11 @@ import AddTodo from '../../components/SearchInput';
 import { todoPage } from '../../redux/pageReducer';
 import { closeSubmenu } from '../../redux/submenuReducer';
 
-import { userTodos } from '../../objects/todosObj';
 import { fechTodos } from '../../redux/todoReducer';
 import axios from 'axios';
 import { HTTP } from '../../config';
 import { useRouter } from 'next/router';
+
 
 interface T extends DefaultRootState {
   submenu: boolean;
@@ -45,13 +45,9 @@ const todo = () => {
   const dispatch = useDispatch();
   const submenu = useSelector<T>((store) => store.submenu);
   const todo: any = useSelector<T>((store) => store.todo);
-  const store = useSelector<T>((store) => store);
   const user = useSelector<T>((store) => store.user);
-  const [editeTodoValue, setEditeTodoValue] = useState<any>(null);
   const router = useRouter();
-  let tokenFromSesion: any;
   const [token, setToken] = useState<null | string>(null);
-  const [dataFromDB, setDataFromDb] = useState<any>([]);
 
   // on page loads
   useEffect(() => {
@@ -60,12 +56,9 @@ const todo = () => {
       router.push('/login');
       return;
     }
-    setToken(null || sessionStorage.getItem('token'))
+    setToken(null || sessionStorage.getItem('token'));
     // get todo data
     if (user) {
-      
-   
-
       if (token !== null) {
         axios
           .post(`${HTTP()}/api/gettodos`, { token: token })
@@ -92,6 +85,7 @@ const todo = () => {
     }
   };
 
+
   return (
     <section onMouseEnter={onMouseEnter}>
       <Header />
@@ -106,7 +100,11 @@ const todo = () => {
         >
           {todo &&
             todo.map((todo: Todo) => {
-              return <ListItem key={Math.random()} todo={todo} />;
+              return (
+                <div className=' w-full flex justify-center animatingBox' key={Math.random()}>
+                  <ListItem todo={todo} />
+                </div>
+              );
             })}
         </ul>
       </div>
