@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
+import { dashboardPage } from '../redux/pageReducer';
 
 type Card = {
   card: {
@@ -15,33 +16,35 @@ type Card = {
 
 interface T extends DefaultRootState {
   user: null | any;
+  page: string;
 }
 
 const DynamicCards: React.FC<Card> = ({ card }) => {
   const user: any = useSelector<T>((state) => state.user);
   const dispach = useDispatch();
 
-
+  useEffect(() => {
+    dispach(dashboardPage());
+  }, []);
 
   return (
     <Link key={card.id} href={user ? card.page : '/login'}>
       <div
-        className='max-w-xs mx-auto overflow-hidden bg-gray-200 rounded-lg shadow-lg dark:bg-gray-800
-      hover:cursor-pointer
+        className='max-w-xs mx-auto overflow-hidden bg-gray-200 rounded-lg shadow-lg
+         dark:bg-gray-800
+        hover:cursor-pointer
+        flex justify-center flex-col
         '
       >
-        <div className='px-4 py-2'>
-          <h1 className='text-lg sm:text-2xl font-bold text-gray-800 uppercase dark:text-white'>
+        <div className='flex flex-center justify-center py-2'>
+          <h1
+            className='text-lg sm:text-2xl font-bold text-gray-800 uppercase 
+          dark:text-white'
+          >
             {card.name}
           </h1>
         </div>
-        <Image
-          className='imageForDashboard'
-          src={card.image}
-          alt={card.alt}
-          width='200'
-          height='180'
-        />
+        <Image className='rounded-b-lg' src={card.image} alt={card.alt} width='200' height='180' />
       </div>
     </Link>
   );
