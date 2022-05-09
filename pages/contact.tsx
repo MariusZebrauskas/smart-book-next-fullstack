@@ -6,8 +6,11 @@ import { contactPage } from '../redux/pageReducer';
 import { closeSubmenu } from '../redux/submenuReducer';
 import Success from '../components/Success';
 import Error from '../components/Error';
+import { HTTP } from '../config';
+import Spinner from '../components/Spinner';
 interface T extends DefaultRootState {
   submenu: boolean;
+  loading: boolean;
 }
 
 const contact = () => {
@@ -15,6 +18,8 @@ const contact = () => {
   const submenu = useSelector<T>((store) => store.submenu);
   const [successMessage, setSuccessMessage] = useState<null | string>(null);
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
+  const loading = useSelector<T>((store) => store.loading);
+
   const [emailData, setEmailData] = useState({
     name: '',
     email: '',
@@ -74,7 +79,7 @@ const contact = () => {
     setErrorMessage(null);
     setSuccessMessage(null);
     axios
-      .post('/api/email', emailData)
+      .post(`${HTTP()}/api/email`, emailData)
       .then((response) => {
         const { success } = response.data;
         if (success) {
@@ -144,7 +149,7 @@ const contact = () => {
             type='submit'
             className='px-4 py-2 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'
           >
-            Send Message
+            {loading ? <Spinner /> : 'Send Message'}
           </button>
         </div>
       </div>
