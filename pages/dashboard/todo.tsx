@@ -10,7 +10,7 @@ import { fechTodos } from '../../redux/todoReducer';
 import axios from 'axios';
 import { HTTP } from '../../config';
 import { useRouter } from 'next/router';
-
+import gsap from 'gsap';
 
 interface T extends DefaultRootState {
   submenu: boolean;
@@ -84,7 +84,16 @@ const todo = () => {
       dispatch(closeSubmenu());
     }
   };
+  // animation on load
+  // let tl = gsap.timeline();
 
+  // useEffect(() => {
+  //   tl.fromTo(
+  //     '.pedal',
+  //     { opacity: 0, bottom: -50, scale: 0.5 },
+  //     { opacity: 1, bottom: 0, scale: 1, duration: 0.3, stagger: 0.1 }
+  //   );
+  // }, []);
 
   return (
     <section onMouseEnter={onMouseEnter}>
@@ -100,11 +109,8 @@ const todo = () => {
         >
           {todo &&
             todo.map((todo: Todo) => {
-              return (
-                <div className=' w-full flex justify-center animatingBox' key={Math.random()}>
-                  <ListItem todo={todo} />
-                </div>
-              );
+           
+              return <ListItem  key={Math.random()} todo={todo} />;
             })}
         </ul>
       </div>

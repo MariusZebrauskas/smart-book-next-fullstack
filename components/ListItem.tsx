@@ -1,11 +1,11 @@
 import axios from 'axios';
+import gsap from 'gsap';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { HTTP } from '../config';
 import { PropsTypes } from '../pages/dashboard/todo';
 import { delteTask, popUpEdite } from '../redux/todoReducer';
 import Popup from './Popup';
-import gsap from 'gsap';
 
 const ListItem = ({ todo }: any) => {
   const todoList: any = useSelector<any>((store) => store.todo);
@@ -49,31 +49,29 @@ const ListItem = ({ todo }: any) => {
   useEffect(() => {
     tl.fromTo(
       '.animatingBox',
-      { opacity: 0, bottom: -500, left: -350, scale: 0 },
-      { opacity: 0.8, bottom: -300, left: -350, duration: 0.3, scale: 0.8,ease: "power4.out", stagger: 0.1 }
-    ).to(
-      '.animatingBox',
-      { opacity: 1, bottom: 0, left: 0, duration: 0.5, scale: 1, stagger: 0.1,  },
-      "-=26%"
+      { opacity: 0, bottom: -50, scale: 0.5 },
+      { opacity: 1, bottom: 0, scale: 1, duration: 0.3, stagger: 0.1 }
     );
   }, []);
 
   return (
     <li
+
       className=' bg-gray-200  px-4 flex mb-4 justify-between py-2 border-b 
      rounded-t-lg border-gray-600 lg:w-2/4 w-4/5 relative hover:bg-gray-300
-     animatingBox opacity-0
+      opacity-0
+      animatingBox
      '
     >
       <span
         onClick={() => popUpEditeTodo(itemId)}
-        className='px-2.5 py-2 text-base flex cursor-pointer flex-wrap break-words '
+        className='animatingText px-2.5 py-2 text-base flex cursor-pointer flex-wrap break-words '
       >
         {todo.text}
       </span>
       {todoList[itemId].edite === false && (
         <span
-          className=' cursor-pointer px-2.5 py-2 text-base flex justify-center items-center  '
+          className=' animatingText cursor-pointer px-2.5 py-2 text-base flex justify-center items-center  '
           style={{ color: '#111827' }}
           // onClick={() => deleteTodo(todo.text)}
           onClick={() => deleteTodo(todo)}
