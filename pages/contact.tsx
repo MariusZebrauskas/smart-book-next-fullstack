@@ -8,6 +8,7 @@ import Success from '../components/Success';
 import Error from '../components/Error';
 import { HTTP } from '../config';
 import Spinner from '../components/Spinner';
+import { lodingOFF, lodingON } from '../redux/loadingReducer';
 interface T extends DefaultRootState {
   submenu: boolean;
   loading: boolean;
@@ -26,7 +27,6 @@ const contact = () => {
     message: '',
   });
 
-  console.log('emailData:', emailData);
   // on page load
   useEffect(() => {
     // set page
@@ -76,6 +76,8 @@ const contact = () => {
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (loading) return;
+    dispatch(lodingON());
     setErrorMessage(null);
     setSuccessMessage(null);
     axios
@@ -85,10 +87,13 @@ const contact = () => {
         if (success) {
           setEmailData({ name: '', email: '', message: '' });
           setSuccessMessage(response.data.message);
+          dispatch(lodingOFF());
         }
       })
       .catch((error) => {
         console.log(error);
+        dispatch(lodingOFF());
+
         setErrorMessage('Opps something went wrong');
       });
   };
@@ -112,6 +117,8 @@ const contact = () => {
             {/* name */}
             <input
               value={emailData.name}
+              required
+              minLength={3}
               onChange={(e) => setEmailData({ ...emailData, name: e.target.value })}
               className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
               type='text'
@@ -128,6 +135,7 @@ const contact = () => {
               onChange={(e) => setEmailData({ ...emailData, email: e.target.value })}
               className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
               type='email'
+              required
             />
           </div>
         </div>
@@ -140,17 +148,19 @@ const contact = () => {
           <textarea
             onChange={(e) => setEmailData({ ...emailData, message: e.target.value })}
             value={emailData.message}
+            required
             className='block w-full h-40 px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40'
           ></textarea>
         </div>
 
-        <div className='flex justify-center mt-6'>
+        <div className='flex justify-center flex-col mt-6 items-center '>
           <button
             type='submit'
-            className='px-4 py-2 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'
+            className='px-4 py-2 text-white transition-colors duration-200 w-full mb-2 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'
           >
-            {loading ? <Spinner /> : 'Send Message'}
+            {loading ? 'Loading' : 'Send Message'}
           </button>
+          {loading && <Spinner />}
         </div>
       </div>
       {successMessage && <Success success={successMessage} />}
