@@ -9,8 +9,14 @@ import { userLogin } from '../redux/userReducer';
 import { useRouter } from 'next/router';
 import Error from '../components/Error';
 
+import Success from '../components/Success';
+
+import Spinner from '../components/Spinner';
+import { lodingOFF, lodingON } from '../redux/loadingReducer';
+
 interface T extends DefaultRootState {
   submenu: boolean;
+  loading: boolean;
   user: any;
 }
 
@@ -19,6 +25,7 @@ const login = () => {
   const dispatch = useDispatch();
   const submenu = useSelector<T>((store) => store.submenu);
   const user = useSelector<T>((store) => store.user);
+  const loading = useSelector<T>((store) => store.loading);
   const router = useRouter();
   const [error, setError] = useState<null | string>(null);
   // input value
@@ -53,17 +60,21 @@ const login = () => {
   const onSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     // prevent defoult
     e.preventDefault();
+    // if loading then cancel
+    if (loading) return;
+    dispatch(lodingON());
     // delete errors
     setError(null);
     // Login
     axios
       .post(`${HTTP()}/api/login`, {
-        email: 'zebrauskas.mar@gmail.com',
-        password: 'Sincila9*',
+        email: inputs.email,
+        password: inputs.password,
       })
       .then((response: any) => {
+        dispatch(lodingOFF());
+
         if (response.data.login === false) {
-        
           return setError(response.data.message);
         }
         let { token } = response.data;
@@ -71,8 +82,8 @@ const login = () => {
         dispatch(userLogin(response.data.user));
       })
       .catch((error) => {
-        
-    
+        dispatch(lodingOFF());
+
         setError(error.message);
       });
   };
@@ -97,6 +108,7 @@ const login = () => {
           <div>
             <label className='text-gray-700 dark:text-gray-200'>Email Address</label>
             <input
+              required
               value={inputs.email}
               onChange={(e) => onChange(e, 'email')}
               id='emailAddress'
@@ -108,6 +120,7 @@ const login = () => {
           <div>
             <label className='text-gray-700 dark:text-gray-200'>Password</label>
             <input
+              required
               value={inputs.password}
               onChange={(e) => onChange(e, 'password')}
               id='password'
@@ -117,14 +130,15 @@ const login = () => {
             />
           </div>
         </div>
-
-        <div className='flex justify-end mt-6'>
+        {/* submit */}
+        <div className='flex justify-end mt-6 items-center '>
           <button
             type='submit'
             className='px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'
           >
-            Login
+            {loading ? 'Loading' : 'Login'}
           </button>
+          {loading && <Spinner />}
         </div>
         <div className='flex justify-start mt-6'>
           <p>Dont have an account ? </p>
