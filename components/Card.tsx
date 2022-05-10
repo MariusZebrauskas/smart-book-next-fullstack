@@ -3,7 +3,7 @@ import React from 'react';
 
 const Card = () => {
   return (
-    <section className='bg-gray-100  dark:bg-gray-900 lg:py-12 lg:flex lg:justify-center mt-20'>
+    <section className='animationCards bg-gray-100  dark:bg-gray-900 lg:py-12 lg:flex lg:justify-center mt-20'>
       <div className='bg-white dark:bg-gray-800 lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg lg:rounded-lg'>
         <div className='lg:w-1/2'>
           <div

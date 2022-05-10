@@ -85,13 +85,13 @@ const todo = () => {
     }
   };
   // animation on load
-  // let tl = gsap.timeline();
+  // let tlTodo = gsap.timeline();
 
   // useEffect(() => {
-  //   tl.fromTo(
-  //     '.pedal',
+  //   tlTodo.fromTo(
+  //     '.animationTodos',
   //     { opacity: 0, bottom: -50, scale: 0.5 },
-  //     { opacity: 1, bottom: 0, scale: 1, duration: 0.3, stagger: 0.1 }
+  //     { opacity: 1, bottom: 0, scale: 1, duration: 5, stagger: 0.1 }
   //   );
   // }, []);
 

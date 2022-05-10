@@ -9,7 +9,6 @@ import Avatar from './Avatar';
 import { User } from '../redux/userReducer';
 import LogoIcon from './LogoIcon';
 import LogoText from './LogoText';
-
 interface T extends DefaultRootState {
   menu: boolean;
   submenu: boolean;
@@ -79,7 +78,8 @@ const Nav = () => {
       return dispatch(dashboardPage());
     }
   };
-  
+
+
 
   return (
     <nav className='bg-gray-800 '>
@@ -186,7 +186,7 @@ const Nav = () => {
             <Link href='/login'>
               <button
                 type='button'
-                className='text-gray-900 bg-white border 
+                className='animation-login text-gray-900 bg-white border 
           border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 
           focus:ring-gray-200 font-semibold rounded-lg text-sm px-3 py-1 mr-2  
           dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700

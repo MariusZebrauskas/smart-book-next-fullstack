@@ -33,7 +33,6 @@ const contact = () => {
     dispatch(contactPage());
     // close sub menu
     if (submenu) {
-      console.log('shlud close');
       dispatch(closeSubmenu());
     }
   }, []);
@@ -97,20 +96,34 @@ const contact = () => {
         setErrorMessage('Opps something went wrong');
       });
   };
+
+  // animation
+  var tlcontact = gsap.timeline();
+  useEffect(() => {
+    tlcontact.fromTo(
+      '.animationContact',
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.3, stagger: 0.2 }
+    )
+    
+  }, []);
+
+
+
   return (
     <form
       onSubmit={sendEmail}
       onMouseEnter={onMouseEnter}
       className='w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-20 relative'
     >
-      <h2 className='text-3xl font-semibold text-center text-gray-800 dark:text-white'>
+      <h2 className='animationContact text-3xl font-semibold text-center text-gray-800 dark:text-white'>
         Get in touch
       </h2>
-      <p className='mt-10 text-center text-gray-600 dark:text-gray-400'>Tell us how can we help.</p>
+      <p className='animationContact mt-10 text-center text-gray-600 dark:text-gray-400'>Tell us how can we help.</p>
 
       <div className='mt-10 '>
         <div className='items-center -mx-2 md:flex'>
-          <div className='w-full mx-2'>
+          <div className=' animationContact w-full mx-2'>
             <label className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'>
               Name
             </label>
@@ -125,7 +138,7 @@ const contact = () => {
             />
           </div>
 
-          <div className='w-full mx-2 mt-4 md:mt-0'>
+          <div className=' animationContact w-full mx-2 mt-4 md:mt-0'>
             <label className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'>
               E-mail
             </label>
@@ -140,7 +153,7 @@ const contact = () => {
           </div>
         </div>
 
-        <div className='w-full mt-4'>
+        <div className='animationContact w-full mt-4'>
           <label className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'>
             Message
           </label>
@@ -156,7 +169,7 @@ const contact = () => {
         <div className='flex justify-center flex-col mt-6 items-center '>
           <button
             type='submit'
-            className='px-4 py-2 text-white transition-colors duration-200 w-full mb-2 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'
+            className='animationContact px-4 py-2 text-white transition-colors duration-200 w-full mb-2 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600'
           >
             {loading ? 'Loading' : 'Send Message'}
           </button>

@@ -1,11 +1,15 @@
-import Link from 'next/link';
-import React from 'react';
 
-const TwoCards = () => {
+import Link from 'next/link';
+import React, { useEffect } from 'react';
+
+ // animation
+ 
+ const TwoCards = () => {
+
   return (
     <section className='bg-white dark:bg-gray-900'>
       <div className='container grid grid-cols-1 gap-8 px-4 py-12 mx-auto lg:grid-cols-2'>
-        <div className='flex flex-col items-center max-w-lg mx-auto text-center'>
+        <div className='animationCards flex flex-col items-center max-w-lg mx-auto text-center'>
           <h2 className='text-3xl font-semibold tracking-tight text-gray-800 dark:text-white'>
             Routine calendar
           </h2>
@@ -22,7 +26,7 @@ const TwoCards = () => {
           </Link>
         </div>
 
-        <div className='flex flex-col items-center max-w-lg mx-auto text-center'>
+        <div className='animationCards flex flex-col items-center max-w-lg mx-auto text-center'>
           <h2 className='text-3xl font-semibold tracking-tight text-gray-800 dark:text-white'>
             Todo list
           </h2>

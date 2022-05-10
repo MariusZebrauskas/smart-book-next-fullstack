@@ -1,5 +1,5 @@
 import axios from 'axios';
-import gsap from 'gsap';
+
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { HTTP } from '../config';
@@ -43,35 +43,26 @@ const ListItem = ({ todo }: any) => {
     return dispatch(popUpEdite(e));
   };
 
-  // animation on load
-  let tl = gsap.timeline();
-
-  useEffect(() => {
-    tl.fromTo(
-      '.animatingBox',
-      { opacity: 0, bottom: -50, scale: 0.5 },
-      { opacity: 1, bottom: 0, scale: 1, duration: 0.3, stagger: 0.1 }
-    );
-  }, []);
+ 
 
   return (
     <li
 
       className=' bg-gray-200  px-4 flex mb-4 justify-between py-2 border-b 
      rounded-t-lg border-gray-600 lg:w-2/4 w-4/5 relative hover:bg-gray-300
-      opacity-0
-      animatingBox
+      
+      
      '
     >
       <span
         onClick={() => popUpEditeTodo(itemId)}
-        className='animatingText px-2.5 py-2 text-base flex cursor-pointer flex-wrap break-words '
+        className='px-2.5 py-2 text-base flex cursor-pointer flex-wrap break-words '
       >
         {todo.text}
       </span>
       {todoList[itemId].edite === false && (
         <span
-          className=' animatingText cursor-pointer px-2.5 py-2 text-base flex justify-center items-center  '
+          className=' cursor-pointer px-2.5 py-2 text-base flex justify-center items-center  '
           style={{ color: '#111827' }}
           // onClick={() => deleteTodo(todo.text)}
           onClick={() => deleteTodo(todo)}

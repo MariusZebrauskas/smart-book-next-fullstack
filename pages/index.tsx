@@ -5,6 +5,7 @@ import { homePage } from '../redux/pageReducer';
 import { useEffect } from 'react';
 import { closeSubmenu } from '../redux/submenuReducer';
 import { closeMenu } from '../redux/menuRedux';
+import gsap from 'gsap';
 
 interface T extends DefaultRootState {
   submenu: boolean;
@@ -29,7 +30,27 @@ const IndexPage = () => {
       dispatch(closeSubmenu());
     }
   };
-
+  // animation
+  var tl = gsap.timeline();
+  useEffect(() => {
+    tl.fromTo(
+      '.animation',
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.4, stagger: 0.3 }
+    )
+      .fromTo(
+        '.animationPic',
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.3 },
+        '"-=2.1"'
+      )
+      .fromTo(
+        '.animationCards',
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.3 },
+        '"-=1.5"'
+      );
+  }, []);
   return (
     <header onMouseEnter={onMouseEnter} className='bg-white dark:bg-gray-800 mt-20 relative'>
       <div
@@ -40,15 +61,15 @@ const IndexPage = () => {
           <div className='lg:max-w-lg'>
             <h1
               className='text-2xl font-medium tracking-wide text-gray-800 dark:text-white
-             lg:text-4xl'
+             lg:text-4xl animation'
             >
               Build your routine and todos online in one flexible software.
             </h1>
-            
+
             <div className='grid gap-6 mt-8 sm:grid-cols-2'>
-              <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className=' animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
-                  className='w-5 h-5 mx-3'
+                  className='w-5 h-5 mx-3 '
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
                   viewBox='0 0 24 24'
@@ -65,7 +86,7 @@ const IndexPage = () => {
                 <span className='mx-3'>Routine callendar</span>
               </div>
 
-              <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className='animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -84,7 +105,7 @@ const IndexPage = () => {
                 <span className='mx-3'>Todo list</span>
               </div>
 
-              <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className='animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -103,7 +124,7 @@ const IndexPage = () => {
                 <span className='mx-3'>All devices</span>
               </div>
 
-              <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className=' animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -122,7 +143,7 @@ const IndexPage = () => {
                 <span className='mx-3'>No paiments</span>
               </div>
 
-              <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className='animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -141,7 +162,7 @@ const IndexPage = () => {
                 <span className='mx-3'>Data security for free</span>
               </div>
 
-              <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className='animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -159,7 +180,7 @@ const IndexPage = () => {
 
                 <span className='mx-3'>Extreamly fast</span>
               </div>
-              <div className='flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className='animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -181,7 +202,7 @@ const IndexPage = () => {
           </div>
         </div>
 
-        <div className='flex items-center justify-center w-full h-96 lg:w-1/2'>
+        <div className='flex animationPic items-center justify-center w-full h-96 lg:w-1/2'>
           <img
             className='object-cover w-full h-full max-w-2xl rounded-md'
             src='https://images.unsplash.com/photo-1555181126-cf46a03827c0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
