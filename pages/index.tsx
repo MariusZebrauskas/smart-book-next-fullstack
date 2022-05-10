@@ -42,13 +42,13 @@ const IndexPage = () => {
         '.animationPic',
         { opacity: 0, y: 50 },
         { opacity: 1, y: 0, duration: 0.5, stagger: 0.3 },
-        '"-=2.1"'
+        '"-=0.1"'
       )
       .fromTo(
         '.animationCards',
         { opacity: 0, y: 50 },
         { opacity: 1, y: 0, duration: 0.5, stagger: 0.3 },
-        '"-=1.5"'
+        '"<-=.3>"'
       );
   }, []);
   return (
@@ -66,8 +66,8 @@ const IndexPage = () => {
               Build your routine and todos online in one flexible software.
             </h1>
 
-            <div className='grid gap-6 mt-8 sm:grid-cols-2'>
-              <div className=' animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+            <div className='animation grid gap-6 mt-8 sm:grid-cols-2'>
+              <div className='  flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
                   className='w-5 h-5 mx-3 '
                   xmlns='http://www.w3.org/2000/svg'
@@ -86,7 +86,7 @@ const IndexPage = () => {
                 <span className='mx-3'>Routine callendar</span>
               </div>
 
-              <div className='animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className=' flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -105,7 +105,7 @@ const IndexPage = () => {
                 <span className='mx-3'>Todo list</span>
               </div>
 
-              <div className='animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className=' flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -124,7 +124,7 @@ const IndexPage = () => {
                 <span className='mx-3'>All devices</span>
               </div>
 
-              <div className=' animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className='  flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -143,7 +143,7 @@ const IndexPage = () => {
                 <span className='mx-3'>No paiments</span>
               </div>
 
-              <div className='animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className=' flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -162,7 +162,7 @@ const IndexPage = () => {
                 <span className='mx-3'>Data security for free</span>
               </div>
 
-              <div className='animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className=' flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -180,7 +180,7 @@ const IndexPage = () => {
 
                 <span className='mx-3'>Extreamly fast</span>
               </div>
-              <div className='animation flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className=' flex items-center text-gray-800 -px-3 dark:text-gray-200'>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'

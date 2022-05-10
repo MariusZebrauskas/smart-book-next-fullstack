@@ -60,7 +60,14 @@ const dashboard = () => {
     }
   }, [submenu]);
 
-
+  // animation
+  var tlDashboard = gsap.timeline();
+  useEffect(() => {
+    tlDashboard.from(
+      '.animationCards',
+      {  opacity:0, scale:0.8, ease: "back.out(3)", duration: .5, stagger: .5 }
+    )
+  }, []);
 
 
 

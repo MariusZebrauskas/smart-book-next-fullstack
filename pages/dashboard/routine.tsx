@@ -112,6 +112,13 @@ const routine = () => {
     }
   }, [user, token]);
 
+
+  // animation
+  // FIXME:POP UP ANIMATION
+  // padaryti use EFFECT LOGIKA PAGAL POP UP VARIABLE 
+  // padaryti HOME ANIMATION BISKI KITAIP NEREIKIA STAGGER LIST DARYTI
+
+
   return (
     <>
       <RoutineHeader />

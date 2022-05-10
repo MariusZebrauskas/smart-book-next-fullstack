@@ -31,6 +31,7 @@ const DynamicCards: React.FC<Card> = ({ card }) => {
     <Link key={card.id} href={user ? card.page : '/login'}>
       <div
         className='
+        animationCards
         max-w-xs mx-auto overflow-hidden bg-gray-200 rounded-lg shadow-lg
          dark:bg-gray-800
         hover:cursor-pointer
