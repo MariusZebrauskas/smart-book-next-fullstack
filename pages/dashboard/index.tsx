@@ -63,15 +63,8 @@ const dashboard = () => {
 
 
 
-  // animation
-  var tlDashboard = gsap.timeline();
-  useEffect(() => {
-    tlDashboard.fromTo(
-      '.animationDashboard',
-      { y: 20 },
-      { y: 0, duration: 1, stagger: 1, delay: 3 }
-    );
-  }, []);
+
+
 
   return (
     <section onMouseEnter={onMouseEnter} className='w-full flex justify-center items-center   '>
