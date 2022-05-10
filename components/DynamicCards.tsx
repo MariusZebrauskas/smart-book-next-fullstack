@@ -46,7 +46,7 @@ const DynamicCards: React.FC<Card> = ({ card }) => {
             {card.name}
           </h1>
         </div>
-        <Image className='rounded-b-lg' src={card.image} alt={card.alt} width='200' height='180' />
+        <Image priority className='rounded-b-lg' src={card.image} alt={card.alt} width='200' height='180' />
       </div>
     </Link>
   );
