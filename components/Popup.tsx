@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { HTTP } from '../config';
 import { changeTodoList } from '../redux/todoReducer';
+import gsap from 'gsap';
 
 type Props = {
   text: string;
@@ -13,31 +14,28 @@ const Popup = ({ text, id }: Props) => {
   const [editeText, setEditeText] = useState(text);
   const [token, setToken] = useState(null || sessionStorage.getItem('token'));
 
-
   let dispatch = useDispatch();
 
   const changeText = () => {
-
     let obj = {
-        editeText,
-        id: id,
+      editeText,
+      id: id,
     };
-// change text in DB
- // send obj to DB then find it and delte it
- if (token !== null) {
-  axios
-    .post(`${HTTP()}/api/updatetodos`, { token: token, edite: obj })
-    .then((response) => {
-      console.log('response from add todo:', response)
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
+    // change text in DB
+    // send obj to DB then find it and delte it
+    if (token !== null) {
+      axios
+        .post(`${HTTP()}/api/updatetodos`, { token: token, edite: obj })
+        .then((response) => {
+          console.log('response from add todo:', response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
 
-
-// change text in redux
-    dispatch(changeTodoList(obj))
+    // change text in redux
+    dispatch(changeTodoList(obj));
   };
 
   // on ENTER pres handler
@@ -56,7 +54,9 @@ const Popup = ({ text, id }: Props) => {
     // clean up function
     return () => document.removeEventListener('keypress', enter);
   });
+
   
+
   return (
     <div className='absolute top-0  left-0 right-0 flex justify-between p-3'>
       <input
@@ -78,7 +78,6 @@ const Popup = ({ text, id }: Props) => {
             uppercase rounded hover:bg-grey-400 hover:bg-opacity-5
             focus:outline-none focus:ring-0 
             transition duration-150 bg-black ease-in-out z-10'
-    
       >
         Edite
       </button>

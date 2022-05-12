@@ -1,4 +1,5 @@
 import axios from 'axios';
+import gsap from 'gsap';
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -47,7 +48,6 @@ const ListItem = ({ todo }: any) => {
 
   return (
     <li
-
       className=' bg-gray-200  px-4 flex mb-4 justify-between py-2 border-b 
      rounded-t-lg border-gray-600 lg:w-2/4 w-4/5 relative hover:bg-gray-300
       

@@ -84,16 +84,7 @@ const todo = () => {
       dispatch(closeSubmenu());
     }
   };
-  // animation on load
-  // let tlTodo = gsap.timeline();
 
-  // useEffect(() => {
-  //   tlTodo.fromTo(
-  //     '.animationTodos',
-  //     { opacity: 0, bottom: -50, scale: 0.5 },
-  //     { opacity: 1, bottom: 0, scale: 1, duration: 5, stagger: 0.1 }
-  //   );
-  // }, []);
 
   return (
     <section onMouseEnter={onMouseEnter}>
