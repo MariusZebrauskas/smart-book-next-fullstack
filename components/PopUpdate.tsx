@@ -39,7 +39,7 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
       .to('.fadeInGSAP', {
         opacity: 1,
         ease: 'back.out(1.7)',
-        duration: 0.3,
+        duration: 0.1,
       })
       .to(
         '.popUpMenu',
@@ -56,7 +56,7 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
           duration: 1,
           ease: 'elastic.out(1, 0.3)',
         },
-        '-=.5'
+        '-=1'
       );
   }, []);
 
@@ -84,7 +84,7 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
           </span>
           {/* items in card box */}
           <div
-            className='opacity-0 popUpMenu relative  inline-block align-bottom bg-white rounded-lg 
+            className='opacity-0 popUpMenu z-20 relative  inline-block align-bottom bg-white rounded-lg 
         text-left overflow-hidden shadow-xl transform transition-all 
         sm:my-8 sm:align-middle  sm:max-w-lg sm:w-full '
           >
