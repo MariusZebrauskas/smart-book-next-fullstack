@@ -8,20 +8,20 @@ type Card = {
 
 export const dashbordCards: Card = [
   {
-    id: 1,
-    name: 'TODO LIST',
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/smart-book-ce0de.appspot.com/o/1.jpg?alt=media&token=8a786f2a-1939-4441-a640-e23497fb09aa',
-
-    alt: 'Todo list image',
-    page: 'dashboard/todo',
-  },
-  {
     id: 2,
     name: 'Routine',
     image:
-      'https://firebasestorage.googleapis.com/v0/b/smart-book-ce0de.appspot.com/o/2.jpg?alt=media&token=1c2a8060-dab4-4965-bef4-b86dd3ee651c',
+      'https://firebasestorage.googleapis.com/v0/b/smart-book-ce0de.appspot.com/o/1-%20cropped.jpg?alt=media&token=1769de4c-5eb0-415b-955a-d7dc13048e26',
     alt: 'Routine image',
     page: 'dashboard/routine',
+  },
+  {
+    id: 1,
+    name: 'TODO LIST',
+
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/smart-book-ce0de.appspot.com/o/2.croped.jpg?alt=media&token=dfaa9613-6a82-4dbe-9cf8-7a5adc6158c7',
+    alt: 'Todo list image',
+    page: 'dashboard/todo',
   },
 ];
