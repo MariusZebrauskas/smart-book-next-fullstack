@@ -61,7 +61,7 @@ const IndexPage = () => {
   }, []);
   
   return (
-    <header onMouseEnter={onMouseEnter} className='bg-white dark:bg-gray-800 lg:mt-20 relative'>
+    <header onMouseEnter={onMouseEnter} className='bg-white dark:bg-gray-800 mt-20 relative'>
       <div
         className='container flex flex-col px-6 py-10 mx-auto space-y-6 
       lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center'

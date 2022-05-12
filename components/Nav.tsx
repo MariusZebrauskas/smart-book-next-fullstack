@@ -43,12 +43,15 @@ const Nav = () => {
   const moveTo = (params: number) => {
     gsap.to('.mobileMenuGsap', {
       y: `${params}%`,
+     
+
     });
   };
   const opacity = (params: number, delay: number) => {
     gsap.to('.mobileMenuGsap', {
       opacity: params,
       delay: delay,
+     
     });
   };
 
@@ -85,7 +88,7 @@ const Nav = () => {
     dispatch(closeMenu());
   };
   return (
-    <nav className='bg-gray-800 '>
+    <nav className='bg-gray-800 relative '>
       <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 '>
         <div className='relative flex items-center justify-between h-16'>
           <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
@@ -205,7 +208,7 @@ const Nav = () => {
 
       {/* mobile menu */}
 
-      <div className=' bg-white sm:hidden' id='mobile-menu'>
+      <div className='  sm:hidden absolute w-full top-15 z-10' id='mobile-menu'>
         <div className='mobileMenuGsap opacity-0 bg-slate-800 px-2 pt-2 pb-3 space-y-1 '>
           <Link href='/'>
             <a

@@ -96,7 +96,7 @@ const contact = () => {
     <form
       onSubmit={sendEmail}
       onMouseEnter={onMouseEnter}
-      className='w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 md:mt-20 relative'
+      className='w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-20 relative'
     >
       <h2 className='animationContact text-3xl font-semibold text-center text-gray-800 dark:text-white'>
         Get in touch
