@@ -38,7 +38,7 @@ const IndexPage = () => {
       dispatch(closeMenu());
     }
   };
-  // animation
+  // animation homepage all
   var tl = gsap.timeline();
   useEffect(() => {
     tl.fromTo(
