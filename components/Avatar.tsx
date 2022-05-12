@@ -93,7 +93,7 @@ const Avatar = () => {
         >
           <Link href='/dashboard'>
             <a
-              // onClick={closeSubmenuHandler}
+              onClick={closeSubmenuHandler}
               className='block px-4 py-2 text-sm text-gray-700'
               role='menuitem'
               id='user-menu-item-0'
@@ -103,7 +103,7 @@ const Avatar = () => {
           </Link>
 
           <a
-            // onClick={logout}
+            onClick={logout}
             className='block px-4 py-2 text-sm text-gray-700 hover:cursor-pointer'
             role='menuitem'
             id='user-menu-item-2'
