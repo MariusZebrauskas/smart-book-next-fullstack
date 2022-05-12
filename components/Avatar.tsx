@@ -35,6 +35,7 @@ const Avatar = () => {
   };
 
   const logout = () => {
+    console.log("logout")
     dispatch(userLogout());
     sessionStorage.removeItem('token');
     dispatch(closeSubmenu());
@@ -62,7 +63,7 @@ const Avatar = () => {
   }, [submenu]);
 
   return (
-    <div className=' absolute z-10 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
+    <div className=' absolute z-20 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
       {/* avatar */}
       <div className='ml-3 relative'>
         <div onClick={avatarHndler}>
