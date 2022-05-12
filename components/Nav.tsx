@@ -25,14 +25,17 @@ const Nav = () => {
   //   dispach function
   const dispatch = useDispatch();
 
-  //   open close  menu
+  //   burget function
   const burger = () => {
     if (menu) {
+      // close menu variables
       dispatch(closeMenu());
 
       return;
     } else if (!menu) {
+      // close submenu
       dispatch(closeSubmenu());
+      // open menu
       dispatch(openMenu());
     }
   };
@@ -52,10 +55,14 @@ const Nav = () => {
   // menu animation
   useEffect(() => {
     if (!menu) {
+      // move func
       moveTo(-150);
+      // opacity
       opacity(0, -0.5);
     } else if (menu) {
+      // move fuc
       moveTo(0);
+      // opacity
       opacity(1, 0.3);
     }
   }, [menu]);
@@ -74,9 +81,9 @@ const Nav = () => {
       return dispatch(dashboardPage());
     }
   };
-const login = () => {
-  dispatch(closeMenu())
-}
+  const login = () => {
+    dispatch(closeMenu());
+  };
   return (
     <nav className='bg-gray-800 '>
       <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 '>

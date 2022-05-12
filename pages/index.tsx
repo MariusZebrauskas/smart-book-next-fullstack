@@ -38,6 +38,27 @@ const IndexPage = () => {
       dispatch(closeMenu());
     }
   };
+  // animation
+  var tl = gsap.timeline();
+  useEffect(() => {
+    tl.fromTo(
+      '.animation',
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 0.4, stagger: 0.3 }
+    )
+      .fromTo(
+        '.animationPic',
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.3 },
+        '"-=0.1"'
+      )
+      .fromTo(
+        '.animationCards',
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.3 },
+        '"<-=.3>"'
+      );
+  }, []);
   
   return (
     <header onMouseEnter={onMouseEnter} className='bg-white dark:bg-gray-800 lg:mt-20 relative'>
