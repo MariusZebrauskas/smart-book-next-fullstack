@@ -39,15 +39,12 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
       .to('.fadeInGSAP', {
         opacity: 1,
         ease: 'back.out(1.7)',
+        duration: 0,
+      })
+      .to('.popUpMenu', {
+        opacity: 1,
         duration: 0.1,
       })
-      .to(
-        '.popUpMenu',
-        {
-          opacity: 1,
-        },
-        '-=.3'
-      )
       .from(
         '.popUpMenu',
         {
@@ -56,7 +53,7 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
           duration: 1,
           ease: 'elastic.out(1, 0.3)',
         },
-        '-=1'
+        '<'
       );
   }, []);
 
