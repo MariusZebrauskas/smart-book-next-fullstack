@@ -8,12 +8,12 @@ type Types = {
   
   export const openSubmenu = () => {
     return {
-      type: 'open',
+      type: 'openSubmenu',
     };
   };
   export const closeSubmenu = () => {
     return {
-      type: 'close',
+      type: 'closeSubmenu',
     };
   };
 
@@ -25,9 +25,9 @@ type Types = {
   
   export const submenuReducer = (state = false, action: Types) => {
     switch (action.type) {
-      case 'open':
+      case 'openSubmenu':
         return (state = true);
-      case 'close':
+      case 'closeSubmenu':
         return (state = false);
       default:
         return state;

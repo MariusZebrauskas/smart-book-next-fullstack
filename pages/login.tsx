@@ -13,9 +13,11 @@ import Success from '../components/Success';
 
 import Spinner from '../components/Spinner';
 import { lodingOFF, lodingON } from '../redux/loadingReducer';
+import { closeMenu } from '../redux/menuRedux';
 
 interface T extends DefaultRootState {
   submenu: boolean;
+  menu: boolean;
   loading: boolean;
   user: any;
 }
@@ -24,6 +26,7 @@ const login = () => {
   // redux variables
   const dispatch = useDispatch();
   const submenu = useSelector<T>((store) => store.submenu);
+  const menu = useSelector<T>((store) => store.menu);
   const user = useSelector<T>((store) => store.user);
   const loading = useSelector<T>((store) => store.loading);
   const router = useRouter();
@@ -39,12 +42,15 @@ const login = () => {
     dispatch(unknownPage());
   }, []);
 
-  // close menu if click out of menu
-  const onMouseEnter = () => {
-    if (submenu) {
-      dispatch(closeSubmenu());
-    }
-  };
+ // close sub menu & menu on mouse leave menu
+ const onMouseEnter = () => {
+  if (submenu) {
+    dispatch(closeSubmenu());
+  }
+  if (menu) {
+    dispatch(closeMenu());
+  }
+};
   // on change INPUT
   const onChange = (e: React.ChangeEvent<HTMLInputElement>, input: string) => {
     // delete errors

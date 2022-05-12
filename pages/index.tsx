@@ -9,12 +9,14 @@ import gsap from 'gsap';
 
 interface T extends DefaultRootState {
   submenu: boolean;
+  menu: boolean;
 }
 
 const IndexPage = () => {
   // redux variables
   const dispatch = useDispatch();
   const submenu = useSelector<T>((store) => store.submenu);
+  const menu = useSelector<T>((store) => store.menu);
 
   useEffect(() => {
     // set homepage varaibles
@@ -22,37 +24,23 @@ const IndexPage = () => {
     if (submenu) {
       dispatch(closeSubmenu());
     }
+    if (menu) {
+      dispatch(closeMenu());
+    }
   }, []);
 
-  // close sub menu on mouse leave menu
-  const onMouseEnter = () => {
+   // close sub menu & menu on mouse leave menu
+   const onMouseEnter = () => {
     if (submenu) {
       dispatch(closeSubmenu());
     }
+    if (menu) {
+      dispatch(closeMenu());
+    }
   };
-  // animation
-  var tl = gsap.timeline();
-  useEffect(() => {
-    tl.fromTo(
-      '.animation',
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.4, stagger: 0.3 }
-    )
-      .fromTo(
-        '.animationPic',
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.5, stagger: 0.3 },
-        '"-=0.1"'
-      )
-      .fromTo(
-        '.animationCards',
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.5, stagger: 0.3 },
-        '"<-=.3>"'
-      );
-  }, []);
+  
   return (
-    <header onMouseEnter={onMouseEnter} className='bg-white dark:bg-gray-800 mt-20 relative'>
+    <header onMouseEnter={onMouseEnter} className='bg-white dark:bg-gray-800 lg:mt-20 relative'>
       <div
         className='container flex flex-col px-6 py-10 mx-auto space-y-6 
       lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center'

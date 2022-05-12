@@ -9,14 +9,17 @@ import Error from '../components/Error';
 import { HTTP } from '../config';
 import Spinner from '../components/Spinner';
 import { lodingOFF, lodingON } from '../redux/loadingReducer';
+import { closeMenu } from '../redux/menuRedux';
 interface T extends DefaultRootState {
   submenu: boolean;
+  menu: boolean;
   loading: boolean;
 }
 
 const contact = () => {
   const dispatch = useDispatch();
   const submenu = useSelector<T>((store) => store.submenu);
+  const menu = useSelector<T>((store) => store.menu);
   const [successMessage, setSuccessMessage] = useState<null | string>(null);
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
   const loading = useSelector<T>((store) => store.loading);
@@ -35,41 +38,20 @@ const contact = () => {
     if (submenu) {
       dispatch(closeSubmenu());
     }
-  }, []);
-  // close sub menu animation opne close
-  useEffect(() => {
-    if (!submenu) {
-      gsap.fromTo(
-        '.submenuGSAP',
-        {
-          zIndex: -1,
-        },
-        {
-          y: '-15rem',
-          duration: 0.2,
-          opacity: 0,
-          display: 'none',
-          zIndex: -1,
-        }
-      );
-    } else if (submenu) {
-      gsap.fromTo(
-        '.submenuGSAP',
-        {
-          y: 0,
-          opacity: 1,
-          display: 'block',
-          zIndex: -1,
-        },
-        { zIndex: 5, duration: 0.3 }
-      );
+    // close sub menu
+    if (menu) {
+      dispatch(closeMenu());
     }
-  }, [submenu]);
+  }, []);
 
-  // close sub menu on mouse leave menu
+
+  // close sub menu & menu on mouse leave menu
   const onMouseEnter = () => {
     if (submenu) {
       dispatch(closeSubmenu());
+    }
+    if (menu) {
+      dispatch(closeMenu());
     }
   };
 
@@ -114,7 +96,7 @@ const contact = () => {
     <form
       onSubmit={sendEmail}
       onMouseEnter={onMouseEnter}
-      className='w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-20 relative'
+      className='w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 md:mt-20 relative'
     >
       <h2 className='animationContact text-3xl font-semibold text-center text-gray-800 dark:text-white'>
         Get in touch

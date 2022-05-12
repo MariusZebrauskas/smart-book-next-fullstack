@@ -9,6 +9,7 @@ import Avatar from './Avatar';
 import { User } from '../redux/userReducer';
 import LogoIcon from './LogoIcon';
 import LogoText from './LogoText';
+import { closeSubmenu } from '../redux/submenuReducer';
 interface T extends DefaultRootState {
   menu: boolean;
   submenu: boolean;
@@ -19,50 +20,45 @@ const Nav = () => {
   // redux states
   const menu = useSelector<T>((store) => store.menu);
   const page = useSelector<T>((store) => store.page);
-  const subMmenu = useSelector<T>((store) => store.submenu);
   const user = useSelector<T>((store) => store.user);
 
   //   dispach function
   const dispatch = useDispatch();
 
-  //   open close sub menu
+  //   open close  menu
   const burger = () => {
-    if (subMmenu) {
-      return dispatch(closeMenu());
-    } else if (!subMmenu) {
-      return dispatch(openMenu());
+    if (menu) {
+      dispatch(closeMenu());
+
+      return;
+    } else if (!menu) {
+      dispatch(closeSubmenu());
+      dispatch(openMenu());
     }
   };
 
-  // animation logic (open close mobile menu)
+  const moveTo = (params: number) => {
+    gsap.to('.mobileMenuGsap', {
+      y: `${params}%`,
+    });
+  };
+  const opacity = (params: number, delay: number) => {
+    gsap.to('.mobileMenuGsap', {
+      opacity: params,
+      delay: delay,
+    });
+  };
+
+  // menu animation
   useEffect(() => {
-    if (!subMmenu) {
-      gsap.fromTo(
-        '.submenuGSAP',
-        {
-          zIndex: -1,
-        },
-        {
-          y: '-15rem',
-          duration: 0.2,
-          opacity: 0,
-          display: 'none',
-          zIndex: -1,
-        }
-      );
-    } else if (subMmenu) {
-      gsap.fromTo(
-        '.submenuGSAP',
-        {
-          y: 0,
-          opacity: 1,
-          display: 'block',
-          zIndex: -1,
-        },
-        { zIndex: 5, duration: 0.3 }
-      );
+    if (!menu) {
+      moveTo(-150);
+      opacity(0, -0.5);
+    } else if (menu) {
+      moveTo(0);
+      opacity(1, 0.3);
     }
-  }, [subMmenu]);
+  }, [menu]);
 
   //   change background to dark on page select
   const changePageMenuBackground = (params: string) => {
@@ -78,9 +74,9 @@ const Nav = () => {
       return dispatch(dashboardPage());
     }
   };
-
-
-
+const login = () => {
+  dispatch(closeMenu())
+}
   return (
     <nav className='bg-gray-800 '>
       <div className='max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 '>
@@ -186,6 +182,7 @@ const Nav = () => {
             <Link href='/login'>
               <button
                 type='button'
+                onClick={login}
                 className='animation-login text-gray-900 bg-white border 
           border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 
           focus:ring-gray-200 font-semibold rounded-lg text-sm px-3 py-1 mr-2  
@@ -201,8 +198,8 @@ const Nav = () => {
 
       {/* mobile menu */}
 
-      <div className='  sm:hidden' id='mobile-menu'>
-        <div className='submenuGSAP px-2 pt-2 pb-3 space-y-1'>
+      <div className=' bg-white sm:hidden' id='mobile-menu'>
+        <div className='mobileMenuGsap opacity-0 bg-slate-800 px-2 pt-2 pb-3 space-y-1 '>
           <Link href='/'>
             <a
               className={

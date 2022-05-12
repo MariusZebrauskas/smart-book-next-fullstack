@@ -9,9 +9,11 @@ import Success from '../components/Success';
 import Spinner from '../components/Spinner';
 import { lodingOFF, lodingON } from '../redux/loadingReducer';
 import { useRouter } from 'next/router';
+import { closeMenu } from '../redux/menuRedux';
 
 interface T extends DefaultRootState {
   submenu: boolean;
+  menu: boolean;
   loading: boolean;
 }
 
@@ -19,6 +21,7 @@ interface T extends DefaultRootState {
 
 const register = () => {
   const submenu = useSelector<T>((store) => store.submenu);
+  const menu = useSelector<T>((store) => store.menu);
   const loading = useSelector<T>((store) => store.loading);
   const dispach = useDispatch();
 
@@ -40,6 +43,9 @@ const register = () => {
   const onMouseEnter = () => {
     if (submenu) {
       dispach(closeSubmenu());
+    }
+    if (menu) {
+      dispach(closeMenu());
     }
   };
 

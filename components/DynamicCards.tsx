@@ -35,7 +35,7 @@ const DynamicCards: React.FC<Card> = ({ card }) => {
         max-w-xs mx-auto overflow-hidden bg-gray-200 rounded-lg shadow-lg
          dark:bg-gray-800
         hover:cursor-pointer
-        flex justify-center flex-col
+        flex justify-center flex-col 
         '
       >
         <div className='flex flex-center justify-center py-2'>
