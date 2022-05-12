@@ -86,7 +86,9 @@ const contact = () => {
       '.animationContact',
       { opacity: 0, y: 50 },
       { opacity: 1, y: 0, duration: 0.3, stagger: 0.2 }
-    )
+    ).to(".shadowAnimationContact",{
+      boxShadow:`0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)`
+    })
     
   }, []);
 
@@ -96,7 +98,7 @@ const contact = () => {
     <form
       onSubmit={sendEmail}
       onMouseEnter={onMouseEnter}
-      className='w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-20 relative'
+      className='shadowAnimationContact w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md dark:bg-gray-800 mt-20 relative'
     >
       <h2 className='animationContact text-3xl font-semibold text-center text-gray-800 dark:text-white'>
         Get in touch

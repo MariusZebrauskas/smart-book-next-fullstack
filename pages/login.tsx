@@ -110,7 +110,9 @@ useEffect(() => {
     '.animationLogin',
     { opacity: 0, y: 50 },
     { opacity: 1, y: 0, duration: 0.2, stagger: 0.2 }
-  )
+  ).to(".shadowAnimation",{
+    boxShadow:`0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)`
+  })
   
 }, []);
 
@@ -119,7 +121,7 @@ useEffect(() => {
   return (
     <section
       onMouseEnter={onMouseEnter}
-      className='max-w-md mt-20 p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800'
+      className='shadowAnimation max-w-md mt-20 p-6 mx-auto bg-white rounded-md  dark:bg-gray-800'
     >
       <h2 className='animationLogin text-lg font-semibold text-gray-700 capitalize dark:text-white'>
         Account Login
