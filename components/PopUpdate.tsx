@@ -54,7 +54,8 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
           ease: 'elastic.out(1, 0.3)',
         },
         '<'
-      );
+      )
+      .from('.buttonGSAP', { opacity: 0, stagger: 0.1, delay: 0.2 }, '<');
   }, []);
 
   return (
@@ -88,7 +89,9 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
             <button
               onClick={() => submitDataHandler('cancel')}
               type='button'
-              className=' absolute top-4 right-4 
+              className='
+              buttonGSAP
+               absolute top-4 right-4 
             px-2 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight 
             uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 
             transition duration-150 ease-in-out'
@@ -120,7 +123,7 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
                     />
                   </svg>
                 </div>
-                <div className='mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left'>
+                <div className='buttonGSAP mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left'>
                   <h3 className='text-lg leading-6 font-medium text-gray-900' id='modal-title'>
                     Add or Update todo
                   </h3>
@@ -134,7 +137,7 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
             </div>
             {/* text are to add data */}
             <div className='flex justify-center '>
-              <div className='mb-3 xl:w-96  w-full px-4'>
+              <div className='buttonGSAP mb-3 xl:w-96  w-full px-4'>
                 <label className='form-label inline-block mb-2 text-gray-700'>
                   {dataToUpdate.day} - {dataToUpdate.time}
                 </label>
@@ -167,7 +170,9 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
               <button
                 onClick={() => submitDataHandler('clear')}
                 type='button'
-                className='px-6 mr-6 py-2 border-2 cursor-pointer border-red-800
+                className='
+                buttonGSAP
+                px-6 mr-6 py-2 border-2 cursor-pointer border-red-800
             hover:text-gray-800 text-indigo-100 bg-red-900 font-medium text-xs leading-tight 
                uppercase rounded hover:bg-grey-400 hover:bg-opacity-5
                focus:outline-none focus:ring-0 
@@ -179,7 +184,9 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
               <button
                 onClick={() => submitDataHandler('submit')}
                 type='button'
-                className='px-6 py-2 border-2 cursor-pointer border-gray-800
+                className='
+                buttonGSAP
+                px-6 py-2 border-2 cursor-pointer border-gray-800
             hover:text-gray-800 text-white font-medium text-xs leading-tight 
                uppercase rounded hover:bg-grey-400 hover:bg-opacity-5
                focus:outline-none focus:ring-0 
