@@ -1,3 +1,4 @@
 
-routine pop up animate 
-picture make sure rendered because looks shiet
+routine close up animate 
+todo pop up animation
+hover routine animation
