@@ -35,7 +35,7 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
   let tlPopUp = gsap.timeline();
   // animation pop up
   useEffect(() => {
-    gsap.set('.buttonGSAP', { opacity: 0 });
+    
     tlPopUp
       .to('.fadeInGSAP', {
         opacity: 1,

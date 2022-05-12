@@ -19,8 +19,6 @@
   z-index: -1;
 }
 
-
-
 .max-w-2rem {
   max-width: 9rem;
 }
@@ -37,7 +35,7 @@
 }
 .footerMarginContact {
   margin-top: 7rem;
-  
+
   @media (min-height: 857px) {
     position: absolute;
     bottom: 0;
@@ -45,8 +43,15 @@
   }
 }
 
-.fotterWithOnUltraWide{
+.fotterWithOnUltraWide {
   @media (min-width: 1536px) {
-   min-width: 100%;
+    min-width: 100%;
   }
+}
+
+// GSAP VARIABELS
+// items in routine on edite pannel, wich will be staggered
+// this removes flashes
+.buttonGSAP {
+  opacity: 0;
 }
