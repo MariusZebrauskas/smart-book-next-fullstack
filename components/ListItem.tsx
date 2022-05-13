@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { HTTP } from '../config';
 import { PropsTypes } from '../pages/dashboard/todo';
 import { delteTask, popUpEdite } from '../redux/todoReducer';
+import PopTodo from './PopTodo';
+
 import Popup from './Popup';
 
 const ListItem = ({ todo }: any) => {
@@ -44,8 +46,6 @@ const ListItem = ({ todo }: any) => {
     return dispatch(popUpEdite(e));
   };
 
- 
-
   return (
     <li
       className=' bg-gray-200  px-4 flex mb-4 justify-between py-2 border-b 
@@ -70,10 +70,10 @@ const ListItem = ({ todo }: any) => {
           X
         </span>
       )}
-
       {todoList[itemId] && todoList[itemId].edite === true ? (
         <Popup id={itemId} text={todo.text} />
       ) : null}
+      {/* <PopTodo /> */}
     </li>
   );
 };

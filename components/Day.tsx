@@ -25,10 +25,13 @@ const Day = ({ day, popUpWindow }: Props) => {
             id: day.monday.id,
           })
         }
-        className={`text-xs lg:text-base text-stone-900 font-normal px-6 py-4
+        className={`text-xs
+        hover:bg-rose-100 
+        lg:text-base text-stone-900 font-medium  px-6 py-4
         order-slate-200 border-2
         relative min-w-fit max-w-2rem 
-        ${day.monday.message && 'bg-slate-200 '}
+       
+        ${day.monday.message && 'bg-red-200 '}
         `}
       >
         {day.monday.message}
@@ -46,10 +49,12 @@ const Day = ({ day, popUpWindow }: Props) => {
             id: day.tuesday.id,
           })
         }
-        className={`text-xs lg:text-base text-stone-900 font-normal px-6 py-4
+        className={`text-xs
+        hover:bg-rose-100 
+        lg:text-base text-stone-900 font-medium px-6 py-4
                       order-slate-200 border-2
                       relative min-w-fit max-w-2rem 
-        ${day.tuesday.message && 'bg-slate-200'}
+        ${day.tuesday.message && 'bg-red-200'}
         `}
       >
         {day.tuesday.message}
@@ -67,10 +72,12 @@ const Day = ({ day, popUpWindow }: Props) => {
             id: day.wendesday.id,
           })
         }
-        className={`text-xs lg:text-base text-stone-900 font-normal px-6 py-4
+        className={`text-xs
+        hover:bg-rose-100 
+        lg:text-base text-stone-900 font-medium px-6 py-4
                       order-slate-200 border-2
                       relative min-w-fit max-w-2rem 
-        ${day.wendesday.message && 'bg-slate-200'}
+        ${day.wendesday.message && 'bg-red-200'}
                       `}
       >
         {day.wendesday.message}
@@ -88,10 +95,12 @@ const Day = ({ day, popUpWindow }: Props) => {
             id: day.thursday.id,
           })
         }
-        className={`text-xs lg:text-base text-stone-900 font-normal px-6 py-4
+        className={`text-xs
+        hover:bg-rose-100 
+        lg:text-base text-stone-900 font-medium px-6 py-4
                       order-slate-200 border-2
                       relative min-w-fit max-w-2rem 
-        ${day.thursday.message && 'bg-slate-200'}
+        ${day.thursday.message && 'bg-red-200'}
                       `}
       >
         {day.thursday.message}
@@ -109,10 +118,12 @@ const Day = ({ day, popUpWindow }: Props) => {
             id: day.friday.id,
           })
         }
-        className={`text-xs lg:text-base text-stone-900 font-normal px-6 py-4
+        className={`text-xs
+        hover:bg-rose-100 
+        lg:text-base text-stone-900 font-medium px-6 py-4
                       order-slate-200 border-2
                       relative min-w-fit max-w-2rem 
-        ${day.friday.message && 'bg-slate-200'}
+        ${day.friday.message && 'bg-red-200'}
                       `}
       >
         {day.friday.message}
@@ -130,10 +141,12 @@ const Day = ({ day, popUpWindow }: Props) => {
             id: day.saturday.id,
           })
         }
-        className={`text-xs lg:text-base text-stone-900 font-normal px-6 py-4
+        className={`text-xs
+        hover:bg-rose-100 
+        lg:text-base text-stone-900 font-medium px-6 py-4
                       order-slate-200 border-2
                       relative min-w-fit max-w-2rem 
-        ${day.saturday.message && 'bg-slate-200'}
+        ${day.saturday.message && 'bg-red-200'}
                       `}
       >
         {day.saturday.message}
@@ -151,10 +164,12 @@ const Day = ({ day, popUpWindow }: Props) => {
             id: day.sunday.id,
           })
         }
-        className={`text-xs lg:text-base text-stone-900 font-normal px-6 py-4
+        className={`text-xs
+        hover:bg-rose-100 
+        lg:text-base text-stone-900 font-medium px-6 py-4
                       order-slate-200 border-2
                       relative min-w-fit max-w-2rem 
-        ${day.sunday.message && 'bg-slate-200'}
+        ${day.sunday.message && 'bg-red-200'}
                       `}
       >
         {day.sunday.message}

@@ -11,6 +11,7 @@ import axios from 'axios';
 import { HTTP } from '../../config';
 import { useRouter } from 'next/router';
 import gsap from 'gsap';
+import PopTodo from '../../components/PopTodo';
 
 interface T extends DefaultRootState {
   submenu: boolean;
@@ -45,6 +46,7 @@ const todo = () => {
   const dispatch = useDispatch();
   const submenu = useSelector<T>((store) => store.submenu);
   const todo: any = useSelector<T>((store) => store.todo);
+
   const user = useSelector<T>((store) => store.user);
   const router = useRouter();
   const [token, setToken] = useState<null | string>(null);
@@ -84,10 +86,16 @@ const todo = () => {
       dispatch(closeSubmenu());
     }
   };
+ 
+
+
+
+
+
 
 
   return (
-    <section onMouseEnter={onMouseEnter}>
+    <section className='relative' onMouseEnter={onMouseEnter}>
       <Header />
       <div className=' flex justify-center flex-col mb-40 w-full'>
         <AddTodo />
@@ -100,8 +108,7 @@ const todo = () => {
         >
           {todo &&
             todo.map((todo: Todo) => {
-           
-              return <ListItem  key={Math.random()} todo={todo} />;
+              return <ListItem key={Math.random()} todo={todo} />;
             })}
         </ul>
       </div>
