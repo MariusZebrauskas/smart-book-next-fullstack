@@ -33,7 +33,7 @@ const DynamicCards: React.FC<Card> = ({ card }) => {
         className='
         animationCards
         max-w-xs mx-auto overflow-hidden bg-gray-200 rounded-lg shadow-lg
-         dark:bg-gray-800
+         
         hover:cursor-pointer
         flex justify-center flex-col 
         '
@@ -41,12 +41,17 @@ const DynamicCards: React.FC<Card> = ({ card }) => {
         <div className='flex flex-center justify-center py-2'>
           <h1
             className='text-lg sm:text-2xl font-bold text-gray-800 uppercase 
-          dark:text-white'
+          '
           >
             {card.name}
           </h1>
         </div>
-        <img  className='rounded-b-lg' src={card.image} alt={card.alt} style={{width:200, height:200}}  />
+        <img
+          className='rounded-b-lg'
+          src={card.image}
+          alt={card.alt}
+          style={{ width: 200, height: 200 }}
+        />
       </div>
     </Link>
   );

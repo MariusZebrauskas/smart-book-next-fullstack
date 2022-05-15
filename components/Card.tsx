@@ -3,8 +3,8 @@ import React from 'react';
 
 const Card = () => {
   return (
-    <section className='animationCards bg-gray-100  dark:bg-gray-900 lg:py-12 lg:flex lg:justify-center mt-20'>
-      <div className='bg-white dark:bg-gray-800 lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg lg:rounded-lg'>
+    <section className='animationCards bg-gray-100   lg:py-12 lg:flex lg:justify-center mt-20'>
+      <div className='bg-white  lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg lg:rounded-lg'>
         <div className='lg:w-1/2'>
           <div
             className='h-64 bg-cover lg:rounded-lg lg:h-full'
@@ -16,10 +16,10 @@ const Card = () => {
         </div>
 
         <div className='max-w-xl px-6 py-12 lg:max-w-5xl lg:w-1/2'>
-          <h2 className='text-2xl font-bold text-gray-800 dark:text-white md:text-3xl'>
-            Everithing in one <span className='text-blue-600 dark:text-blue-400'>aplication</span>
+          <h2 className='text-2xl font-bold text-gray-800  md:text-3xl'>
+            Everithing in one <span className='text-blue-600 '>aplication</span>
           </h2>
-          <p className='mt-4 text-gray-600 dark:text-gray-400'>
+          <p className='mt-4 text-gray-600 '>
           Create one account and get 2 applications for free. This application is easy to use, easy
             to register and good time planning and organizing application for a busy people to
             track, add, edit, and delete their tasks.

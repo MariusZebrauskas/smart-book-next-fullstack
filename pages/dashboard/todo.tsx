@@ -11,7 +11,7 @@ import axios from 'axios';
 import { HTTP } from '../../config';
 import { useRouter } from 'next/router';
 import gsap from 'gsap';
-import PopTodo from '../../components/PopTodo';
+
 
 interface T extends DefaultRootState {
   submenu: boolean;
@@ -102,7 +102,7 @@ const todo = () => {
 
         <ul
           className='text-sm font-medium text-gray-900  border-gray-200 
-      rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white
+      rounded-lg   
       mb-20 flex justify-center flex-col items-center
       '
         >

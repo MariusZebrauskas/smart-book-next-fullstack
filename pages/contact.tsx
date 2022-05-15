@@ -98,17 +98,17 @@ const contact = () => {
     <form
       onSubmit={sendEmail}
       onMouseEnter={onMouseEnter}
-      className='shadowAnimationContact w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md dark:bg-gray-800 mt-20 relative'
+      className='shadowAnimationContact w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md mt-20 relative'
     >
-      <h2 className='animationContact text-3xl font-semibold text-center text-gray-800 dark:text-white'>
+      <h2 className='animationContact text-3xl font-semibold text-center text-gray-800 '>
         Get in touch
       </h2>
-      <p className='animationContact mt-10 text-center text-gray-600 dark:text-gray-400'>Tell us how can we help.</p>
+      <p className='animationContact mt-10 text-center text-gray-600 '>Tell us how can we help.</p>
 
       <div className='mt-10 '>
         <div className='items-center -mx-2 md:flex'>
           <div className=' animationContact w-full mx-2'>
-            <label className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'>
+            <label className='block mb-2 text-sm font-medium text-gray-600 '>
               Name
             </label>
             {/* name */}
@@ -117,20 +117,20 @@ const contact = () => {
               required
               minLength={3}
               onChange={(e) => setEmailData({ ...emailData, name: e.target.value })}
-              className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
+              className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-md   focus:border-blue-400 focus:ring-blue-300  focus:outline-none focus:ring focus:ring-opacity-40'
               type='text'
             />
           </div>
 
           <div className=' animationContact w-full mx-2 mt-4 md:mt-0'>
-            <label className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'>
+            <label className='block mb-2 text-sm font-medium text-gray-600 '>
               E-mail
             </label>
             {/* email */}
             <input
               value={emailData.email}
               onChange={(e) => setEmailData({ ...emailData, email: e.target.value })}
-              className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40'
+              className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-md   focus:border-blue-400 focus:ring-blue-300  focus:outline-none focus:ring focus:ring-opacity-40'
               type='email'
               required
             />
@@ -138,7 +138,7 @@ const contact = () => {
         </div>
 
         <div className='animationContact w-full mt-4'>
-          <label className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'>
+          <label className='block mb-2 text-sm font-medium text-gray-600 '>
             Message
           </label>
           {/* message */}
@@ -146,7 +146,7 @@ const contact = () => {
             onChange={(e) => setEmailData({ ...emailData, message: e.target.value })}
             value={emailData.message}
             required
-            className='block w-full h-40 px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40'
+            className='block w-full h-40 px-4 py-2 text-gray-700 bg-white border rounded-md   focus:border-blue-400  focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40'
           ></textarea>
         </div>
 

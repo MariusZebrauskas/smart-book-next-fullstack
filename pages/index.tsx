@@ -61,7 +61,7 @@ const IndexPage = () => {
   }, []);
   
   return (
-    <header onMouseEnter={onMouseEnter} className='bg-white dark:bg-gray-800 mt-20 relative'>
+    <header onMouseEnter={onMouseEnter} className='bg-white  mt-20 relative'>
       <div
         className='container flex flex-col px-6 py-10 mx-auto space-y-6 
       lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center'
@@ -69,14 +69,14 @@ const IndexPage = () => {
         <div className='w-full lg:w-1/2  '>
           <div className='lg:max-w-lg'>
             <h1
-              className='text-2xl font-medium tracking-wide text-gray-800 dark:text-white
+              className='text-2xl font-medium tracking-wide text-gray-800 
              lg:text-4xl animation'
             >
               Build your routine and todos online in one flexible software.
             </h1>
 
             <div className='animation grid gap-6 mt-8 sm:grid-cols-2'>
-              <div className='  flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className='  flex items-center text-gray-800 -px-3 '>
                 <svg
                   className='w-5 h-5 mx-3 '
                   xmlns='http://www.w3.org/2000/svg'
@@ -95,7 +95,7 @@ const IndexPage = () => {
                 <span className='mx-3'>Routine callendar</span>
               </div>
 
-              <div className=' flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className=' flex items-center text-gray-800 -px-3 '>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -114,7 +114,7 @@ const IndexPage = () => {
                 <span className='mx-3'>Todo list</span>
               </div>
 
-              <div className=' flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className=' flex items-center text-gray-800 -px-3 '>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -133,7 +133,7 @@ const IndexPage = () => {
                 <span className='mx-3'>All devices</span>
               </div>
 
-              <div className='  flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className='  flex items-center text-gray-800 -px-3 '>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -152,7 +152,7 @@ const IndexPage = () => {
                 <span className='mx-3'>No paiments</span>
               </div>
 
-              <div className=' flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className=' flex items-center text-gray-800 -px-3 '>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -171,7 +171,7 @@ const IndexPage = () => {
                 <span className='mx-3'>Data security for free</span>
               </div>
 
-              <div className=' flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className=' flex items-center text-gray-800 -px-3 '>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'
@@ -189,7 +189,7 @@ const IndexPage = () => {
 
                 <span className='mx-3'>Extreamly fast</span>
               </div>
-              <div className=' flex items-center text-gray-800 -px-3 dark:text-gray-200'>
+              <div className=' flex items-center text-gray-800 -px-3 '>
                 <svg
                   className='w-5 h-5 mx-3'
                   xmlns='http://www.w3.org/2000/svg'

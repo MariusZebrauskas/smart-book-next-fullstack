@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { HTTP } from '../config';
 import { PropsTypes } from '../pages/dashboard/todo';
 import { delteTask, popUpEdite } from '../redux/todoReducer';
-import PopTodo from './PopTodo';
+
 
 import Popup from './Popup';
 
