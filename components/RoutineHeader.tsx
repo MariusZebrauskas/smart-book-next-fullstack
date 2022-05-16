@@ -10,8 +10,8 @@ const RoutineHeader = () => {
           </h1>
 
           <h4 className='mt-6 text-gray-300'>
-          This schedule helps people to focus on their daily tasks rather than keep getting
-            distracted from thinking about what should I do next later today!
+          This schedule does not let people forget their weekly assignments. 
+          Add, edit, delete your tasks, and get rid of weekly headaches.
           </h4>
         </div>
       </div>
