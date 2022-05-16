@@ -130,7 +130,7 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
                   </h3>
                   <div className='mt-2'>
                     <p className='text-sm text-gray-500'>
-                      On this panel you can add, update, delete your todos.
+                      On this panel you can add, update and  delete your to-dos.
                     </p>
                   </div>
                 </div>
