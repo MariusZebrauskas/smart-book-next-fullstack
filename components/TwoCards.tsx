@@ -11,7 +11,7 @@ import React, { useEffect } from 'react';
       <div className='container grid grid-cols-1 gap-8 px-4 py-12 mx-auto lg:grid-cols-2'>
         <div className='animationCards flex flex-col items-center max-w-lg mx-auto text-center'>
           <h2 className='text-3xl font-semibold tracking-tight text-gray-800 '>
-            Routine calendar
+            7-day static routine calendar
           </h2>
 
           <p className='mt-3 text-gray-500 '>
@@ -28,7 +28,7 @@ import React, { useEffect } from 'react';
 
         <div className='animationCards flex flex-col items-center max-w-lg mx-auto text-center'>
           <h2 className='text-3xl font-semibold tracking-tight text-gray-800 '>
-            Todo list
+            To-do list
           </h2>
 
           <p className='mt-3 text-gray-500 '>
@@ -38,7 +38,7 @@ import React, { useEffect } from 'react';
           </p>
           <Link href='/login'>
             <a className='inline-flex items-center justify-center w-full px-5 py-2 mt-6 text-gray-700 transition-colors duration-150 transform bg-white border border-gray-200 rounded-lg  -700 hover:bg-gray-100  sm:w-auto -gray-800 -700 focus:ring focus:ring-gray-200 focus:ring-opacity-80'>
-              Create todo list
+              Create to-do list
             </a>
           </Link>
         </div>

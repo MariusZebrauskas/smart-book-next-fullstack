@@ -17,12 +17,13 @@ const Card = () => {
 
         <div className='max-w-xl px-6 py-12 lg:max-w-5xl lg:w-1/2'>
           <h2 className='text-2xl font-bold text-gray-800  md:text-3xl'>
-            Everithing in one <span className='text-blue-600 '>aplication</span>
+          Everything  in one <span className='text-blue-600 '>application</span>
           </h2>
           <p className='mt-4 text-gray-600 '>
-          Create one account and get 2 applications for free. This application is easy to use, easy
-            to register and good time planning and organizing application for a busy people to
-            track, add, edit, and delete their tasks.
+          Create one account and get 2 applications for free. 
+          These applications help time planning and organizing and also track your plans,
+           it is very easy to use the Smartbook, 
+          you can track, add, edit, and delete your tasks from any device in seconds.
           </p>
 
           <div className='mt-8'>

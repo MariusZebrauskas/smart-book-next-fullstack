@@ -72,7 +72,7 @@ const IndexPage = () => {
               className='text-2xl font-medium tracking-wide text-gray-800 
              lg:text-4xl animation'
             >
-              Build your routine and todos online in one flexible software.
+              Build your 7-day static routine and to-dos online in one flexible software.
             </h1>
 
             <div className='animation grid gap-6 mt-8 sm:grid-cols-2'>
@@ -92,7 +92,7 @@ const IndexPage = () => {
                   />
                 </svg>
 
-                <span className='mx-3'>Routine callendar</span>
+                <span className='mx-3'>7-day static routine calendar</span>
               </div>
 
               <div className=' flex items-center text-gray-800 -px-3 '>
@@ -149,7 +149,7 @@ const IndexPage = () => {
                   />
                 </svg>
 
-                <span className='mx-3'>No paiments</span>
+                <span className='mx-3'>No payments</span>
               </div>
 
               <div className=' flex items-center text-gray-800 -px-3 '>
@@ -187,7 +187,7 @@ const IndexPage = () => {
                   />
                 </svg>
 
-                <span className='mx-3'>Extreamly fast</span>
+                <span className='mx-3'>Extremely fast</span>
               </div>
               <div className=' flex items-center text-gray-800 -px-3 '>
                 <svg

@@ -165,7 +165,7 @@ useEffect(() => {
           {loading && <Spinner />}
         </div>
         <div className='animationLogin flex justify-start mt-6'>
-          <p>Dont have an account ? </p>
+          <p>Don't have an account?</p>
           <Link href='/register'>
             <a className='hover:underline text-cyan-600 ml-2'>Register</a>
           </Link>
