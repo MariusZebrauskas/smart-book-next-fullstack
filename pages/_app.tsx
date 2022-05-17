@@ -8,7 +8,7 @@ import Layout from '../components/Layout';
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <Layout title='Home Page'>
+      <Layout title='SmartBook'>
         <Component {...pageProps} />
       </Layout>
     </Provider>
