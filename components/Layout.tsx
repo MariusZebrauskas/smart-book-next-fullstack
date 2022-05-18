@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import Nav  from './Nav';
+import Nav from './Nav';
 import Footer from './Footer';
 
 type Props = {
@@ -13,6 +13,7 @@ const Layout = ({ children, title }: Props) => (
   <div>
     <Head>
       <title>{title}</title>
+      <meta name='google-site-verification' content='FSbc7OjI9qdbeIqDu4MUbCFF8cTnNAd-Mgp-H5JVcnk' />
       <meta charSet='utf-8' />
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       {/* <link rel="icon" href="/favicon.ico" /> */}
