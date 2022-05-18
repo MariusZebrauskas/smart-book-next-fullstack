@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import Head from 'next/head';
 import React, { useEffect } from 'react';
 import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
 import DynamicCards from '../../components/DynamicCards';
@@ -57,6 +58,10 @@ const dashboard = () => {
 
   return (
     <section onMouseEnter={onMouseEnter} className='w-full flex justify-center items-center   '>
+      <Head>
+        <title>Smart book - dashboard</title>
+        <meta name='description' content='pick app on dashboard to start adding todos' />
+      </Head>
       <main className='flex mt-20 lg:mt-40 justify-around flex-wrap gap-10 max-w-7xl w-3/5 mb-20 '>
         {dashbordCards.map((card: any) => {
           return <DynamicCards key={card.id} card={card} />;

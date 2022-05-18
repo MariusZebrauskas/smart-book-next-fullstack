@@ -10,6 +10,7 @@ import Spinner from '../components/Spinner';
 import { lodingOFF, lodingON } from '../redux/loadingReducer';
 import { useRouter } from 'next/router';
 import { closeMenu } from '../redux/menuRedux';
+import Head from 'next/head';
 
 interface T extends DefaultRootState {
   submenu: boolean;
@@ -110,10 +111,14 @@ const register = () => {
   };
 
   return (
-    <section
+    <main
       onMouseEnter={onMouseEnter}
       className='max-w-4xl mt-20 mb-40 p-6 mx-auto bg-white rounded-md shadow-md '
     >
+       <Head>
+        <title>Smart book - register</title>
+        <meta name='description' content='Smartbook register - register your account and get to-do and routine app for free' />
+      </Head>
       <h2 className='text-lg font-semibold text-gray-700 capitalize '>
         Account settings
       </h2>
@@ -184,7 +189,7 @@ const register = () => {
       </form>
       {error && <Error setError={setError} error={error} />}
       {success && <Success success={success} />}
-    </section>
+    </main>
   );
 };
 

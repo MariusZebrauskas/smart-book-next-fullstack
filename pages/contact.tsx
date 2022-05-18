@@ -10,6 +10,7 @@ import { HTTP } from '../config';
 import Spinner from '../components/Spinner';
 import { lodingOFF, lodingON } from '../redux/loadingReducer';
 import { closeMenu } from '../redux/menuRedux';
+import Head from 'next/head';
 interface T extends DefaultRootState {
   submenu: boolean;
   menu: boolean;
@@ -100,6 +101,10 @@ const contact = () => {
       onMouseEnter={onMouseEnter}
       className='shadowAnimationContact w-full max-w-2xl px-6 py-4 mx-auto bg-white rounded-md mt-20 relative'
     >
+       <Head>
+        <title>Smart book - contact</title>
+        <meta name='description' content='Tell us how can we help, lets get in touch' />
+      </Head>
       <h2 className='animationContact text-3xl font-semibold text-center text-gray-800 '>
         Get in touch
       </h2>

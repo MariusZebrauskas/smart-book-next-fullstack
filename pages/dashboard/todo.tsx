@@ -11,7 +11,7 @@ import axios from 'axios';
 import { HTTP } from '../../config';
 import { useRouter } from 'next/router';
 import gsap from 'gsap';
-
+import Head from 'next/head';
 
 interface T extends DefaultRootState {
   submenu: boolean;
@@ -86,16 +86,16 @@ const todo = () => {
       dispatch(closeSubmenu());
     }
   };
- 
-
-
-
-
-
-
 
   return (
-    <section className='relative' onMouseEnter={onMouseEnter}>
+    <main className='relative' onMouseEnter={onMouseEnter}>
+      <Head>
+        <title>Smart book - to-do</title>
+        <meta
+          name='description'
+          content='Add your to-dos to the database and access them from any device you want! Put here shopping lists, birthdays, MOTs, meetings or anything what you need to remember, and simply enjoy the app!'
+        />
+      </Head>
       <Header />
       <div className=' flex justify-center flex-col mb-40 w-full'>
         <AddTodo />
@@ -112,7 +112,7 @@ const todo = () => {
             })}
         </ul>
       </div>
-    </section>
+    </main>
   );
 };
 

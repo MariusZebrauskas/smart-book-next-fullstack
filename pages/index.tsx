@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { closeSubmenu } from '../redux/submenuReducer';
 import { closeMenu } from '../redux/menuRedux';
 import gsap from 'gsap';
+import Head from 'next/head';
 
 interface T extends DefaultRootState {
   submenu: boolean;
@@ -29,8 +30,8 @@ const IndexPage = () => {
     }
   }, []);
 
-   // close sub menu & menu on mouse leave menu
-   const onMouseEnter = () => {
+  // close sub menu & menu on mouse leave menu
+  const onMouseEnter = () => {
     if (submenu) {
       dispatch(closeSubmenu());
     }
@@ -59,9 +60,16 @@ const IndexPage = () => {
         '"<-=.3>"'
       );
   }, []);
-  
+
   return (
-    <header onMouseEnter={onMouseEnter} className='bg-white  mt-20 relative'>
+    <main onMouseEnter={onMouseEnter} className='bg-white  mt-20 relative'>
+      <Head>
+        <title>Smart book - home</title>
+        <meta
+          name='description'
+          content='best todo app online: there is  7-day static routine callendar and to-do app in one flexible software'
+        />
+      </Head>
       <div
         className='container flex flex-col px-6 py-10 mx-auto space-y-6 
       lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center'
@@ -221,7 +229,7 @@ const IndexPage = () => {
       </div>
       <TwoCards />
       <Card />
-    </header>
+    </main>
   );
 };
 

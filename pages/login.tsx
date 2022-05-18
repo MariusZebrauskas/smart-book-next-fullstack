@@ -15,6 +15,7 @@ import Spinner from '../components/Spinner';
 import { lodingOFF, lodingON } from '../redux/loadingReducer';
 import { closeMenu } from '../redux/menuRedux';
 import gsap from 'gsap';
+import Head from 'next/head';
 
 interface T extends DefaultRootState {
   submenu: boolean;
@@ -43,15 +44,15 @@ const login = () => {
     dispatch(unknownPage());
   }, []);
 
- // close sub menu & menu on mouse leave menu
- const onMouseEnter = () => {
-  if (submenu) {
-    dispatch(closeSubmenu());
-  }
-  if (menu) {
-    dispatch(closeMenu());
-  }
-};
+  // close sub menu & menu on mouse leave menu
+  const onMouseEnter = () => {
+    if (submenu) {
+      dispatch(closeSubmenu());
+    }
+    if (menu) {
+      dispatch(closeMenu());
+    }
+  };
   // on change INPUT
   const onChange = (e: React.ChangeEvent<HTMLInputElement>, input: string) => {
     // delete errors
@@ -102,27 +103,29 @@ const login = () => {
     }
   }, [user]);
 
-
-// animation
-var tlLogin = gsap.timeline();
-useEffect(() => {
-  tlLogin.fromTo(
-    '.animationLogin',
-    { opacity: 0, y: 50 },
-    { opacity: 1, y: 0, duration: 0.2, stagger: 0.2 }
-  ).to(".shadowAnimation",{
-    boxShadow:`0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)`
-  })
-  
-}, []);
-
-
+  // animation
+  var tlLogin = gsap.timeline();
+  useEffect(() => {
+    tlLogin
+      .fromTo(
+        '.animationLogin',
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.2, stagger: 0.2 }
+      )
+      .to('.shadowAnimation', {
+        boxShadow: `0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)`,
+      });
+  }, []);
 
   return (
-    <section
+    <main
       onMouseEnter={onMouseEnter}
       className='shadowAnimation max-w-md mt-20 p-6 mx-auto bg-white rounded-md  '
     >
+      <Head>
+        <title>Smart book - login</title>
+        <meta name='description' content='Smartbook login - please add your login and password' />
+      </Head>
       <h2 className='animationLogin text-lg font-semibold text-gray-700 capitalize '>
         Account Login
       </h2>
@@ -172,7 +175,7 @@ useEffect(() => {
         </div>
       </form>
       {error && <Error error={error} setError={setError} />}
-    </section>
+    </main>
   );
 };
 

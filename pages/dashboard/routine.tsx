@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
@@ -35,7 +36,6 @@ const routine = () => {
   const router = useRouter();
   const [token, setToken] = useState<null | string>(null);
 
-  
   // pop up handler
   const popUpWindow = (params: string, dataFromScreen: any) => {
     if (params === 'pop') {
@@ -66,8 +66,7 @@ const routine = () => {
           .post(`${HTTP()}/api/update-routine`, { token: token, update: update })
           .then((response) => {
             // send db data to redux
-            console.log('response:', response)
-     
+            console.log('response:', response);
           })
 
           .catch((error) => {
@@ -90,8 +89,7 @@ const routine = () => {
 
     // get todo data
     if (user) {
-      
-        setToken(null || sessionStorage.getItem('token'))
+      setToken(null || sessionStorage.getItem('token'));
       if (token !== null) {
         axios
           .post(`${HTTP()}/api/routine`, { token: token })
@@ -112,15 +110,21 @@ const routine = () => {
     }
   }, [user, token]);
 
-
   // animation
   // FIXME:POP UP ANIMATION
-  // padaryti use EFFECT LOGIKA PAGAL POP UP VARIABLE 
+  // padaryti use EFFECT LOGIKA PAGAL POP UP VARIABLE
   // padaryti HOME ANIMATION BISKI KITAIP NEREIKIA STAGGER LIST DARYTI
 
-
   return (
-    <>
+    <main>
+      <Head>
+        <title>Smart book - 7 days</title>
+        <meta
+          name='description'
+          content='Add your routine to this calendar and never forget your tasks
+          This schedule does not let people forget their weekly assignments. Add, edit, delete your tasks and get rid of weekly headaches!'
+        />
+      </Head>
       <RoutineHeader />
       <div className='flex flex-col '>
         <div className='overflow-x-auto sm:-mx-6 lg:-mx-8 '>
@@ -200,7 +204,7 @@ const routine = () => {
           popUpWindow={popUpWindow}
         />
       ) : null}
-    </>
+    </main>
   );
 };
 
