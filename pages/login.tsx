@@ -123,8 +123,8 @@ const login = () => {
       className='shadowAnimation max-w-md mt-20 p-6 mx-auto bg-white rounded-md  '
     >
       <Head>
-        <title>Smart book - login</title>
-        <meta name='description' content='Smartbook login - please add your login and password' />
+        <title>To-Do Login</title>
+        <meta name='description' content='todo is best for busy people to organise day rutine please login and start adding to-dos' />
       </Head>
       <h2 className='animationLogin text-lg font-semibold text-gray-700 capitalize '>
         Account Login

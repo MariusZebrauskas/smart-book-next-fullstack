@@ -64,10 +64,10 @@ const IndexPage = () => {
   return (
     <main onMouseEnter={onMouseEnter} className='bg-white  mt-20 relative'>
       <Head>
-        <title>Smart book - home</title>
+        <title>To Do And 7 Days Calendar</title>
         <meta
           name='description'
-          content='best todo app online: there is  7-day static routine callendar and to-do app in one flexible software'
+          content='best to-do app online: there is  7-day static routine callendar and to-do app in one flexible software'
         />
       </Head>
       <div

@@ -116,8 +116,8 @@ const register = () => {
       className='max-w-4xl mt-20 mb-40 p-6 mx-auto bg-white rounded-md shadow-md '
     >
        <Head>
-        <title>Smart book - register</title>
-        <meta name='description' content='Smartbook register - register your account and get to-do and routine app for free' />
+        <title>Calendar And To Do Registration</title>
+        <meta name='description' content='free to do and mini calendar app, just need to register and app is free for ever! ' />
       </Head>
       <h2 className='text-lg font-semibold text-gray-700 capitalize '>
         Account settings
