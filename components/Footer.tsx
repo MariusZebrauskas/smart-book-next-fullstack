@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { DefaultRootState, useSelector } from 'react-redux';
 
@@ -28,14 +29,24 @@ const Footer = () => {
           <p className='max-w-md mx-auto mt-2 text-gray-400'>
             Easy to use to-do and routine application.
           </p>
+          
         </div>
 
         <hr className='my-10 border-gray-700' />
 
         <div className='flex flex-col items-center sm:flex-row sm:justify-between'>
-          <p className='text-sm text-gray-400'>© Copyright 2021 - {date.getFullYear()}. All Rights Reserved.</p>
-
-     
+          <p className='text-sm text-gray-400'>
+            © Copyright 2021 - {date.getFullYear()}. All Rights Reserved.
+          </p>
+          <nav>
+            <li className='list-none flex items-center flex-col  justify-center '>
+              <p className='max-w-md   text-gray-400 '>
+                Do you need a website to grow your own business ?   
+              </p>
+              
+              <a className=' text-blue-300  hover:text-yellow-300' target="_blank"  href='http://www.developer-js.com'>www.developer-js.com</a>
+            </li>
+          </nav>
         </div>
       </div>
     </footer>
