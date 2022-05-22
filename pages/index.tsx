@@ -64,10 +64,10 @@ const IndexPage = () => {
   return (
     <main onMouseEnter={onMouseEnter} className='bg-white  mt-20 relative'>
       <Head>
-        <title>To Do And 7 Days Calendar</title>
+        <title>To Do List: add thnigs to do </title>
         <meta
           name='description'
-          content='best to-do app online: there is  7-day static routine callendar and to-do app in one flexible software'
+          content='free to-do app online: there is  calendar and to-do list app in one flexible software, add todoist, things to do, todo list'
         />
       </Head>
       <div
@@ -80,7 +80,7 @@ const IndexPage = () => {
               className='text-2xl font-medium tracking-wide text-gray-800 
              lg:text-4xl animation'
             >
-              Build your 7-day static routine and to-dos online in one flexible software.
+              Free to-do list and calendar! Build your lists, organize your life and  do not forget your tasks.
             </h1>
 
             <div className='animation grid gap-6 mt-8 sm:grid-cols-2'>
