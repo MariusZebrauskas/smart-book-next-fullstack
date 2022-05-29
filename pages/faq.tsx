@@ -4,6 +4,7 @@ import { closeMenu } from '../redux/menuRedux';
 import { closeSubmenu } from '../redux/submenuReducer';
 import { faqPage } from '../redux/pageReducer';
 import gsap from 'gsap';
+import Head from 'next/head';
 
 const faqs = [
   {
@@ -114,6 +115,13 @@ export default function faq() {
   }, []);
   return (
     <div onMouseEnter={onMouseEnter} className='bg-gray-900'>
+      <Head>
+        <title>todo list - excel todo list / smart-book </title>
+        <meta
+          name='description'
+          content='Frequently asked questions - excel todo list, todo list / smart-book'
+        />
+      </Head>
       <div className='max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8'>
         <div className='animationFaq lg:max-w-2xl lg:mx-auto lg:text-center'>
           <h2 className='text-3xl font-extrabold tracking-tight text-white sm:text-4xl'>
