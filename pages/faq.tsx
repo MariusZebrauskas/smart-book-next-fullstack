@@ -3,6 +3,7 @@ import { useDispatch, DefaultRootState, useSelector } from 'react-redux';
 import { closeMenu } from '../redux/menuRedux';
 import { closeSubmenu } from '../redux/submenuReducer';
 import { faqPage } from '../redux/pageReducer';
+import gsap from 'gsap';
 
 const faqs = [
   {
@@ -36,7 +37,7 @@ const faqs = [
     answer:
       'Yes, please send your ideas what next application you want to have in smart-book dash board.',
   },
- 
+
   {
     id: 7,
     question: 'What are the best practices to use to-do lists?',
@@ -78,12 +79,11 @@ export default function faq() {
   const submenu = useSelector<T>((store) => store.submenu);
   const menu = useSelector<T>((store) => store.menu);
   const page = useSelector<T>((store) => store);
-  
-  
+
   useEffect(() => {
-      // set homepage varaibles
-      dispatch(faqPage());
-      console.log('page:', page)
+    // set homepage varaibles
+    dispatch(faqPage());
+    console.log('page:', page);
     if (submenu) {
       dispatch(closeSubmenu());
     }
@@ -101,10 +101,21 @@ export default function faq() {
       dispatch(closeMenu());
     }
   };
+
+  //   animation
+  // animation
+  var tlFaq = gsap.timeline();
+  useEffect(() => {
+    tlFaq.from('.animationFaq', {
+      delay: 0.2,
+      opacity: 0,
+      duration: 1,
+    });
+  }, []);
   return (
-    <div onMouseEnter={onMouseEnter}  className='bg-gray-900'>
+    <div onMouseEnter={onMouseEnter} className='bg-gray-900'>
       <div className='max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8'>
-        <div className='lg:max-w-2xl lg:mx-auto lg:text-center'>
+        <div className='animationFaq lg:max-w-2xl lg:mx-auto lg:text-center'>
           <h2 className='text-3xl font-extrabold tracking-tight text-white sm:text-4xl'>
             Frequently asked questions
           </h2>
@@ -112,12 +123,12 @@ export default function faq() {
             Can’t find the answer you’re looking for? Reach out to our customer support team.
           </p>
         </div>
-        <div className='mt-20 mb-20'>
-          <dl className='space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10'>
+        <div className='mt-20 mb-20 '>
+          <dl className=' space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10'>
             {faqs.map((faq) => (
               <div key={faq.id}>
-                <dt className='font-semibold text-white'>{faq.question}</dt>
-                <dd className='mt-3 text-gray-400'>{faq.answer}</dd>
+                <dt className='animationFaq font-semibold text-white'>{faq.question}</dt>
+                <dd className='animationFaq mt-3 text-gray-400'>{faq.answer}</dd>
               </div>
             ))}
           </dl>
