@@ -53,6 +53,11 @@ export const unknownPage = () => {
     type: 'unknown',
   };
 };
+export const faqPage = () => {
+  return {
+    type: 'faq',
+  };
+};
 
 // reducer
 
@@ -72,6 +77,8 @@ export const pageReducer = (state = 'home', action: Actions) => {
       return (state = 'routine');
     case 'dashboard':
       return (state = 'dashboard');
+    case 'faq':
+      return (state = 'faq');
     default:
       return state;
   }

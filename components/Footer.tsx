@@ -8,15 +8,17 @@ interface T extends DefaultRootState {
 const date = new Date();
 const Footer = () => {
   const page = useSelector<T>((state) => state.page);
-  console.log('page from footer:', page);
+
 
   return (
     <footer
       className={
-        page === 'dashboard' || page === 'todo'
+        page === 'dashboard' || page === 'todo' 
           ? 'footerMarginDashboard bg-gray-800 '
           : page === 'contact' || page === 'unknown'
           ? 'footerMarginContact bg-gray-800 '
+          : page === 'faq'
+          ? 'mt-0 bg-gray-800'
           : 'bg-gray-800 mt-20'
       }
     >

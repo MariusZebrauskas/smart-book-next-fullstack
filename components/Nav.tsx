@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { FcMindMap } from 'react-icons/fc';
 import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
 import { closeMenu, openMenu } from '../redux/menuRedux';
-import { calendarPage, contactPage, dashboardPage, homePage, todoPage } from '../redux/pageReducer';
+import { calendarPage, contactPage, dashboardPage, homePage, todoPage, faqPage } from '../redux/pageReducer';
 import Avatar from './Avatar';
 import { User } from '../redux/userReducer';
 import LogoIcon from './LogoIcon';
@@ -43,15 +43,12 @@ const Nav = () => {
   const moveTo = (params: number) => {
     gsap.to('.mobileMenuGsap', {
       y: `${params}%`,
-     
-
     });
   };
   const opacity = (params: number, delay: number) => {
     gsap.to('.mobileMenuGsap', {
       opacity: params,
       delay: delay,
-     
     });
   };
 
@@ -82,6 +79,8 @@ const Nav = () => {
       return dispatch(contactPage());
     } else if (params === 'dashboard') {
       return dispatch(dashboardPage());
+    } else if (params === 'faq') {
+      return dispatch(faqPage());
     }
   };
   const login = () => {
@@ -180,6 +179,18 @@ const Nav = () => {
                     }
                   >
                     Contact
+                  </a>
+                </Link>
+                <Link href='/faq'>
+                  <a
+                    onClick={() => changePageMenuBackground('faq')}
+                    className={
+                      page === 'faq'
+                        ? 'bg-gray-900 text-white  px-3 py-2 rounded-md text-sm font-medium'
+                        : ' text-gray-300 px-3 py-2 rounded-md text-sm font-medium'
+                    }
+                  >
+                    F.A.Q.
                   </a>
                 </Link>
               </div>
