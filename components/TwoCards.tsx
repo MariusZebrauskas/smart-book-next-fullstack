@@ -13,9 +13,9 @@ const TwoCards = () => {
           </h2>
 
           <p className='mt-3 text-gray-500 '>
-            Routine has been designed and built to track weekly tasks, like when to pick up your
-            child from after school club, or any kind of tasks you do weekly, but sometimes you
-            forget to-do.
+            Excel todo list template has been designed and built to track weekly tasks, like when to
+            pick up your child from after school club, or any kind of tasks you do weekly, but
+            sometimes you forget to-do.
           </p>
           <Link href='/login'>
             <a className='inline-flex items-center justify-center w-full px-5 py-2 mt-6 text-white bg-blue-600 rounded-lg sm:w-auto hover:bg-blue-500 focus:ring focus:ring-blue-300 focus:ring-opacity-80'>
