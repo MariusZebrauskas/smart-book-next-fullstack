@@ -100,7 +100,7 @@ const IndexPage = () => {
                   />
                 </svg>
 
-                <span className='mx-3'>7-day static routine calendar</span>
+                <span className='mx-3'>Excel todo list template</span>
               </div>
 
               <div className=' flex items-center text-gray-800 -px-3 '>
