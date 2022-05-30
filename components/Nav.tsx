@@ -256,6 +256,18 @@ const Nav = () => {
               Contact
             </a>
           </Link>
+          <Link href='/faq'>
+                  <a
+                    onClick={() => changePageMenuBackground('faq')}
+                    className={
+                      page === 'faq'
+                        ? 'bg-gray-900 text-white  px-3 py-2 rounded-md text-sm font-medium'
+                        : ' text-gray-300 px-3 py-2 rounded-md text-sm font-medium'
+                    }
+                  >
+                    F.A.Q.
+                  </a>
+                </Link>
         </div>
       </div>
     </nav>
