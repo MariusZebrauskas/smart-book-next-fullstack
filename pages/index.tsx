@@ -77,14 +77,18 @@ const IndexPage = () => {
         <div className='w-full lg:w-1/2  '>
           <div className='lg:max-w-lg'>
             <h1
-              className='text-2xl font-medium tracking-wide text-gray-800 
-             lg:text-4xl animation'
+              className='text-2xl font-medium tracking-wide 
+              text-gray-800 
+             lg:text-4xl animation
+             px-8
+             '
             >
-              Free to-do list and calendar! Build your lists, organize your life and  do not forget your tasks.
+              Free to-do list and calendar! Build your lists, organize your life and do not forget
+              your tasks.
             </h1>
 
-            <div className='animation grid gap-6 mt-8 sm:grid-cols-2'>
-              <div className='  flex items-center text-gray-800 -px-3 '>
+            <div className='px-8 py-4 animation grid gap-6 mt-8 sm:grid-cols-2'>
+              <div className='   flex items-center text-gray-800 -px-3 '>
                 <svg
                   className='w-5 h-5 mx-3 '
                   xmlns='http://www.w3.org/2000/svg'

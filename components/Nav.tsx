@@ -4,7 +4,14 @@ import React, { useEffect } from 'react';
 import { FcMindMap } from 'react-icons/fc';
 import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
 import { closeMenu, openMenu } from '../redux/menuRedux';
-import { calendarPage, contactPage, dashboardPage, homePage, todoPage, faqPage } from '../redux/pageReducer';
+import {
+  calendarPage,
+  contactPage,
+  dashboardPage,
+  homePage,
+  todoPage,
+  faqPage,
+} from '../redux/pageReducer';
 import Avatar from './Avatar';
 import { User } from '../redux/userReducer';
 import LogoIcon from './LogoIcon';
@@ -40,11 +47,7 @@ const Nav = () => {
     }
   };
 
-  const moveTo = (params: number) => {
-    gsap.to('.mobileMenuGsap', {
-      y: `${params}%`,
-    });
-  };
+
   const opacity = (params: number, delay: number) => {
     gsap.to('.mobileMenuGsap', {
       opacity: params,
@@ -52,18 +55,28 @@ const Nav = () => {
     });
   };
 
+  const scale = (params: number, easing: string) => {
+    gsap.to('.mobileMenuGsap', {
+      scale: `${params}`,
+      ease: `${easing}`,
+      transformOrigin: '0% 0%',
+    });
+  };
+
   // menu animation
   useEffect(() => {
     if (!menu) {
-      // move func
-      moveTo(-150);
+
+      // scale
+      scale(0, 'power4.out');
       // opacity
-      opacity(0, -0.5);
+      opacity(0, -0.26);
     } else if (menu) {
-      // move fuc
-      moveTo(0);
+
+      // scale
+      scale(1, 'power3.out');
       // opacity
-      opacity(1, 0.3);
+      opacity(1, 0.1);
     }
   }, [menu]);
 
@@ -219,8 +232,13 @@ const Nav = () => {
 
       {/* mobile menu */}
 
-      <div className='  sm:hidden absolute w-full top-15 z-10' id='mobile-menu'>
-        <div className='mobileMenuGsap opacity-0 bg-slate-800 px-2 pt-2 pb-3 space-y-1 '>
+      <div className='  sm:hidden absolute w-full top-16 z-10' id='mobile-menu'>
+        <div
+          className='mobileMenuGsap opacity-1 
+        scale-0
+        origin-top-left
+        bg-slate-800 px-2 pt-2 pb-3 space-y-1 '
+        >
           <Link href='/'>
             <a
               className={
@@ -257,17 +275,17 @@ const Nav = () => {
             </a>
           </Link>
           <Link href='/faq'>
-                  <a
-                    onClick={() => changePageMenuBackground('faq')}
-                    className={
-                      page === 'faq'
-                        ? 'text-white block px-3 py-2 rounded-md text-base font-medium'
-                        : 'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
-                    }
-                  >
-                    F.A.Q.
-                  </a>
-                </Link>
+            <a
+              onClick={() => changePageMenuBackground('faq')}
+              className={
+                page === 'faq'
+                  ? 'text-white block px-3 py-2 rounded-md text-base font-medium'
+                  : 'text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
+              }
+            >
+              F.A.Q.
+            </a>
+          </Link>
         </div>
       </div>
     </nav>
