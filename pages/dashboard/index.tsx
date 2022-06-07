@@ -1,3 +1,4 @@
+import axios from 'axios';
 import gsap from 'gsap';
 import Head from 'next/head';
 import React, { useEffect } from 'react';
@@ -14,6 +15,7 @@ interface T extends DefaultRootState {
 }
 
 const dashboard = () => {
+
   const submenu = useSelector<T>((store) => store.submenu);
   const menu = useSelector<T>((store) => store.menu);
   const dispach = useDispatch();
@@ -41,7 +43,6 @@ const dashboard = () => {
     }
   }, []);
   // close sub menu animation opne close
-  
 
   // animation
   var tlDashboard = gsap.timeline();
@@ -52,9 +53,19 @@ const dashboard = () => {
       ease: 'back.out(3)',
       duration: 0.5,
       stagger: 0.5,
-     
     });
   }, []);
+
+  // useEffect(() => {
+  //   axios
+  //     .get('/api/dasboard-data')
+  //     .then((res: any) => {
+  //       console.log('res:', res);
+  //     })
+  //     .catch((err: any) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   return (
     <section onMouseEnter={onMouseEnter} className='w-full flex justify-center items-center   '>
@@ -70,5 +81,19 @@ const dashboard = () => {
     </section>
   );
 };
+
+// export async function getStaticProps() {
+//   let data = 'nothing';
+
+// // 
+// const res = await fetch('/api/dasboard-data')
+// const posts = await res.json()
+
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// }
 
 export default dashboard;
