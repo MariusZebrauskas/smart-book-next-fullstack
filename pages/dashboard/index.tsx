@@ -14,7 +14,8 @@ interface T extends DefaultRootState {
   menu: boolean;
 }
 
-const dashboard = () => {
+const dashboard = ({ dashboardApi }: any) => {
+  const { data } = dashboardApi;
 
   const submenu = useSelector<T>((store) => store.submenu);
   const menu = useSelector<T>((store) => store.menu);
@@ -49,23 +50,13 @@ const dashboard = () => {
   useEffect(() => {
     tlDashboard.from('.animationCards', {
       opacity: 0,
-      scale: 0.8,
+      scale: 0.9,
       ease: 'back.out(3)',
+      delay: 0.3,
       duration: 0.5,
-      stagger: 0.5,
+      stagger: 0.3,
     });
   }, []);
-
-  // useEffect(() => {
-  //   axios
-  //     .get('/api/dasboard-data')
-  //     .then((res: any) => {
-  //       console.log('res:', res);
-  //     })
-  //     .catch((err: any) => {
-  //       console.log(err);
-  //     });
-  // }, []);
 
   return (
     <section onMouseEnter={onMouseEnter} className='w-full flex justify-center items-center   '>
@@ -74,7 +65,7 @@ const dashboard = () => {
         <meta name='description' content='pick app on dashboard to start adding todos' />
       </Head>
       <main className='flex mt-20 lg:mt-40 justify-around flex-wrap gap-10 max-w-7xl w-3/5 mb-20 '>
-        {dashbordCards.map((card: any) => {
+        {data.map((card: any) => {
           return <DynamicCards key={card.id} card={card} />;
         })}
       </main>
@@ -82,18 +73,16 @@ const dashboard = () => {
   );
 };
 
-// export async function getStaticProps() {
-//   let data = 'nothing';
-
-// // 
-// const res = await fetch('/api/dasboard-data')
-// const posts = await res.json()
-
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  //get data from backend
+  const res = await fetch('https://smart-book.org/api/dasboard-data');
+  const dashboardApi = await res.json();
+  // send data as a props in dashboard page
+  return {
+    props: {
+      dashboardApi,
+    },
+  };
+}
 
 export default dashboard;
