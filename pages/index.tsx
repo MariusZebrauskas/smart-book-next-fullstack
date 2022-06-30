@@ -9,10 +9,12 @@ import gsap from 'gsap';
 import Head from 'next/head';
 import axios from 'axios';
 import { HTTP } from '../config';
+import { userLogin } from '../redux/userReducer';
 
 interface T extends DefaultRootState {
   submenu: boolean;
   menu: boolean;
+  user: any;
 }
 
 const IndexPage = () => {
@@ -20,6 +22,8 @@ const IndexPage = () => {
   const dispatch = useDispatch();
   const submenu = useSelector<T>((store) => store.submenu);
   const menu = useSelector<T>((store) => store.menu);
+  const user = useSelector<T>((store) => store.user);
+  console.log('user:', user);
 
   useEffect(() => {
     // set homepage varaibles
@@ -62,16 +66,16 @@ const IndexPage = () => {
         '"<-=.3>"'
       );
   }, []);
-  useEffect(() => {
-    if (!localStorage.getItem('token')) return;
 
+  useEffect(() => {
+    if (!localStorage.getItem('token') || user) return;
     axios
       .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
       .then((response) => {
-        console.log(response.data);
+        dispatch(userLogin(response.data.user));
       })
       .catch((error) => {
-        console.log(error);
+        return console.log(error);
       });
   }, []);
 
