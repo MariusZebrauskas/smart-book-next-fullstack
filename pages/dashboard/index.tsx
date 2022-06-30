@@ -65,7 +65,7 @@ const dashboard = ({ dashboardApi }: any) => {
   // login with token
   useEffect(() => {
     if (!localStorage.getItem('token') || user) return;
-    let login:any = axios
+    axios
       .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
       .then((response) => {
         dispach(userLogin(response.data.user));
@@ -73,7 +73,6 @@ const dashboard = ({ dashboardApi }: any) => {
       .catch((error) => {
         return console.log(error);
       });
-    return login;
   }, []);
 
   return (

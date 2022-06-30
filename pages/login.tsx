@@ -117,20 +117,22 @@ const login = () => {
       });
   }, []);
 
-  // login with tokens
 
-  useEffect(() => {
-    if (!localStorage.getItem('token') || user) return;
-    let login: any = axios
-      .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
-      .then((response) => {
-        dispatch(userLogin(response.data.user));
-      })
-      .catch((error) => {
-        return console.log(error);
-      });
-    return login;
-  }, []);
+  
+// login with tokens
+
+useEffect(() => {
+  if (!localStorage.getItem('token') || user) return;
+  axios
+    .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
+    .then((response) => {
+      dispatch(userLogin(response.data.user));
+    })
+    .catch((error) => {
+      return console.log(error);
+    });
+}, []);
+
 
   return (
     <main

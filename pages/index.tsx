@@ -66,13 +66,12 @@ const IndexPage = () => {
         '"<-=.3>"'
       );
   }, []);
-
-
+  
 // login with tokens
 
   useEffect(() => {
     if (!localStorage.getItem('token') || user) return;
-   let login:any = axios
+    axios
       .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
       .then((response) => {
         dispatch(userLogin(response.data.user));
@@ -80,7 +79,6 @@ const IndexPage = () => {
       .catch((error) => {
         return console.log(error);
       });
-    return login;
   }, []);
 
   return (
