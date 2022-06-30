@@ -67,12 +67,12 @@ const IndexPage = () => {
       );
   }, []);
 
-  
+
 // login with tokens
 
   useEffect(() => {
     if (!localStorage.getItem('token') || user) return;
-    axios
+   let login:any = axios
       .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
       .then((response) => {
         dispatch(userLogin(response.data.user));
@@ -80,6 +80,7 @@ const IndexPage = () => {
       .catch((error) => {
         return console.log(error);
       });
+    return login;
   }, []);
 
   return (

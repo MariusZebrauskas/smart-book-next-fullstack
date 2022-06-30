@@ -84,7 +84,6 @@ export default function faq() {
   useEffect(() => {
     // set homepage varaibles
     dispatch(faqPage());
-    console.log('page:', page);
     if (submenu) {
       dispatch(closeSubmenu());
     }
