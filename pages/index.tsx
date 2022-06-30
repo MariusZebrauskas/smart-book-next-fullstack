@@ -23,7 +23,7 @@ const IndexPage = () => {
   const submenu = useSelector<T>((store) => store.submenu);
   const menu = useSelector<T>((store) => store.menu);
   const user = useSelector<T>((store) => store.user);
-  console.log('user:', user);
+
 
   useEffect(() => {
     // set homepage varaibles
