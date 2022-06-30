@@ -7,6 +7,8 @@ import { closeSubmenu } from '../redux/submenuReducer';
 import { closeMenu } from '../redux/menuRedux';
 import gsap from 'gsap';
 import Head from 'next/head';
+import axios from 'axios';
+import { HTTP } from '../config';
 
 interface T extends DefaultRootState {
   submenu: boolean;
@@ -59,6 +61,18 @@ const IndexPage = () => {
         { opacity: 1, y: 0, duration: 0.5, stagger: 0.3 },
         '"<-=.3>"'
       );
+  }, []);
+  useEffect(() => {
+    if (!localStorage.getItem('token')) return;
+
+    axios
+      .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   return (

@@ -1,5 +1,3 @@
-
-
 const User = require('../../models/user');
 const bcrypt = require('bcrypt');
 const { loginValidation } = require('../../utils/validation');
@@ -11,16 +9,15 @@ import dbConnect from '../../utils/dbconnections';
 dbConnect();
 
 export default async (req: any, res: any) => {
-    // unhashed password
-    const myPlaintextPassword = req.body.password;
-    
-    //   Validation
-    const { error } = loginValidation(req.body);
-    if (error) return res.status(400).send({ error: error.details[0].message });
+  // unhashed password
+  const myPlaintextPassword = req.body.password;
 
-  
+  //   Validation
+  const { error } = loginValidation(req.body);
+  if (error) return res.status(400).send({ error: error.details[0].message });
+
   //   chek DB for same email!
-  const chekEmailInDB = User.findOne({ email: req.body.email }, (err:any, userFromDb:any) => {
+  const chekEmailInDB = User.findOne({ email: req.body.email }, (err: any, userFromDb: any) => {
     if (!userFromDb) {
       return res
         .status(200)
@@ -32,16 +29,18 @@ export default async (req: any, res: any) => {
       const { _id, userName, email } = userFromDb;
       const user = { userName, email };
 
-      bcrypt.compare(myPlaintextPassword, hash, function (err:any, result:any) {
+      bcrypt.compare(myPlaintextPassword, hash, function (err: any, result: any) {
         if (result) {
           // if password  is correct before login
           // create JTW token, and asign it to user
 
-          const token = jwt.sign({ _id: _id }, process.env.TOKEN_SECRET, { expiresIn: '1h' });
-          return res
-            .status(200)
-            // .header('auth-token', token)
-            .json({ user, token, message: 'you are logged in', success: true });
+          const token = jwt.sign({ _id: _id }, process.env.TOKEN_SECRET);
+          return (
+            res
+              .status(200)
+              // .header('auth-token', token)
+              .json({ user, token, message: 'you are logged in', success: true })
+          );
         } else {
           // if password is incorect return unauthorized
           return res
@@ -50,8 +49,7 @@ export default async (req: any, res: any) => {
         }
       });
     } else {
-        res.status(200).json({ success: false, err });
+      res.status(200).json({ success: false, err });
     }
-});
-
-}
+  });
+};
