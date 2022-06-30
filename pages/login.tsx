@@ -86,7 +86,6 @@ const login = () => {
           return setError(response.data.message);
         }
         let { token } = response.data;
-        sessionStorage.setItem('token', token);
         localStorage.setItem('token', token);
         dispatch(userLogin(response.data.user));
       })

@@ -35,9 +35,8 @@ const Avatar = () => {
   };
 
   const logout = () => {
-    console.log("logout")
     dispatch(userLogout());
-    sessionStorage.removeItem('token');
+    localStorage.removeItem('token');
     dispatch(closeSubmenu());
     router.push('/');
   };
