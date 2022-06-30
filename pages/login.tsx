@@ -87,6 +87,7 @@ const login = () => {
         }
         let { token } = response.data;
         sessionStorage.setItem('token', token);
+        localStorage.setItem('token', token);
         dispatch(userLogin(response.data.user));
       })
       .catch((error) => {
@@ -124,7 +125,10 @@ const login = () => {
     >
       <Head>
         <title>To-Do Login</title>
-        <meta name='description' content='todo is best for busy people to organise day rutine please login and start adding to-dos' />
+        <meta
+          name='description'
+          content='todo is best for busy people to organise day rutine please login and start adding to-dos'
+        />
       </Head>
       <h2 className='animationLogin text-lg font-semibold text-gray-700 capitalize '>
         Account Login
