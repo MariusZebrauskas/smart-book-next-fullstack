@@ -89,7 +89,7 @@ const routine = () => {
 
     // get todo data
     if (user) {
-      setToken(null || sessionStorage.getItem('token'));
+      setToken(null || localStorage.getItem('token'));
       if (token !== null) {
         axios
           .post(`${HTTP()}/api/routine`, { token: token })

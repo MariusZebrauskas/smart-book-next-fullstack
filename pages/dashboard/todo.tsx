@@ -58,7 +58,7 @@ const todo = () => {
       router.push('/login');
       return;
     }
-    setToken(null || sessionStorage.getItem('token'));
+    setToken(null || localStorage.getItem('token'));
     // get todo data
     if (user) {
       if (token !== null) {
