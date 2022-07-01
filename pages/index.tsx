@@ -10,6 +10,7 @@ import Head from 'next/head';
 import axios from 'axios';
 import { HTTP } from '../config';
 import { userLogin } from '../redux/userReducer';
+import useFetch from '../customHooks/useFetch';
 
 interface T extends DefaultRootState {
   submenu: boolean;
@@ -23,6 +24,8 @@ const IndexPage = () => {
   const submenu = useSelector<T>((store) => store.submenu);
   const menu = useSelector<T>((store) => store.menu);
   const user = useSelector<T>((store) => store.user);
+
+  const { loginHook } = useFetch();
 
   useEffect(() => {
     // set homepage varaibles
@@ -76,16 +79,15 @@ const IndexPage = () => {
       return;
     }
     if (!user && localStorage.getItem('token') !== null) {
-
-      axios
-        .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
-        .then((response) => {
-
-          dispatch(userLogin(response.data.user));
-        })
-        .catch((error) => {
-          return console.log(error);
-        });
+      loginHook();
+      //   axios
+      //     .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
+      //     .then((response) => {
+      //       dispatch(userLogin(response.data.user));
+      //     })
+      //     .catch((error) => {
+      //       return console.log(error);
+      //     });
     }
   }, []);
 

@@ -39,12 +39,6 @@ export const userLogout = () => {
 export const userReducer = (state: null | User = null, action: AllActions) => {
   switch (action.type) {
     case 'login':
-      console.log('-------------------');
-      console.log('login is happening in redux');
-      console.log('state: ', state);
-      console.log('action: ', action);
-      console.log('payload: ', action.payload);
-      console.log('-------------------');
       if (!action.payload) {
         return (state = null);
       } else {

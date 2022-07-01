@@ -16,6 +16,7 @@ import { lodingOFF, lodingON } from '../redux/loadingReducer';
 import { closeMenu } from '../redux/menuRedux';
 import gsap from 'gsap';
 import Head from 'next/head';
+import useFetch from '../customHooks/useFetch';
 
 interface T extends DefaultRootState {
   submenu: boolean;
@@ -33,6 +34,7 @@ const login = () => {
   const loading = useSelector<T>((store) => store.loading);
   const router = useRouter();
   const [error, setError] = useState<null | string>(null);
+  const { loginHook } = useFetch();
   // input value
   const [inputs, setInputs] = useState({
     email: '',
@@ -124,14 +126,7 @@ const login = () => {
       return;
     }
 
-    axios
-      .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
-      .then((response) => {
-        dispatch(userLogin(response.data.user));
-      })
-      .catch((error) => {
-        return console.log(error);
-      });
+    loginHook();
   }, []);
 
   return (

@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
 import DynamicCards from '../../components/DynamicCards';
 import { HTTP } from '../../config';
+import useFetch from '../../customHooks/useFetch';
 import { dashbordCards } from '../../objects/dasbordCards';
 import { closeMenu } from '../../redux/menuRedux';
 import { dashboardPage } from '../../redux/pageReducer';
@@ -19,7 +20,7 @@ interface T extends DefaultRootState {
 
 const dashboard = ({ dashboardApi }: any) => {
   const { data } = dashboardApi;
-
+  const { loginHook } = useFetch();
   const submenu = useSelector<T>((store) => store.submenu);
   const menu = useSelector<T>((store) => store.menu);
   const dispach = useDispatch();
@@ -71,14 +72,7 @@ const dashboard = ({ dashboardApi }: any) => {
       return;
     }
     if (!user && localStorage.getItem('token') !== null) {
-      axios
-        .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
-        .then((response) => {
-          dispach(userLogin(response.data.user));
-        })
-        .catch((error) => {
-          return console.log(error);
-        });
+      loginHook();
     }
   }, []);
 
