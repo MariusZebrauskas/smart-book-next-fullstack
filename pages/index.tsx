@@ -24,7 +24,6 @@ const IndexPage = () => {
   const menu = useSelector<T>((store) => store.menu);
   const user = useSelector<T>((store) => store.user);
 
-
   useEffect(() => {
     // set homepage varaibles
     dispatch(homePage());
@@ -66,21 +65,28 @@ const IndexPage = () => {
         '"<-=.3>"'
       );
   }, []);
-  
-// login with tokens
+
+  // login with tokens
 
   useEffect(() => {
-    if (localStorage.getItem('token') === null || user) {
+    if (localStorage.getItem('token') === null) {
       return;
     }
-    axios
-      .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
-      .then((response) => {
-        dispatch(userLogin(response.data.user));
-      })
-      .catch((error) => {
-        return console.log(error);
-      });
+    if (user) {
+      return;
+    }
+    if (!user && localStorage.getItem('token') !== null) {
+
+      axios
+        .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
+        .then((response) => {
+
+          dispatch(userLogin(response.data.user));
+        })
+        .catch((error) => {
+          return console.log(error);
+        });
+    }
   }, []);
 
   return (

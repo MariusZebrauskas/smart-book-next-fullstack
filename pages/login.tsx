@@ -123,7 +123,7 @@ const login = () => {
     if (localStorage.getItem('token') === null || user) {
       return;
     }
-    console.log('no user');
+
     axios
       .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
       .then((response) => {
