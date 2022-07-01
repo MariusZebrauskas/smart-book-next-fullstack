@@ -8,7 +8,7 @@ type Props = {
 };
 
 const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
-  const messageRef = useRef < React.LegacyRef<HTMLTextAreaElement> | null>(null);
+  const messageRef = useRef<any>(null);
   const submitDataHandler = (condision: string) => {
     if (condision === 'cancel') {
       popUpWindow('cancel');
@@ -58,7 +58,10 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
       );
   }, []);
   useEffect(() => {
-    messageRef.current?.focus();
+    if (messageRef.current != null) {
+      messageRef.current.focus();
+      // input.focus();
+    }
   }, []);
 
   return (
