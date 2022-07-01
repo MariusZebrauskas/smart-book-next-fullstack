@@ -5,8 +5,8 @@ const jwt = require('jsonwebtoken');
 export default async (req: any, res: any) => {
   const { token } = req.body;
 
-//   console.log('req:', req.body);
-//   console.log(req.method);
+  //   console.log('req:', req.body);
+  //   console.log(req.method);
   if (req.method === 'POST' && token) {
     jwt.verify(token, process.env.TOKEN_SECRET, function (err: any, decoded: any) {
       if (err) {
@@ -14,7 +14,7 @@ export default async (req: any, res: any) => {
       }
       //   validating token and getting id;
       const id = decoded._id;
-      console.log('id:', id)
+      console.log('id:', id);
 
       //   chek DB for same email!
       User.findOne({ _id: decoded._id }, (err: any, userFromDb: any) => {
@@ -29,7 +29,7 @@ export default async (req: any, res: any) => {
           const { _id, userName, email } = userFromDb;
           const user = { userName, email };
 
-          const token = jwt.sign({ _id: _id }, process.env.TOKEN_SECRET);
+          const token = jwt.sign({ _id: _id }, process.env.TOKEN_SECRET, { expiresIn: '7d' });
           return (
             res
               .status(200)

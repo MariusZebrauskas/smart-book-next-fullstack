@@ -34,7 +34,7 @@ export default async (req: any, res: any) => {
           // if password  is correct before login
           // create JTW token, and asign it to user
 
-          const token = jwt.sign({ _id: _id }, process.env.TOKEN_SECRET);
+          const token = jwt.sign({ _id: _id }, process.env.TOKEN_SECRET, { expiresIn: '7d' });
           return (
             res
               .status(200)
