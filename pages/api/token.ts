@@ -10,7 +10,11 @@ export default async (req: any, res: any) => {
   if (req.method === 'POST' && token) {
     jwt.verify(token, process.env.TOKEN_SECRET, function (err: any, decoded: any) {
       if (err) {
-        return console.log(err.message);
+        return res.status(200).json({
+          success: false,
+          error: err,
+          message: 'jwt verify error',
+        });
       }
       //   validating token and getting id;
       const id = decoded._id;
@@ -44,7 +48,11 @@ export default async (req: any, res: any) => {
   }
 
   try {
-  } catch {
-    console.log('error something went wrong');
+  } catch (err: any) {
+    return res.status(200).json({
+      success: false,
+      error: err,
+      message: 'main error',
+    });
   }
 };
