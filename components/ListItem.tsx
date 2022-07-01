@@ -12,7 +12,7 @@ import Popup from './Popup';
 
 const ListItem = ({ todo }: any) => {
   const todoList: any = useSelector<any>((store) => store.todo);
-  const [token, setToken] = useState(null || sessionStorage.getItem('token'));
+  const [token, setToken] = useState(null || localStorage.getItem('token'));
 
   const dispatch = useDispatch();
 

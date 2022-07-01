@@ -70,7 +70,9 @@ const IndexPage = () => {
 // login with tokens
 
   useEffect(() => {
-    if (!localStorage.getItem('token') || user) return;
+    if (localStorage.getItem('token') === null || user) {
+      return;
+    }
     axios
       .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
       .then((response) => {
