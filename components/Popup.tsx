@@ -12,7 +12,7 @@ type Props = {
 
 const Popup = ({ text, id }: Props) => {
   const [editeText, setEditeText] = useState(text);
-  const [token, setToken] = useState(null || sessionStorage.getItem('token'));
+  const [token, setToken] = useState(null || localStorage.getItem('token'));
 
   let dispatch = useDispatch();
 
