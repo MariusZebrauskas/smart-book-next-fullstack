@@ -21,5 +21,6 @@ export const loginValidation = (params) => {
   });
 
   // DATA VALIDATION BEFORE WORKING WITH IT
+  
   return (schema.validate(params));
 };

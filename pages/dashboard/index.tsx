@@ -62,7 +62,7 @@ const dashboard = ({ dashboardApi }: any) => {
     });
   }, []);
 
-  // login with token
+  // login with token  |
   useEffect(() => {
     if (localStorage.getItem('token') === null || user) {
       return;
