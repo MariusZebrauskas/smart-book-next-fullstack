@@ -75,7 +75,7 @@ const SearchInput = () => {
     return () => document.removeEventListener('keypress', enter);
   });
   useEffect(() => {
-    setToken(null || sessionStorage.getItem('token'));
+    setToken(null || localStorage.getItem('token'));
   }, []);
 
   return (

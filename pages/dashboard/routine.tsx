@@ -66,7 +66,7 @@ const routine = () => {
           .post(`${HTTP()}/api/update-routine`, { token: token, update: update })
           .then((response) => {
             // send db data to redux
-            console.log('response:', response);
+            //console.log('response:', response);
           })
 
           .catch((error) => {
