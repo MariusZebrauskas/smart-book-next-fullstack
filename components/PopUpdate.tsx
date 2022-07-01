@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 type Props = {
   popUpWindow: (params: any, dataFromScreen?: any) => void;
@@ -8,6 +8,7 @@ type Props = {
 };
 
 const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
+  const messageRef = useRef < React.LegacyRef<HTMLTextAreaElement> | null>(null);
   const submitDataHandler = (condision: string) => {
     if (condision === 'cancel') {
       popUpWindow('cancel');
@@ -35,7 +36,6 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
   let tlPopUp = gsap.timeline();
   // animation pop up
   useEffect(() => {
-    
     tlPopUp
       .to('.fadeInGSAP', {
         opacity: 1,
@@ -55,8 +55,10 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
           ease: 'elastic.out(1, 0.3)',
         },
         '<'
-      )
-      
+      );
+  }, []);
+  useEffect(() => {
+    messageRef.current?.focus();
   }, []);
 
   return (
@@ -130,7 +132,7 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
                   </h3>
                   <div className='mt-2'>
                     <p className='text-sm text-gray-500'>
-                      On this panel you can add, update and  delete your to-dos.
+                      On this panel you can add, update and delete your to-dos.
                     </p>
                   </div>
                 </div>
@@ -163,6 +165,7 @@ const PopUpdate = ({ popUpWindow, dataToUpdate, setDataToUpdate }: Props) => {
                   rows={3}
                   placeholder='Your message'
                   value={dataToUpdate.message || ''}
+                  ref={messageRef}
                   onChange={onChangeHandler}
                 ></textarea>
               </div>

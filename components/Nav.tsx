@@ -47,7 +47,6 @@ const Nav = () => {
     }
   };
 
-
   const opacity = (params: number, delay: number) => {
     gsap.to('.mobileMenuGsap', {
       opacity: params,
@@ -66,13 +65,11 @@ const Nav = () => {
   // menu animation
   useEffect(() => {
     if (!menu) {
-
       // scale
       scale(0, 'power4.out');
       // opacity
       opacity(0, -0.26);
     } else if (menu) {
-
       // scale
       scale(1, 'power3.out');
       // opacity
@@ -154,6 +151,7 @@ const Nav = () => {
               <LogoIcon />
               <LogoText />
             </div>
+              {/* big screen */}
             <div className='hidden sm:block sm:ml-6'>
               <div className='flex space-x-4'>
                 <Link href='/'>
@@ -288,6 +286,7 @@ const Nav = () => {
           </Link>
         </div>
       </div>
+      
     </nav>
   );
 };
