@@ -28,7 +28,7 @@ const ListItem = ({ todo }: any) => {
   let itemId = getIndex;
 
   const deleteTodo = (text: any) => {
-    if (loading) return;
+    if(loading) return;
     dispatch(lodingON());
     const onAnimationComplete = () => {
       // ++++++++++++++++++++++++++++++
@@ -67,9 +67,10 @@ const ListItem = ({ todo }: any) => {
   return (
     <li
       ref={todoRef}
-      className=' bg-gray-200  px-4 flex mb-4 justify-between py-2 border-b 
-     rounded-t-lg border-gray-600 lg:w-2/4 w-4/5 relative hover:bg-gray-300
-      
+      className=' bg-gray-200  px-4 flex mb-4 justify-between py-1 md:py-2
+      border-b drop-shadow-md
+     rounded-t-lg border-gray-300 lg:w-2/4 w-4/5 relative hover:bg-gray-300
+      hover:scale-105 ease-in-out duration-200 hover:drop-shadow-xl
       
      '
     >
