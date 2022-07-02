@@ -54,14 +54,13 @@ const ListItem = ({ todo }: any) => {
     var li = gsap.timeline({ onComplete: onAnimationComplete });
     li.to(todoRef.current, {
       y: 350,
-      color: '#dee3ed',
-      zIndex:-1,
+      background: '#dee3ed',
+      zIndex: -1,
       rotation: 7,
-      duration: 1,
+      duration: 1.5,
       delay: 0.1,
-      ease: 'power2.out',
-    })
-      .to(todoRef.current, { display: 'none',},">-0.25");
+      ease: 'none',
+    });
   };
 
   const popUpEditeTodo = (e: number) => {
