@@ -3,8 +3,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
 import { HTTP } from '../config';
 import { addNewTodo } from '../redux/todoReducer';
+import { lodingON, lodingOFF } from '..//redux/loadingReducer';
+import Spinner from './Spinner';
 
 interface T extends DefaultRootState {
+  loading: boolean;
   todo: {
     payload: {
       id: number;
@@ -16,13 +19,16 @@ interface T extends DefaultRootState {
 
 const SearchInput = () => {
   const [token, setToken] = useState<null | string>(null);
-
   const ref = useRef<HTMLInputElement>(null);
   const todo: any = useSelector<T>((store) => store.todo);
   const store = useSelector<T>((store) => store);
+  const loading = useSelector<T>((store) => store.loading);
+
   const dispach = useDispatch();
+
   // add todo
   const onClick = () => {
+    if (loading) return;
     // create new todo
     let newTodo: any = {
       id: Math.random(),
@@ -99,7 +105,7 @@ const SearchInput = () => {
             transition duration-150 ease-in-out'
             onClick={onClick}
           >
-            Add
+            {loading ? <Spinner /> : 'Add'}
           </button>
         </div>
       </div>

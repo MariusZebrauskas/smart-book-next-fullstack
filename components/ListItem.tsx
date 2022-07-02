@@ -2,17 +2,23 @@ import axios from 'axios';
 import gsap from 'gsap';
 
 import React, { useEffect, useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
 import { HTTP } from '../config';
 import { PropsTypes } from '../pages/dashboard/todo';
 import { delteTask, popUpEdite } from '../redux/todoReducer';
-
+import { lodingON, lodingOFF } from '..//redux/loadingReducer';
 import Popup from './Popup';
+import Spinner from './Spinner';
+
+interface T extends DefaultRootState {
+  loading: boolean;
+}
 
 const ListItem = ({ todo }: any) => {
   const todoList: any = useSelector<any>((store) => store.todo);
   const [token, setToken] = useState(null || localStorage.getItem('token'));
   const todoRef = useRef(null);
+  const loading = useSelector<T>((store) => store.loading);
 
   const dispatch = useDispatch();
 
@@ -22,7 +28,8 @@ const ListItem = ({ todo }: any) => {
   let itemId = getIndex;
 
   const deleteTodo = (text: any) => {
-
+    if (loading) return;
+    dispatch(lodingON());
     const onAnimationComplete = () => {
       // ++++++++++++++++++++++++++++++
       //argument text is object, because it is set up in redux i cant change it to new name
@@ -35,13 +42,15 @@ const ListItem = ({ todo }: any) => {
           })
           .catch((error) => {
             console.log(error);
+          })
+          .finally(() => {
+            // send obj to redux wich need to find and delte obj
+            dispatch(delteTask(text));
+            dispatch(lodingOFF());
           });
       }
-
-      // send obj to redux wich need to find and delte obj
-      // removed function witch delete from redux
-      //dispatch(delteTask(text));
     };
+
     var li = gsap.timeline({ onComplete: onAnimationComplete });
     li.to(todoRef.current, { y: 150, duration: 1.3, ease: 'power3.out' })
       .to(todoRef.current, { rotation: 5, duration: 3, ease: 'power3.out' }, '-=1.2')
@@ -77,7 +86,7 @@ const ListItem = ({ todo }: any) => {
           // onClick={() => deleteTodo(todo.text)}
           onClick={() => deleteTodo(todo)}
         >
-          X
+          {loading ? <Spinner /> : 'X'}
         </span>
       )}
       {todoList[itemId] && todoList[itemId].edite === true ? (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/Header';
 import ListItem from '../../components/ListItem';
@@ -40,13 +40,12 @@ type Todo = {
   compleated: boolean;
   edite: boolean;
 };
-// FIXME: protect route / make redirect
+
 const todo = () => {
   // redux variables
   const dispatch = useDispatch();
   const submenu = useSelector<T>((store) => store.submenu);
   const todo: any = useSelector<T>((store) => store.todo);
-
   const user = useSelector<T>((store) => store.user);
   const router = useRouter();
   const [token, setToken] = useState<null | string>(null);
@@ -105,7 +104,7 @@ const todo = () => {
       </Head>
       <Header />
       <div className=' flex justify-center flex-col mb-40 w-full'>
-        <AddTodo />
+        <AddTodo  />
 
         <ul
           ref={listRef}
