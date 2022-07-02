@@ -53,13 +53,14 @@ const ListItem = ({ todo }: any) => {
 
     var li = gsap.timeline({ onComplete: onAnimationComplete });
     li.to(todoRef.current, {
-      y: 350,
+      y: 500,
       background: '#dee3ed',
       zIndex: -1,
       rotation: 7,
-      duration: 1.5,
+      duration: 2.5,
       delay: 0.1,
-      ease: 'none',
+      opacity: 0,
+      ease: 'power2.out',
     });
   };
 

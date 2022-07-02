@@ -57,4 +57,8 @@
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
+
+.margin-bottom-small-screen {
+  margin-bottom: 25rem;
+}
 /*# sourceMappingURL=globals.css.map */

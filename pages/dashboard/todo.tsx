@@ -104,13 +104,15 @@ const todo = () => {
       </Head>
       <Header />
       <div className=' flex justify-center flex-col mb-40 w-full'>
-        <AddTodo  />
+        <AddTodo />
 
         <ul
           ref={listRef}
           className='text-sm font-medium text-gray-900  border-gray-200 
       rounded-lg   
-      mb-20 flex justify-center flex-col items-center
+      md:mb-20 flex justify-center flex-col items-center
+      margin-bottom-small-screen
+      
       '
         >
           {todo &&
