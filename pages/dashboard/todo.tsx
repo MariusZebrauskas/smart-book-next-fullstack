@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/Header';
 import ListItem from '../../components/ListItem';
@@ -50,6 +50,7 @@ const todo = () => {
   const user = useSelector<T>((store) => store.user);
   const router = useRouter();
   const [token, setToken] = useState<null | string>(null);
+  let listRef = useRef<any>(null);
 
   // on page loads
   useEffect(() => {
@@ -87,6 +88,12 @@ const todo = () => {
     }
   };
 
+  useEffect(() => {
+    // on load fade in list
+    let listTimeline = gsap.timeline();
+    listTimeline.fromTo(listRef.current, { opacity: 0 }, { opacity: 1, delay: 0.3 });
+  }, []);
+
   return (
     <main className='relative' onMouseEnter={onMouseEnter}>
       <Head>
@@ -101,6 +108,7 @@ const todo = () => {
         <AddTodo />
 
         <ul
+          ref={listRef}
           className='text-sm font-medium text-gray-900  border-gray-200 
       rounded-lg   
       mb-20 flex justify-center flex-col items-center
