@@ -54,8 +54,6 @@ const ListItem = ({ todo }: any) => {
     var li = gsap.timeline({ onComplete: onAnimationComplete });
     li.to(todoRef.current, {
       y: 500,
-      background: '#dee3ed',
-      zIndex: -1,
       rotation: 7,
       duration: 2.5,
       delay: 0.1,
