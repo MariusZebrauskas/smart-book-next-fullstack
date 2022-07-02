@@ -28,7 +28,7 @@ const ListItem = ({ todo }: any) => {
   let itemId = getIndex;
 
   const deleteTodo = (text: any) => {
-    if(loading) return;
+    if (loading) return;
     dispatch(lodingON());
     const onAnimationComplete = () => {
       // ++++++++++++++++++++++++++++++
@@ -52,10 +52,16 @@ const ListItem = ({ todo }: any) => {
     };
 
     var li = gsap.timeline({ onComplete: onAnimationComplete });
-    li.to(todoRef.current, { y: 150, duration: 1.3, ease: 'power3.out' })
-      .to(todoRef.current, { rotation: 5, duration: 3, ease: 'power3.out' }, '-=1.2')
-      .to(todoRef.current, { opacity: '0', duration: 0.3, ease: 'power3.out' }, '-=2.7')
-      .to(todoRef.current, { display: 'none', duration: 0.3, ease: 'power3.out' }, '<');
+    li.to(todoRef.current, {
+      y: 350,
+      color: '#dee3ed',
+      
+      rotation: 7,
+      duration: 1,
+      delay: 0.1,
+      ease: 'power2.out',
+    })
+      .to(todoRef.current, { display: 'none',},">-0.25");
   };
 
   const popUpEditeTodo = (e: number) => {
@@ -70,7 +76,7 @@ const ListItem = ({ todo }: any) => {
       className=' bg-gray-200  px-4 flex mb-4 justify-between py-1 md:py-2
       border-b md:drop-shadow-md
      rounded-t-lg border-gray-300 lg:w-2/4 w-4/5 relative hover:bg-gray-300
-      hover:scale-105 ease-in-out duration-200 md:hover:drop-shadow-xl
+      md:hover:scale-105 ease-in-out duration-200 md:hover:drop-shadow-xl
       
      '
     >
