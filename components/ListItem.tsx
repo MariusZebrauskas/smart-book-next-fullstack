@@ -55,7 +55,7 @@ const ListItem = ({ todo }: any) => {
     li.to(todoRef.current, {
       y: 350,
       color: '#dee3ed',
-      
+      zIndex:-1,
       rotation: 7,
       duration: 1,
       delay: 0.1,
