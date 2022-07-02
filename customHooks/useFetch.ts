@@ -21,9 +21,7 @@ const useFetch = () => {
       return;
     }
     dispatch(lodingON());
-    console.log('---------------------');
-    console.log('custom hook');
-    console.log('token: ', localStorage.getItem('token'));
+
 
     if (!user && localStorage.getItem('token') !== null) {
       axios
@@ -37,7 +35,6 @@ const useFetch = () => {
         })
         .finally(() => {
           dispatch(lodingOFF());
-          console.log('---------------------');
         });
     }
   };
