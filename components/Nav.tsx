@@ -17,18 +17,20 @@ import { User } from '../redux/userReducer';
 import LogoIcon from './LogoIcon';
 import LogoText from './LogoText';
 import { closeSubmenu } from '../redux/submenuReducer';
+import Spinner from './Spinner';
 interface T extends DefaultRootState {
   menu: boolean;
   submenu: boolean;
   page: string;
   user: null | User;
+  loading: boolean;
 }
 const Nav = () => {
   // redux states
   const menu = useSelector<T>((store) => store.menu);
   const page = useSelector<T>((store) => store.page);
   const user = useSelector<T>((store) => store.user);
-
+  const loading = useSelector<T>((store) => store.loading);
   //   dispach function
   const dispatch = useDispatch();
 
@@ -151,7 +153,7 @@ const Nav = () => {
               <LogoIcon />
               <LogoText />
             </div>
-              {/* big screen */}
+            {/* big screen */}
             <div className='hidden sm:block sm:ml-6'>
               <div className='flex space-x-4'>
                 <Link href='/'>
@@ -221,7 +223,7 @@ const Nav = () => {
           dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700
           dark:hover:border-gray-600 dark:focus:ring-gray-700  '
               >
-                Login
+                {loading ? <Spinner /> : "Login"}
               </button>
             </Link>
           )}
@@ -286,7 +288,6 @@ const Nav = () => {
           </Link>
         </div>
       </div>
-      
     </nav>
   );
 };

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { HTTP } from '../config';
 import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
 import { userLogin } from '../redux/userReducer';
-
+import { lodingON, lodingOFF } from '..//redux/loadingReducer';
 interface T extends DefaultRootState {
   submenu: boolean;
   menu: boolean;
@@ -20,22 +20,25 @@ const useFetch = () => {
     if (user) {
       return;
     }
-    console.log("---------------------")
-    console.log("custom hook")
-    console.log("token: ", localStorage.getItem('token'))
-    
+    dispatch(lodingON());
+    console.log('---------------------');
+    console.log('custom hook');
+    console.log('token: ', localStorage.getItem('token'));
+
     if (!user && localStorage.getItem('token') !== null) {
       axios
         .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
         .then((response) => {
-          console.log('response:', response)
+          console.log('response:', response);
           dispatch(userLogin(response.data.user));
         })
         .catch((error) => {
           return console.log(error);
-        }).finally(() => {
-            console.log("---------------------")
         })
+        .finally(() => {
+          dispatch(lodingOFF());
+          console.log('---------------------');
+        });
     }
   };
   return { loginHook };
