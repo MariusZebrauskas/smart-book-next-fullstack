@@ -20,15 +20,22 @@ const useFetch = () => {
     if (user) {
       return;
     }
+    console.log("---------------------")
+    console.log("custom hook")
+    console.log("token: ", localStorage.getItem('token'))
+    
     if (!user && localStorage.getItem('token') !== null) {
       axios
         .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
         .then((response) => {
+          console.log('response:', response)
           dispatch(userLogin(response.data.user));
         })
         .catch((error) => {
           return console.log(error);
-        });
+        }).finally(() => {
+            console.log("---------------------")
+        })
     }
   };
   return { loginHook };
