@@ -78,13 +78,14 @@ const todo = () => {
           .catch((error) => {
             console.log(error);
           })
+          // loading all elements on screen
+          // screen animation
           .then(() => {
-            // loading all elements on screen
             if (listLoaded) return;
-            // big screen animation
             let listTimeline = gsap.timeline({
               onComplete: () => {
                 dispatch(loadList());
+                dispatch(lodingOFF());
               },
             });
 
@@ -115,11 +116,10 @@ const todo = () => {
                 }
               );
             }
-            // dispatch(lodingOFF());
           })
           .finally(() => {
             // remove loading
-            dispatch(lodingOFF());
+            // dispatch(lodingOFF());
           });
       }
 
