@@ -13,6 +13,8 @@ import { useRouter } from 'next/router';
 import gsap from 'gsap';
 import Head from 'next/head';
 import { closeList, loadList } from '../../redux/listInitialLoadReducer';
+import Spinner from '../../components/Spinner';
+import { lodingOFF, lodingON } from '../../redux/loadingReducer';
 
 interface T extends DefaultRootState {
   submenu: boolean;
@@ -56,6 +58,7 @@ const todo = () => {
 
   // on page loads
   useEffect(() => {
+    dispatch(lodingON());
     // if no user redirect to login
     if (!user) {
       router.push('/login');
@@ -112,6 +115,11 @@ const todo = () => {
                 }
               );
             }
+            // dispatch(lodingOFF());
+          })
+          .finally(() => {
+            // remove loading
+            dispatch(lodingOFF());
           });
       }
 

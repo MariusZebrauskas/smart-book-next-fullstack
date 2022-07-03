@@ -11,7 +11,6 @@ const Footer = () => {
 
   return (
     <footer
-      // style={{ zIndex: '100000' }}
       className={
         page === 'todo'
           ? 'footerMarginDashboard bg-gray-800 '
