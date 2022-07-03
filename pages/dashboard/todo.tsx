@@ -85,13 +85,13 @@ const todo = () => {
             });
             listTimeline.fromTo(
               listRef.current.children,
-              { opacity: 0, y: '400' },
+              { opacity: 0, y: '200' },
               {
                 opacity: 1,
                 y: 0,
-                stagger: .2,
+                stagger: 0.25,
                 duration: 3,
-                ease: 'elastic.out(1, 0.3)',
+                ease: 'elastic.out(1, 1)',
               }
             );
           });
