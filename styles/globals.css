@@ -25,16 +25,6 @@
   position: relative;
 }
 
-@media (min-width: 912px) {
-  .footerMarginDashboard {
-    margin-top: 10rem;
-    position: -webkit-sticky;
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-  }
-}
-
 @media (min-height: 1000px) {
   .dasboard-footer {
     position: absolute;

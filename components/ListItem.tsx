@@ -89,7 +89,8 @@ const ListItem = ({ todo }: any) => {
       </span>
       {todoList[itemId].edite === false && (
         <span
-          className=' cursor-pointer px-2.5 py-2 text-base flex justify-center items-center  '
+          className=' cursor-pointer px-2.5 py-2 text-base flex justify-center 
+          items-center  '
           style={{ color: '#111827' }}
           // onClick={() => deleteTodo(todo.text)}
           onClick={() => deleteTodo(todo)}

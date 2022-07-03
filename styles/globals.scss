@@ -25,13 +25,7 @@
 
 .footerMarginDashboard {
   position: relative;
-  @media (min-width: 912px) {
-    margin-top: 10rem;
-    position: sticky;
-
-    bottom: 0;
-    width: 100%;
-  }
+  
 }
 .dasboard-footer {
   @media (min-height: 1000px) {
