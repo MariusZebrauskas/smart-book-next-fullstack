@@ -26,9 +26,11 @@ const Footer = () => {
     >
       <div className='container px-6 py-8 mx-auto fotterWithOnUltraWide'>
         <div className='text-center'>
-          <a href='#' className='text-2xl font-bold text-white hover:text-gray-300'>
-            SmartBook
-          </a>
+          <Link href="/dashboard">
+            <a  className='text-2xl font-bold text-white hover:text-gray-300'>
+              SmartBook
+            </a>
+          </Link>
 
           <p className='max-w-md mx-auto mt-2 text-gray-400'>
             Easy to use to-do and routine application.
