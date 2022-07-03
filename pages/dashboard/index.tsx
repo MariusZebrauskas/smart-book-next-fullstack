@@ -4,6 +4,7 @@ import Head from 'next/head';
 import React, { useEffect } from 'react';
 import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
 import DynamicCards from '../../components/DynamicCards';
+import Spinner from '../../components/Spinner';
 import { HTTP } from '../../config';
 import useFetch from '../../customHooks/useFetch';
 import { dashbordCards } from '../../objects/dasbordCards';
@@ -75,6 +76,12 @@ const dashboard = ({ dashboardApi }: any) => {
       loginHook();
     }
   }, []);
+
+  if (data.length === 0) {
+    <div className=' min-h-screen w-full mx-auto flex justify-center items-center'>
+      <Spinner />
+    </div>;
+  }
 
   return (
     <section onMouseEnter={onMouseEnter} className='w-full flex justify-center items-center   '>

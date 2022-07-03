@@ -6,6 +6,7 @@ import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
 import Day from '../../components/Day';
 import PopUpdate from '../../components/PopUpdate';
 import RoutineHeader from '../../components/RoutineHeader';
+import Spinner from '../../components/Spinner';
 import { HTTP } from '../../config';
 import { sevenDays } from '../../objects/sevendays';
 import { routinePage } from '../../redux/pageReducer';
@@ -114,7 +115,13 @@ const routine = () => {
   // FIXME:POP UP ANIMATION
   // padaryti use EFFECT LOGIKA PAGAL POP UP VARIABLE
   // padaryti HOME ANIMATION BISKI KITAIP NEREIKIA STAGGER LIST DARYTI
-
+  if (days.length === 0) {
+    return (
+      <div className=' min-h-screen w-full mx-auto flex justify-center items-center'>
+        <Spinner />
+      </div>
+    );
+  }
   return (
     <main>
       <Head>
