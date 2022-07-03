@@ -16,6 +16,7 @@ interface T extends DefaultRootState {
 }
 
 const ListItem = ({ todo }: any) => {
+  console.log('todo:', todo);
   const todoList: any = useSelector<any>((store) => store.todo);
   const [token, setToken] = useState(null || localStorage.getItem('token'));
   const todoRef = useRef(null);
@@ -61,10 +62,11 @@ const ListItem = ({ todo }: any) => {
       delay: 0.1,
       opacity: 0,
       ease: 'power2.out',
-    })
+    });
   };
 
   const popUpEditeTodo = (e: number) => {
+    if (loading) return;
     // get correct id
     //
     return dispatch(popUpEdite(e));
@@ -79,6 +81,7 @@ const ListItem = ({ todo }: any) => {
       md:hover:scale-105 ease-in-out duration-200 md:hover:drop-shadow-xl
       opacity-0
       ${listLoaded ? 'opacity-100' : 'opacity-0'}
+      ${todo.edite ? 'md:hover:scale-100' : 'md:hover:scale-105'}
       `}
     >
       <span
