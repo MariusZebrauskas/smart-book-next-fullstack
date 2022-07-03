@@ -90,7 +90,7 @@ const todo = () => {
             if (document.body.clientWidth < 768) {
               listTimeline.fromTo(
                 listRef.current.children,
-                { opacity: 0, y: '0' },
+                { opacity: 0, y: '.5' },
                 {
                   opacity: 1,
                   y: 0,
