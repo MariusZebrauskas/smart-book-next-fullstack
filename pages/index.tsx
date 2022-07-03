@@ -80,14 +80,6 @@ const IndexPage = () => {
     }
     if (!user && localStorage.getItem('token') !== null) {
       loginHook();
-      //   axios
-      //     .post(`${HTTP()}/api/token`, { token: localStorage.getItem('token') })
-      //     .then((response) => {
-      //       dispatch(userLogin(response.data.user));
-      //     })
-      //     .catch((error) => {
-      //       return console.log(error);
-      //     });
     }
   }, []);
 

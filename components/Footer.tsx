@@ -9,17 +9,18 @@ const date = new Date();
 const Footer = () => {
   const page = useSelector<T>((state) => state.page);
 
-
   return (
     <footer
+      style={{ zIndex: '100000' }}
       className={
-        page === 'todo' 
+        page === 'todo'
           ? 'footerMarginDashboard bg-gray-800 '
           : page === 'contact' || page === 'unknown'
           ? 'footerMarginContact bg-gray-800 '
           : page === 'faq'
           ? 'mt-0 bg-gray-800'
-          : page === 'dashboard'? "dasboard-footer bg-gray-800 "
+          : page === 'dashboard'
+          ? 'dasboard-footer bg-gray-800 '
           : 'bg-gray-800 mt-20'
       }
     >
@@ -32,7 +33,6 @@ const Footer = () => {
           <p className='max-w-md mx-auto mt-2 text-gray-400'>
             Easy to use to-do and routine application.
           </p>
-          
         </div>
 
         <hr className='my-10 border-gray-700' />
@@ -44,10 +44,16 @@ const Footer = () => {
           <nav>
             <li className='list-none flex items-center flex-col  justify-center '>
               <p className='max-w-md   text-gray-400 '>
-                Do you need a website to grow your own business ?   
+                Do you need a website to grow your own business ?
               </p>
-              
-              <a className=' text-blue-300  hover:text-yellow-300' target="_blank"  href='http://www.developer-js.com'>www.developer-js.com</a>
+
+              <a
+                className=' text-blue-300  hover:text-yellow-300'
+                target='_blank'
+                href='http://www.developer-js.com'
+              >
+                www.developer-js.com
+              </a>
             </li>
           </nav>
         </div>

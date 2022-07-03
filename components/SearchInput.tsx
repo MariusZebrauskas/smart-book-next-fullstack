@@ -100,8 +100,13 @@ const SearchInput = () => {
           />
           <button
             type='button'
-            className='px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight 
-            uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 
+            className='px-6 py-2 border-2 border-slate-100 text-gray-800 
+            font-medium text-xs leading-tight 
+            bg-white
+            uppercase rounded 
+            hover:bg-opacity-5 focus:outline-none 
+            focus:ring-0 
+            hover:text-white
             transition duration-150 ease-in-out'
             onClick={onClick}
           >

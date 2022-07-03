@@ -24,6 +24,10 @@
 @media (min-width: 912px) {
   .footerMarginDashboard {
     margin-top: 10rem;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
   }
 }
 

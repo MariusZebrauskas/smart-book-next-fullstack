@@ -60,9 +60,8 @@ const ListItem = ({ todo }: any) => {
       duration: 2.5,
       delay: 0.1,
       opacity: 0,
-      zIndex: -1,
       ease: 'power2.out',
-    });
+    })
   };
 
   const popUpEditeTodo = (e: number) => {
@@ -79,9 +78,8 @@ const ListItem = ({ todo }: any) => {
      rounded-t-lg border-gray-300 lg:w-2/4 w-4/5 relative hover:bg-gray-300
       md:hover:scale-105 ease-in-out duration-200 md:hover:drop-shadow-xl
       opacity-0
-      ${listLoaded ? "opacity-100": "opacity-0"}
+      ${listLoaded ? 'opacity-100' : 'opacity-0'}
       `}
-     
     >
       <span
         onClick={() => popUpEditeTodo(itemId)}

@@ -84,10 +84,9 @@ const todo = () => {
                 dispatch(loadList());
               },
             });
-            console.log('-----------------------------');
-            console.dir(document.body.clientWidth > 768 );
-            console.log('-----------------------------');
+
             if (document.body.clientWidth < 768) {
+              // mobile animation
               listTimeline.fromTo(
                 listRef.current.children,
                 { opacity: 0, y: '.5' },
@@ -96,10 +95,11 @@ const todo = () => {
                   y: 0,
                   stagger: 0.2,
                   duration: 2,
-                  ease: "power4.out",
+                  ease: 'power4.out',
                 }
               );
             } else {
+              // desktop animation
               listTimeline.fromTo(
                 listRef.current.children,
                 { opacity: 0, y: '200' },
@@ -137,7 +137,7 @@ const todo = () => {
   }, []);
 
   return (
-    <main className='relative' onMouseEnter={onMouseEnter}>
+    <main className='relative bg-gray-900 min-h-screen' onMouseEnter={onMouseEnter}>
       <Head>
         <title>Smart book - to-do</title>
         <meta
@@ -146,7 +146,7 @@ const todo = () => {
         />
       </Head>
       <Header />
-      <div className=' flex justify-center flex-col mb-40 w-full'>
+      <div className=' flex justify-center flex-col  w-full'>
         <AddTodo />
 
         <ul
@@ -154,6 +154,7 @@ const todo = () => {
           className='text-sm font-medium text-gray-900  border-gray-200 
       rounded-lg   
       mb-20 flex justify-center flex-col items-center
+      
       '
         >
           {todo &&
