@@ -12,10 +12,12 @@ import { HTTP } from '../../config';
 import { useRouter } from 'next/router';
 import gsap from 'gsap';
 import Head from 'next/head';
+import { closeList, loadList } from '../../redux/listInitialLoadReducer';
 
 interface T extends DefaultRootState {
   submenu: boolean;
   user: any;
+  listLoaded: boolean;
   todo: {
     payload: {
       id: number;
@@ -47,6 +49,7 @@ const todo = () => {
   const submenu = useSelector<T>((store) => store.submenu);
   const todo: any = useSelector<T>((store) => store.todo);
   const user = useSelector<T>((store) => store.user);
+  const listLoaded = useSelector<T>((store) => store.listLoaded);
   const router = useRouter();
   const [token, setToken] = useState<null | string>(null);
   let listRef = useRef<any>(null);
@@ -71,6 +74,26 @@ const todo = () => {
 
           .catch((error) => {
             console.log(error);
+          })
+          .then(() => {
+            // loading all elements on screen
+            if (listLoaded) return;
+            let listTimeline = gsap.timeline({
+              onComplete: () => {
+                dispatch(loadList());
+              },
+            });
+            listTimeline.fromTo(
+              listRef.current.children,
+              { opacity: 0, y: '400' },
+              {
+                opacity: 1,
+                y: 0,
+                stagger: .2,
+                duration: 3,
+                ease: 'elastic.out(1, 0.3)',
+              }
+            );
           });
       }
 
@@ -88,9 +111,10 @@ const todo = () => {
   };
 
   useEffect(() => {
-    // on load fade in list
-    let listTimeline = gsap.timeline();
-    listTimeline.fromTo(listRef.current, { opacity: 0 }, { opacity: 1, delay: 0.3 });
+    // reset loding animation of the list
+    return () => {
+      dispatch(closeList());
+    };
   }, []);
 
   return (

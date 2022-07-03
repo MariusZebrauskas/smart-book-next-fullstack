@@ -12,6 +12,7 @@ import Spinner from './Spinner';
 
 interface T extends DefaultRootState {
   loading: boolean;
+  listLoaded: boolean;
 }
 
 const ListItem = ({ todo }: any) => {
@@ -19,6 +20,7 @@ const ListItem = ({ todo }: any) => {
   const [token, setToken] = useState(null || localStorage.getItem('token'));
   const todoRef = useRef(null);
   const loading = useSelector<T>((store) => store.loading);
+  const listLoaded = useSelector<T>((store) => store.listLoaded);
 
   const dispatch = useDispatch();
 
@@ -72,12 +74,14 @@ const ListItem = ({ todo }: any) => {
   return (
     <li
       ref={todoRef}
-      className=' bg-gray-200  px-4 flex mb-4 justify-between py-1 md:py-2
+      className={`bg-gray-200  px-4 flex mb-4 justify-between py-1 md:py-2
       border-b md:drop-shadow-md
      rounded-t-lg border-gray-300 lg:w-2/4 w-4/5 relative hover:bg-gray-300
-      md:hover:scale-105 ease-in-out duration-200 md:hover:drop-shadow-xl 
-      
-     '
+      md:hover:scale-105 ease-in-out duration-200 md:hover:drop-shadow-xl
+      opacity-0
+      ${listLoaded ? "opacity-100": "opacity-0"}
+      `}
+     
     >
       <span
         onClick={() => popUpEditeTodo(itemId)}
