@@ -1,6 +1,10 @@
 const TodoList = require('../../models/todo');
 const jwt = require('jsonwebtoken');
 
+import dbConnect from '../../utils/dbconnections';
+
+dbConnect();
+
 export default async (req: any, res: any) => {
   // declear token
   let token = req.body.token;

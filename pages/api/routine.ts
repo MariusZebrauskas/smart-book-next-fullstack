@@ -1,6 +1,10 @@
 const jwt = require('jsonwebtoken');
 const Routine = require('../../models/routine');
 
+import dbConnect from '../../utils/dbconnections';
+
+dbConnect();
+
 export default async (req: any, res: any) => {
   const { method } = req;
 
