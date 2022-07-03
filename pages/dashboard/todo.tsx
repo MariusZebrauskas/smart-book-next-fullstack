@@ -134,9 +134,7 @@ const todo = () => {
           ref={listRef}
           className='text-sm font-medium text-gray-900  border-gray-200 
       rounded-lg   
-      md:mb-20 flex justify-center flex-col items-center
-      margin-bottom-small-screen
-      
+      mb-20 flex justify-center flex-col items-center
       '
         >
           {todo &&
