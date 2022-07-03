@@ -28,7 +28,7 @@
 }
 
 @media (min-height: 1000px) {
-  .footerMarginDashboard {
+  .dasboard-footer {
     position: absolute;
     bottom: 0;
     width: 100%;

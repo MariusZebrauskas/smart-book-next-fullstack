@@ -78,22 +78,40 @@ const todo = () => {
           .then(() => {
             // loading all elements on screen
             if (listLoaded) return;
+            // big screen animation
             let listTimeline = gsap.timeline({
               onComplete: () => {
                 dispatch(loadList());
               },
             });
-            listTimeline.fromTo(
-              listRef.current.children,
-              { opacity: 0, y: '200' },
-              {
-                opacity: 1,
-                y: 0,
-                stagger: 0.25,
-                duration: 3,
-                ease: 'elastic.out(1, 1)',
-              }
-            );
+            console.log('-----------------------------');
+            console.dir(document.body.clientWidth > 768 );
+            console.log('-----------------------------');
+            if (document.body.clientWidth < 768) {
+              listTimeline.fromTo(
+                listRef.current.children,
+                { opacity: 0, y: '0' },
+                {
+                  opacity: 1,
+                  y: 0,
+                  stagger: 0.2,
+                  duration: 2,
+                  ease: "power4.out",
+                }
+              );
+            } else {
+              listTimeline.fromTo(
+                listRef.current.children,
+                { opacity: 0, y: '200' },
+                {
+                  opacity: 1,
+                  y: 0,
+                  stagger: 0.25,
+                  duration: 3,
+                  ease: 'elastic.out(1, .4)',
+                }
+              );
+            }
           });
       }
 
@@ -112,6 +130,7 @@ const todo = () => {
 
   useEffect(() => {
     // reset loding animation of the list
+
     return () => {
       dispatch(closeList());
     };

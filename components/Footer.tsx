@@ -13,12 +13,13 @@ const Footer = () => {
   return (
     <footer
       className={
-        page === 'dashboard' || page === 'todo' 
+        page === 'todo' 
           ? 'footerMarginDashboard bg-gray-800 '
           : page === 'contact' || page === 'unknown'
           ? 'footerMarginContact bg-gray-800 '
           : page === 'faq'
           ? 'mt-0 bg-gray-800'
+          : page === 'dashboard'? "dasboard-footer bg-gray-800 "
           : 'bg-gray-800 mt-20'
       }
     >
