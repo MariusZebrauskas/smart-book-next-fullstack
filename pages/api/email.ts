@@ -45,11 +45,11 @@ export default async (req: any, res: any) => {
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
   }
   try {
-    sendEmail().catch(console.error);
+    sendEmail().catch((err) => {
+      res.status(404).json({ success: false, err: err.message, message: 'Email not been sent' });
+    });
     res.status(200).json({ success: true, message: 'Email has been send succesfuly' });
   } catch (err: any) {
-    res.status(404).json({ success: false });
-
-    res.status(200).json({ success: false, err: err.message, message: 'Email not been sent' });
+    res.status(404).json({ success: false, err: err.message, message: 'Email not been sent' });
   }
 };
