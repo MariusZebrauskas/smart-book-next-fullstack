@@ -23,7 +23,7 @@ export default async (req: any, res: any) => {
         user: testAccount.user,
         pass: testAccount.pass,
       },
-      secure: true, // true for 465, false for other ports
+      secure: true, // true for 465, false for other  || ports
       tls: {
         rejectUnauthorized: false,
       },
