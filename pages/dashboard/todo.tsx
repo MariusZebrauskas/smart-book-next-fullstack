@@ -134,8 +134,8 @@ const todo = () => {
     }
   };
 
+  // reset loding animation of the list
   useEffect(() => {
-    // reset loding animation of the list
 
     return () => {
       dispatch(closeList());

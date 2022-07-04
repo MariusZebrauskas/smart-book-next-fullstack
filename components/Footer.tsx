@@ -1,16 +1,45 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { DefaultRootState, useSelector } from 'react-redux';
-
+import gsap from 'gsap';
 interface T extends DefaultRootState {
   page: string;
 }
 const date = new Date();
 const Footer = () => {
   const page = useSelector<T>((state) => state.page);
+  const fotterRef = useRef(null);
+  
+  // fade in on loading and unmounting animations
+  useEffect(() => {
+    let fadeInTimeline = gsap.timeline();
+    console.log(fotterRef.current);
+    fadeInTimeline.fromTo(
+      fotterRef.current,
+      {
+        opacity: 0,
+        y: page !== 'faq' ? 200 : 10,
+      },
+      { delay: page === 'faq' ? 0.35 : 1, opacity: 1, y: 0 }
+    );
+    return () => {
+      let fadeInTimeline = gsap.timeline();
+
+      console.log(fotterRef.current);
+      fadeInTimeline.fromTo(
+        fotterRef.current,
+        {
+          opacity: 1,
+        },
+        { opacity: 0, duration: 0, delay: page === 'faq' ? 0.5 : 0 }
+      );
+    };
+  }, [page]);
 
   return (
     <footer
+      style={{ opacity: 0 }}
+      ref={fotterRef}
       className={
         page === 'todo'
           ? 'footerMarginDashboard bg-gray-800 '
@@ -25,10 +54,8 @@ const Footer = () => {
     >
       <div className='container px-6 py-8 mx-auto fotterWithOnUltraWide'>
         <div className='text-center'>
-          <Link href="/dashboard">
-            <a  className='text-2xl font-bold text-white hover:text-gray-300'>
-              SmartBook
-            </a>
+          <Link href='/dashboard'>
+            <a className='text-2xl font-bold text-white hover:text-gray-300'>SmartBook</a>
           </Link>
 
           <p className='max-w-md mx-auto mt-2 text-gray-400'>
