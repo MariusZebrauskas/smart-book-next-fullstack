@@ -17,7 +17,9 @@ interface T extends DefaultRootState {
   };
 }
 
-const SearchInput = () => {
+const SearchInput: React.FC<{
+  setRerenderIfAddedElement?: React.Dispatch<React.SetStateAction<number>>;
+}> = ({ setRerenderIfAddedElement }) => {
   const [token, setToken] = useState<null | string>(null);
   const ref = useRef<HTMLInputElement>(null);
   const todo: any = useSelector<T>((store) => store.todo);
@@ -54,6 +56,10 @@ const SearchInput = () => {
 
     // pass new todo to redux
     dispach(addNewTodo({ newTodo: newTodo }));
+    // trigger rerender
+    if (setRerenderIfAddedElement) {
+      setRerenderIfAddedElement((prev: number) => prev + 1);
+    }
 
     // clean input value
     if (ref.current) {

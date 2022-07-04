@@ -55,6 +55,8 @@ const todo = () => {
   const router = useRouter();
   const [token, setToken] = useState<null | string>(null);
   let listRef = useRef<any>(null);
+  const [rerenderIfAddedElement, setRerenderIfAddedElement] = useState(0);
+  const [rerender, SetRerender] = useState(0);
 
   // on page loads
   useEffect(() => {
@@ -116,10 +118,6 @@ const todo = () => {
                 }
               );
             }
-          })
-          .finally(() => {
-            // remove loading
-            // dispatch(lodingOFF());
           });
       }
 
@@ -144,6 +142,28 @@ const todo = () => {
     };
   }, []);
 
+  // add new element animation
+  useEffect(() => {
+    if (rerenderIfAddedElement > 0) {
+      dispatch(lodingON());
+      console.dir(listRef.current.lastChild);
+      let lastElementTimeLIne = gsap.timeline({
+        onComplete: () => {
+          SetRerender((prev) => prev + 1);
+          dispatch(lodingOFF());
+        },
+      });
+      lastElementTimeLIne.fromTo(
+        listRef.current.lastChild,
+        {
+          scale: 0.9,
+          y: 200,
+        },
+        { y: 0, scale: 1, duration: 2.5, ease: 'elastic.out(1, 0.3)' }
+      );
+    }
+  }, [rerenderIfAddedElement]);
+
   return (
     <main className='relative bg-gray-900 min-h-screen' onMouseEnter={onMouseEnter}>
       <Head>
@@ -155,7 +175,7 @@ const todo = () => {
       </Head>
       <Header />
       <div className=' flex justify-center flex-col  w-full'>
-        <AddTodo />
+        <AddTodo setRerenderIfAddedElement={setRerenderIfAddedElement} />
 
         <ul
           ref={listRef}

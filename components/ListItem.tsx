@@ -16,7 +16,6 @@ interface T extends DefaultRootState {
 }
 
 const ListItem = ({ todo }: any) => {
-  console.log('todo:', todo);
   const todoList: any = useSelector<any>((store) => store.todo);
   const [token, setToken] = useState(null || localStorage.getItem('token'));
   const todoRef = useRef(null);
