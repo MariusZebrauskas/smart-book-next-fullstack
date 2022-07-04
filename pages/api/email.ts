@@ -41,7 +41,7 @@ export default async (req: any, res: any) => {
   try {
     sendEmail()
       .then(() => {
-        res.status(200).json({ success: true, message: process.env.TEST_INFO });
+        res.status(200).json({ success: true, message: 'Email has been send succesfuly!' });
       })
       .catch((err) => {
         res.status(404).json({ success: false, err: err.message, message: 'Email not been sent' });
