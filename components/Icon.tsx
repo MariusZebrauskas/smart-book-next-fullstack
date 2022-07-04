@@ -11,7 +11,7 @@ type User = {
 
 const Icon = () => {
   // first letter of name
-  const [firstLetter, setFisrtLetter] = useState(null);
+  const [firstLetter, setFisrtLetter] = useState<string | null>(null);
 
   // get user from redux
   const user: any = useSelector<T>((store) => store.user);
@@ -27,7 +27,7 @@ const Icon = () => {
   return (
     <div className='container  bg-slate-50 rounded-full'>
       <div className='w-8 h-8 flex justify-center  items-center '>
-        <h4 className='font-bold'>M</h4>
+        <h4 className='font-bold'>{firstLetter?.toUpperCase()}</h4>
       </div>
     </div>
   );
