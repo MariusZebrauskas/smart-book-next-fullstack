@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
-import dbConnect from '../../utils/dbconnections';
+// import dbConnect from '../../utils/dbconnections';
 
-dbConnect();
+// dbConnect();
 
 export default async (req: any, res: any) => {
   let message = {
@@ -10,18 +10,14 @@ export default async (req: any, res: any) => {
     message: req.body.message,
   };
   async function sendEmail() {
-    // FIXME:test account + env data
-    const testAccount = {
-      user: process.env.EMAIL_NAME,
-      pass: process.env.EMAIL_PASS,
-    };
+  
 
     const transporter = nodemailer.createTransport({
       host: 'smtp.mail.yahoo.com',
       port: 465,
       auth: {
-        user: testAccount.user,
-        pass: testAccount.pass,
+        user: process.env.EMAIL_NAME,
+        pass: process.env.EMAIL_PASS,
       },
       secure: true, // true for 465, false for other  || ports
       tls: {
@@ -30,7 +26,7 @@ export default async (req: any, res: any) => {
     });
 
     let info = await transporter.sendMail({
-      from: testAccount.user, // sender address
+      from: process.env.EMAIL_NAME, // sender address
       to: 'zebrauskas.mar@gmail.com', // list of receivers
       subject: 'Smart Book Message Center', // Subject line
       html: `<div>
