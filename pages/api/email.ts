@@ -10,8 +10,6 @@ export default async (req: any, res: any) => {
     message: req.body.message,
   };
   async function sendEmail() {
-  
-
     const transporter = nodemailer.createTransport({
       host: 'smtp.mail.yahoo.com',
       port: 465,
@@ -41,11 +39,14 @@ export default async (req: any, res: any) => {
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
   }
   try {
-    sendEmail().catch((err) => {
-      res.status(404).json({ success: false, err: err.message, message: 'Email not been sent' });
-    });
-    res.status(200).json({ success: true, message: 'Email has been send succesfuly' });
+    sendEmail()
+      .then(() => {
+        res.status(200).json({ success: true, message: process.env.TEST_INFO });
+      })
+      .catch((err) => {
+        res.status(404).json({ success: false, err: err.message, message: 'Email not been sent' });
+      });
   } catch (err: any) {
-    res.status(404).json({ success: false, err: err.message, message: 'Email not been sent' });
+    res.status(404).json({ success: false, err: err.message, message: 'Email catch error' });
   }
 };
