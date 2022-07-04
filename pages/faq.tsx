@@ -10,7 +10,7 @@ const faqs = [
   {
     id: 1,
     question: 'How much cost excel to-do list?',
-    answer: 'This application is compliantly free.',
+    answer: 'This application is completely free.',
   },
   {
     id: 2,
