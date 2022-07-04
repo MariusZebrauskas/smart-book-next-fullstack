@@ -1,4 +1,7 @@
 const nodemailer = require('nodemailer');
+import dbConnect from '../../utils/dbconnections';
+
+dbConnect();
 
 export default async (req: any, res: any) => {
   let message = {
