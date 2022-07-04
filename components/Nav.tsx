@@ -223,7 +223,7 @@ const Nav = () => {
           dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700
           dark:hover:border-gray-600 dark:focus:ring-gray-700  '
               >
-                {loading ? <Spinner /> : "Login"}
+                {loading ? <Spinner /> : 'Login'}
               </button>
             </Link>
           )}

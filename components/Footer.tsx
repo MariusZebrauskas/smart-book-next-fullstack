@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
-import { DefaultRootState, useSelector } from 'react-redux';
+import { DefaultRootState, useDispatch, useSelector } from 'react-redux';
 import gsap from 'gsap';
 interface T extends DefaultRootState {
   page: string;
@@ -10,10 +10,10 @@ const Footer = () => {
   const page = useSelector<T>((state) => state.page);
   const fotterRef = useRef(null);
   
+
   // fade in on loading and unmounting animations
   useEffect(() => {
     let fadeInTimeline = gsap.timeline();
-    console.log(fotterRef.current);
     fadeInTimeline.fromTo(
       fotterRef.current,
       {
@@ -23,10 +23,8 @@ const Footer = () => {
       { delay: page === 'faq' ? 0.35 : 1, opacity: 1, y: 0 }
     );
     return () => {
-      let fadeInTimeline = gsap.timeline();
-
-      console.log(fotterRef.current);
-      fadeInTimeline.fromTo(
+      let fadeOutTimeline = gsap.timeline();
+      fadeOutTimeline.fromTo(
         fotterRef.current,
         {
           opacity: 1,
