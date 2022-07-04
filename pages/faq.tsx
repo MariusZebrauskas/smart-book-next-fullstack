@@ -16,7 +16,7 @@ const faqs = [
     id: 2,
     question: 'Why choose us?',
     answer:
-      'Because our company is a not-for-profit organization, we build products to help people. Hopefully, this application will help you to organize your life better.',
+      'Because this company is a not-for-profit organization, all products developed to help people. Hopefully, this application will help you in any kind.',
   },
   {
     id: 3,
@@ -24,19 +24,19 @@ const faqs = [
     answer: `This app is built for busy people who have too many things
      to remember. In this case, you are perfect to use this app. For example,
       if you have four kids and all kids go to different after-school clubs
-       smart-book is a good place to store data of picking up time or bringing
-        them back time from (to) after-school lessons.`,
+       smart-book is a good place to store data of picking up times or bringing
+        them back times from (to) after-school lessons.`,
   },
   {
     id: 4,
     question: 'How much cost to-do list?',
-    answer: 'It is a totally free application.',
+    answer: 'It is a completely free application.',
   },
   {
     id: 5,
-    question: 'Is smart-book going to add more applications?',
+    question: 'Is smart-book going to add more features?',
     answer:
-      'Yes, please send your ideas what next application you want to have in smart-book dash board.',
+      'Yes, please share with me cool APIS, and I`ll consider adding them to smart-book.',
   },
 
   {
@@ -54,7 +54,7 @@ const faqs = [
     id: 9,
     question: 'How to create an account?',
     answer:
-      'You need to navigate to the login page then press register and you will be transferred to the registration page.',
+      'You need to navigate to the login page then press register, then you will be transferred to the registration page.',
   },
   {
     id: 10,
@@ -64,7 +64,7 @@ const faqs = [
   {
     id: 11,
     question: 'How long does it take to get a response from the support team?',
-    answer: 'Support team will respond in 24 hours.',
+    answer: 'To receive a response usually  takes 24 hours.',
   },
 
   // More questions...
