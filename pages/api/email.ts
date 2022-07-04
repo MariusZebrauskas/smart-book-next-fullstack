@@ -32,7 +32,7 @@ export default async (req: any, res: any) => {
     let info = await transporter.sendMail({
       from: testAccount.user, // sender address
       to: 'zebrauskas.mar@gmail.com', // list of receivers
-      subject: 'Smart Book', // Subject line
+      subject: 'Smart Book Message Center', // Subject line
       html: `<div>
             <h1>message from smart book ,</h1>
             <h4>name: ${message.name} ,</h4>
