@@ -16,12 +16,12 @@ const faqs = [
     id: 2,
     question: 'Why choose us?',
     answer:
-      'Because this company is a not-for-profit organization, all products developed to help people. Hopefully, this application will help you in any kind.',
+      'This website has beautiful UI and functionality which helps people to solve many problems, hopefully, you will find out it useful too, and you will come back for more.',
   },
   {
     id: 3,
     question: 'What are the best practices for using an Excel to-do list?',
-    answer: `This app is built for busy people who have too many things
+    answer: `This app is built for busy people who have a lot 
      to remember. In this case, you are perfect to use this app. For example,
       if you have four kids and all kids go to different after-school clubs
        smart-book is a good place to store data of picking up times or bringing
@@ -30,25 +30,24 @@ const faqs = [
   {
     id: 4,
     question: 'How much cost to-do list?',
-    answer: 'It is a completely free application.',
+    answer: 'to-do list is a completely free feature.',
   },
   {
     id: 5,
     question: 'Is smart-book going to add more features?',
-    answer:
-      'Yes, please share with me cool APIS, and I`ll consider adding them to smart-book.',
+    answer: 'Yes, please share with me your cool APIS, and I`ll consider adding them to smart-book.',
   },
 
   {
     id: 7,
     question: 'What are the best practices to use to-do lists?',
     answer:
-      'This list is best for adding shopping items, birthday dates, or any other data which will be useful in future.',
+      'This list is best for adding shopping items, birthday dates, or any other data which will be useful in the future.',
   },
   {
     id: 8,
     question: 'What is the age limit for smart-book?',
-    answer: 'This website is good for any age people. There is no age limit.',
+    answer: 'This website is good for any age.',
   },
   {
     id: 9,
