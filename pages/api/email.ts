@@ -47,9 +47,9 @@ export default async (req: any, res: any) => {
   try {
     sendEmail().catch(console.error);
     res.status(200).json({ success: true, message: 'Email has been send succesfuly' });
-  } catch (err) {
+  } catch (err: any) {
     res.status(404).json({ success: false });
 
-    console.log('err:', err);
+    res.status(200).json({ success: false, err: err.message, message: 'Email not been sent' });
   }
 };
