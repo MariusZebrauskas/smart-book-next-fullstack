@@ -20,6 +20,7 @@ interface T extends DefaultRootState {
   submenu: boolean;
   user: any;
   listLoaded: boolean;
+//  loading: boolean;
   todo: {
     payload: {
       id: number;
@@ -57,6 +58,7 @@ const todo = () => {
   let listRef = useRef<any>(null);
   const [rerenderIfAddedElement, setRerenderIfAddedElement] = useState(0);
   const [rerender, SetRerender] = useState(0);
+ // const loading = useSelector<T>((store) => store.loading);
 
   // on page loads
   useEffect(() => {
@@ -136,7 +138,6 @@ const todo = () => {
 
   // reset loding animation of the list
   useEffect(() => {
-
     return () => {
       dispatch(closeList());
     };
@@ -165,7 +166,11 @@ const todo = () => {
   }, [rerenderIfAddedElement]);
 
   return (
-    <main className='relative bg-gray-900 min-h-screen' onMouseEnter={onMouseEnter}>
+    <main
+      className={`relative bg-gray-900 min-h-screen
+    `}
+      onMouseEnter={onMouseEnter}
+    >
       <Head>
         <title>Smart book - to-do</title>
         <meta
@@ -179,11 +184,10 @@ const todo = () => {
 
         <ul
           ref={listRef}
-          className='text-sm font-medium text-gray-900  border-gray-200 
+          className={`text-sm font-medium text-gray-900  border-gray-200 
       rounded-lg   
       mb-20 flex justify-center flex-col items-center
-      
-      '
+      `}
         >
           {todo &&
             todo.map((todo: Todo) => {

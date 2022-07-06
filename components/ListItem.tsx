@@ -71,28 +71,42 @@ const ListItem = ({ todo }: any) => {
     return dispatch(popUpEdite(e));
   };
 
+  let hoverStyles = `
+md:hover:scale-105 hover:bg-gray-300 
+     md:hover:drop-shadow-xl  
+`;
+
   return (
     <li
       ref={todoRef}
       className={`bg-gray-200  px-4 flex mb-4 justify-between py-1 md:py-2
       border-b md:drop-shadow-md
-     rounded-t-lg border-gray-300 lg:w-2/4 w-4/5 relative hover:bg-gray-300
-      md:hover:scale-105 ease-in-out duration-200 md:hover:drop-shadow-xl
+     rounded-t-lg border-gray-300 lg:w-2/4 w-4/5 relative 
+     ease-in-out duration-200 
+     ${todo.edite ? 'md:hover:scale-100' : ''}
       opacity-0
-      ${listLoaded ? 'opacity-100' : 'opacity-0'}
-      ${todo.edite ? 'md:hover:scale-100' : 'md:hover:scale-105'}
+      ${listLoaded ? 'opacity-100 ' : 'opacity-0 '}
+    ${
+      loading
+        ? 'cursor-progress opacity-75 '
+        : 'md:hover:scale-105 hover:bg-gray-300 ease-in-out duration-200 md:hover:drop-shadow-xl '
+    }
       `}
     >
       <span
         onClick={() => popUpEditeTodo(itemId)}
-        className='px-2.5 py-2 text-base flex cursor-pointer flex-wrap break-words '
+        className={`px-2.5 py-2 text-base flex cursor-pointer flex-wrap break-words
+        ${loading ? 'cursor-no-drop ' : 'cursor-pointer'}
+        `}
       >
         {todo.text}
       </span>
       {todoList[itemId].edite === false && (
         <span
-          className=' cursor-pointer px-2.5 py-2 text-base flex justify-center 
-          items-center  '
+          className={` cursor-pointer px-2.5 py-2 text-base flex justify-center 
+          items-center 
+        ${loading ? 'cursor-no-drop ' : 'cursor-pointer'}
+          `}
           style={{ color: '#111827' }}
           // onClick={() => deleteTodo(todo.text)}
           onClick={() => deleteTodo(todo)}

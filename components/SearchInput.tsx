@@ -106,14 +106,16 @@ const SearchInput: React.FC<{
           />
           <button
             type='button'
-            className='px-6 py-2 border-2 border-slate-100 text-gray-800 
+            className={`px-6 py-2 border-2 border-slate-100 text-gray-800 
             font-medium text-xs leading-tight 
             bg-white
             uppercase rounded 
             hover:bg-opacity-5 focus:outline-none 
             focus:ring-0 
             hover:text-white
-            transition duration-150 ease-in-out'
+            transition duration-150 ease-in-out
+            ${loading ? 'cursor-no-drop ' : 'cursor-pointer'}
+            `}
             onClick={onClick}
           >
             {loading ? <Spinner /> : 'Add'}
