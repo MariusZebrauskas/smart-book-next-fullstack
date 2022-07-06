@@ -71,10 +71,7 @@ const ListItem = ({ todo }: any) => {
     return dispatch(popUpEdite(e));
   };
 
-  let hoverStyles = `
-md:hover:scale-105 hover:bg-gray-300 
-     md:hover:drop-shadow-xl  
-`;
+
 
   return (
     <li
@@ -87,7 +84,7 @@ md:hover:scale-105 hover:bg-gray-300
       opacity-0
       ${listLoaded ? 'opacity-100 ' : 'opacity-0 '}
     ${
-      loading
+      loading && listLoaded
         ? 'cursor-progress opacity-75 '
         : 'md:hover:scale-105 hover:bg-gray-300 ease-in-out duration-200 md:hover:drop-shadow-xl '
     }

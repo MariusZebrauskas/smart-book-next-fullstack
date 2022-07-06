@@ -20,7 +20,6 @@ interface T extends DefaultRootState {
   submenu: boolean;
   user: any;
   listLoaded: boolean;
-//  loading: boolean;
   todo: {
     payload: {
       id: number;
@@ -58,7 +57,6 @@ const todo = () => {
   let listRef = useRef<any>(null);
   const [rerenderIfAddedElement, setRerenderIfAddedElement] = useState(0);
   const [rerender, SetRerender] = useState(0);
- // const loading = useSelector<T>((store) => store.loading);
 
   // on page loads
   useEffect(() => {
@@ -99,7 +97,7 @@ const todo = () => {
                 listRef.current.children,
                 { opacity: 0, y: '.5' },
                 {
-                  opacity: 1,
+                  opacity: 0.5,
                   y: 0,
                   stagger: 0.2,
                   duration: 2,
@@ -112,7 +110,7 @@ const todo = () => {
                 listRef.current.children,
                 { opacity: 0, y: '200' },
                 {
-                  opacity: 1,
+                  opacity: 0.5,
                   y: 0,
                   stagger: 0.25,
                   duration: 3,
