@@ -9,10 +9,12 @@ import { delteTask, popUpEdite } from '../redux/todoReducer';
 import { lodingON, lodingOFF } from '..//redux/loadingReducer';
 import Popup from './Popup';
 import Spinner from './Spinner';
+import { loadList } from '../redux/listInitialLoadReducer';
 
 interface T extends DefaultRootState {
   loading: boolean;
   listLoaded: boolean;
+  submenu: boolean;
 }
 
 const ListItem = ({ todo }: any) => {
@@ -21,6 +23,7 @@ const ListItem = ({ todo }: any) => {
   const todoRef = useRef(null);
   const loading = useSelector<T>((store) => store.loading);
   const listLoaded = useSelector<T>((store) => store.listLoaded);
+  const submenu = useSelector<T>((store) => store.submenu);
 
   const dispatch = useDispatch();
 
@@ -70,6 +73,13 @@ const ListItem = ({ todo }: any) => {
     //
     return dispatch(popUpEdite(e));
   };
+
+  // keeps contetnt visible if submenu is opened
+  useEffect(() => {
+    if (submenu) {
+      dispatch(loadList())
+    } 
+  }, [submenu]);
 
   return (
     <li
