@@ -71,8 +71,6 @@ const ListItem = ({ todo }: any) => {
     return dispatch(popUpEdite(e));
   };
 
-
-
   return (
     <li
       ref={todoRef}
@@ -80,7 +78,6 @@ const ListItem = ({ todo }: any) => {
       border-b md:drop-shadow-md
      rounded-t-lg border-gray-300 lg:w-2/4 w-4/5 relative 
      ease-in-out duration-200 
-     ${todoList[itemId].edite === true ? 'md:hover:scale-100' : ''}
       opacity-0
       ${listLoaded ? 'opacity-100 ' : 'opacity-0 '}
     ${
@@ -88,6 +85,8 @@ const ListItem = ({ todo }: any) => {
         ? 'cursor-progress opacity-75 '
         : 'md:hover:scale-105 hover:bg-gray-300 ease-in-out duration-200 md:hover:drop-shadow-xl '
     }
+    ${todoList[itemId].edite === true ? 'md:hover:scale-100' : ''}
+
       `}
     >
       <span
