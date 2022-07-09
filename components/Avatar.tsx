@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector, DefaultRootState } from 'react-redux';
+import { lodingOFF } from '../redux/loadingReducer';
 import { closeMenu, openMenu } from '../redux/menuRedux';
 import { openSubmenu, closeSubmenu } from '../redux/submenuReducer';
 import { userLogout } from '../redux/userReducer';
@@ -38,6 +39,8 @@ const Avatar = () => {
     dispatch(userLogout());
     localStorage.removeItem('token');
     dispatch(closeSubmenu());
+    dispatch(lodingOFF());
+
     router.push('/');
   };
 

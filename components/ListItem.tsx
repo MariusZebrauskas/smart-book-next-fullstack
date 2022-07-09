@@ -80,6 +80,7 @@ const ListItem = ({ todo }: any) => {
       dispatch(loadList())
     } 
   }, [submenu]);
+  
 
   return (
     <li
