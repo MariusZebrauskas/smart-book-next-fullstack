@@ -246,10 +246,10 @@ const IndexPage = () => {
         </div>
 
         <div className='flex animationPic items-center justify-center w-full h-96 lg:w-1/2'>
-          <img
+          <video
             className='object-cover w-full h-full max-w-2xl rounded-md'
-            src='https://images.unsplash.com/photo-1555181126-cf46a03827c0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
-            alt='glasses photo'
+            src='https://firebasestorage.googleapis.com/v0/b/smart-book-ce0de.appspot.com/o/video%2Fhomepage2.mp4?alt=media&token=c61bb6c6-af76-41ef-bb4f-c4e1b3a95f28'
+            controls
           />
         </div>
       </div>
