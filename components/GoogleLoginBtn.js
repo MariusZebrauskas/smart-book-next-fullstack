@@ -61,7 +61,7 @@ export default function Component() {
     <>
       <button className='animationLogin' style={{ display: 'flex' }} onClick={handleGoogleLogin}>
         <FcGoogle style={{ fontSize: '1.7rem', marginRight: '.5rem' }} />
-        <p>Sign in with Google </p>
+        <p>Sign in with Google</p>
       </button>
     </>
   );
