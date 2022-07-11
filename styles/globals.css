@@ -25,7 +25,7 @@
   position: relative;
 }
 
-@media (min-height: 710px) {
+@media (min-width: 734px) {
   .dasboard-footer {
     position: absolute;
     bottom: 0;
