@@ -8,7 +8,7 @@ import { HTTP } from '../config';
 import { userLogin } from '../redux/userReducer';
 import { useRouter } from 'next/router';
 import Error from '../components/Error';
-
+import GoogleLoginButton from '../components/GoogleLoginBtn';
 import Success from '../components/Success';
 
 import Spinner from '../components/Spinner';
@@ -68,6 +68,7 @@ const login = () => {
 
   // on submit form value
   const onSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+
     // prevent defoult
     e.preventDefault();
     // if loading then cancel
@@ -182,6 +183,7 @@ const login = () => {
           </button>
           {loading && <Spinner />}
         </div>
+        <GoogleLoginButton />
         <div className='animationLogin flex justify-start mt-6'>
           <p>Don't have an account?</p>
           <Link href='/register'>

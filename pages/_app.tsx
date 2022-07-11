@@ -5,8 +5,10 @@ import { Provider } from 'react-redux';
 import { store } from '../redux/store';
 import Layout from '../components/Layout';
 import Script from 'next/script';
+// google login
+import { SessionProvider } from 'next-auth/react';
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <Provider store={store}>
       <Script
@@ -29,7 +31,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </Script>
 
       <Layout title='best to do app plus 7 days calendar'>
-        <Component {...pageProps} />
+        <SessionProvider session={session}>
+          <Component {...pageProps} />
+        </SessionProvider>
       </Layout>
     </Provider>
   );

@@ -8,6 +8,7 @@ import { closeMenu, openMenu } from '../redux/menuRedux';
 import { openSubmenu, closeSubmenu } from '../redux/submenuReducer';
 import { userLogout } from '../redux/userReducer';
 import Icon from './Icon';
+import { signOut } from 'next-auth/react';
 
 interface T extends DefaultRootState {
   menu: string;
@@ -39,6 +40,7 @@ const Avatar = () => {
     dispatch(userLogout());
     localStorage.removeItem('token');
     dispatch(closeSubmenu());
+    signOut();
     dispatch(lodingOFF());
 
     router.push('/');
