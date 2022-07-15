@@ -250,6 +250,7 @@ const IndexPage = () => {
             className='object-cover w-full h-full max-w-2xl rounded-md'
             src='https://firebasestorage.googleapis.com/v0/b/smart-book-ce0de.appspot.com/o/video%2Fupdated.mp4?alt=media&token=275416a5-8e7e-4e05-ac9e-91366b016627'
             controls
+            title="Free weekly to do list"
           />
         </div>
       </div>
