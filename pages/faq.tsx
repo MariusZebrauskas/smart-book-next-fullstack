@@ -8,11 +8,6 @@ import Head from 'next/head';
 
 const faqs = [
   {
-    id: 1,
-    question: 'How much cost excel to-do list?',
-    answer: 'This application is completely free.',
-  },
-  {
     id: 2,
     question: 'Why choose us?',
     answer:
@@ -20,8 +15,8 @@ const faqs = [
   },
   {
     id: 3,
-    question: 'What are the best practices for using an Excel to-do list?',
-    answer: `This app is built for busy people who have a lot 
+    question: 'What are the best practices for using a "Weekly To Do List"?',
+    answer: `Weekly to do list is built for busy people who have a lot 
      to remember. In this case, you are perfect to use this app. For example,
       if you have four kids and all kids go to different after-school clubs
        smart-book is a good place to store data of picking up times or bringing
@@ -29,20 +24,21 @@ const faqs = [
   },
   {
     id: 4,
-    question: 'How much cost to-do list?',
-    answer: 'to-do list is a completely free feature.',
+    question: 'How much cost weekly to do list?',
+    answer: 'Weekly to do list is a completely free feature.',
   },
   {
     id: 5,
     question: 'Is smart-book going to add more features?',
-    answer: 'Yes, please share with me your cool APIS, and I`ll consider adding them to smart-book.',
+    answer:
+      'Yes, please share with me your cool APIS, and I`ll consider adding them to smart-book.',
   },
 
   {
     id: 7,
     question: 'What are the best practices to use to-do lists?',
     answer:
-      'This list is best for adding shopping items, birthday dates, or any other data which will be useful in the future.',
+      'This list is best for adding weekly to do lists, shopping items, birthday dates, or any other data which will be useful in the future.',
   },
   {
     id: 8,
@@ -53,7 +49,7 @@ const faqs = [
     id: 9,
     question: 'How to create an account?',
     answer:
-      'You need to navigate to the login page then press register, then you will be transferred to the registration page.',
+      'You need to navigate to the login page then press google login and let google to register you or register manualy by clicking "Register" button.',
   },
   {
     id: 10,
@@ -114,10 +110,10 @@ export default function faq() {
   return (
     <div onMouseEnter={onMouseEnter} className='bg-gray-900'>
       <Head>
-        <title>todo list - excel todo list / smart-book </title>
+        <title>Weekly To Do List, todo list, to-do list, any todo - smart-book </title>
         <meta
           name='description'
-          content='Frequently asked questions - excel todo list, todo list / smart-book'
+          content='we offer weekly to do list and simple todo list for free, pelase visit smart-book.org and use it for 0$, and never forget your tasks ever again '
         />
       </Head>
       <div className='max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8'>

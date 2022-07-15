@@ -125,10 +125,10 @@ const routine = () => {
   return (
     <main>
       <Head>
-        <title>Smart book - 7 days</title>
+        <title>Smart book - Weekly To Do List</title>
         <meta
           name='description'
-          content='Add your routine to this calendar and never forget your tasks
+          content='Add your weekly to dos to this calendar and never forget your tasks
           This schedule does not let people forget their weekly assignments. Add, edit, delete your tasks and get rid of weekly headaches!'
         />
       </Head>

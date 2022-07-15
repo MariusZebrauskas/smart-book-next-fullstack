@@ -86,10 +86,10 @@ const IndexPage = () => {
   return (
     <main onMouseEnter={onMouseEnter} className='bg-white  mt-20 relative'>
       <Head>
-        <title>To Do List: add thnigs to do </title>
+        <title>Free Weekly To Do List </title>
         <meta
           name='description'
-          content='free to-do app online: there is  calendar and to-do list app in one flexible software, add todoist, things to do, todo list'
+          content='Free weekly to do list. We give two types of to-do lists for free:  1) Weekly callendar type to-do list app. 2) List type to-do list. All in one flexible software, add todoist, things to do, todo list, add edit create and delte your todos for free'
         />
       </Head>
       <div
@@ -105,8 +105,8 @@ const IndexPage = () => {
              px-8
              '
             >
-              Free to-do list and calendar! Build your lists, organize your life and do not forget
-              your tasks.
+              Free weekly to do list! Build your lists, organize your life and do not forget your
+              tasks again.
             </h1>
 
             <div className='px-8 py-4 animation grid gap-6 mt-8 sm:grid-cols-2'>
@@ -126,7 +126,7 @@ const IndexPage = () => {
                   />
                 </svg>
 
-                <span className='mx-3'>Excel todo list template</span>
+                <span className='mx-3'>Weekly To Do List</span>
               </div>
 
               <div className=' flex items-center text-gray-800 -px-3 '>
@@ -248,7 +248,7 @@ const IndexPage = () => {
         <div className='flex animationPic items-center justify-center w-full h-96 lg:w-1/2'>
           <video
             className='object-cover w-full h-full max-w-2xl rounded-md'
-            src='https://firebasestorage.googleapis.com/v0/b/smart-book-ce0de.appspot.com/o/video%2Fhomepage2.mp4?alt=media&token=c61bb6c6-af76-41ef-bb4f-c4e1b3a95f28'
+            src='https://firebasestorage.googleapis.com/v0/b/smart-book-ce0de.appspot.com/o/video%2Fupdated.mp4?alt=media&token=275416a5-8e7e-4e05-ac9e-91366b016627'
             controls
           />
         </div>

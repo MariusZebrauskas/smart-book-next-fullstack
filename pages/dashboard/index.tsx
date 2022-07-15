@@ -21,6 +21,7 @@ interface T extends DefaultRootState {
 
 const dashboard = ({ dashboardApi }: any) => {
   const { data } = dashboardApi;
+
   const { loginHook } = useFetch();
   const submenu = useSelector<T>((store) => store.submenu);
   const menu = useSelector<T>((store) => store.menu);
@@ -86,8 +87,11 @@ const dashboard = ({ dashboardApi }: any) => {
   return (
     <section onMouseEnter={onMouseEnter} className='w-full flex justify-center items-center   '>
       <Head>
-        <title>Smart book - dashboard</title>
-        <meta name='description' content='pick app on dashboard to start adding todos' />
+        <title>Free weekly to do list or simple todo list - smartbook/dashboard </title>
+        <meta
+          name='description'
+          content='select Free weekly to do list or simple todo list on dashboard to start adding todos'
+        />
       </Head>
       <main className='flex mt-20 lg:mt-40 justify-around flex-wrap gap-10 max-w-7xl w-3/5 mb-20 '>
         {data.map((card: any) => {

@@ -9,11 +9,11 @@ const TwoCards = () => {
       <div className='container grid grid-cols-1 gap-8 px-4 py-12 mx-auto lg:grid-cols-2'>
         <div className='animationCards flex flex-col items-center max-w-lg mx-auto text-center'>
           <h2 className='text-3xl font-semibold tracking-tight text-gray-800 '>
-            Excel todo list template
+            Weekly To Do List
           </h2>
 
           <p className='mt-3 text-gray-500 '>
-            Excel todo list template has been designed and built to track weekly tasks, like when to
+            Weekly To Do List has been designed and built to track weekly tasks, like when to
             pick up your child from after school club, or any kind of tasks you do weekly, but
             sometimes you forget to-do.
           </p>
