@@ -86,10 +86,10 @@ const IndexPage = () => {
   return (
     <main onMouseEnter={onMouseEnter} className='bg-white  mt-20 relative'>
       <Head>
-        <title>Free Weekly To Do List </title>
+        <title>Free Weekly To Do List And Advanced To-do List</title>
         <meta
           name='description'
-          content='Free weekly to do list. We give two types of to-do lists for free:  1) Weekly callendar type to-do list app. 2) List type to-do list. All in one flexible software, add todoist, things to do, todo list, add edit create and delte your todos for free'
+          content='Free weekly to do list. We give two types of to-do lists for free: 1) Weekly calendar type to-do list app. 2) List type to-do list. All in one flexible software, add  ...'
         />
       </Head>
       <div

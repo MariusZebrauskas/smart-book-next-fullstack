@@ -113,7 +113,7 @@ export default function faq() {
         <title>Weekly To Do List, todo list, to-do list, any todo - smart-book </title>
         <meta
           name='description'
-          content='we offer weekly to do list and simple todo list for free, pelase visit smart-book.org and use it for 0$, and never forget your tasks ever again '
+          content='We offer a weekly to do list and simple to-do list for free, please visit smart-book.org and use it for 0$, and never forget your tasks ever again '
         />
       </Head>
       <div className='max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8'>

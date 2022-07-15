@@ -136,7 +136,7 @@ const login = () => {
       className='shadowAnimation max-w-md mt-20 p-6 mx-auto bg-white rounded-md  '
     >
       <Head>
-        <title>To-Do Login</title>
+        <title>Smart-book - Login and use dashboard applications</title>
         <meta
           name='description'
           content='todo is best for busy people to organise day rutine please login and start adding to-dos'

@@ -116,8 +116,8 @@ const register = () => {
       className='max-w-4xl mt-20 mb-40 p-6 mx-auto bg-white rounded-md shadow-md '
     >
        <Head>
-        <title>Calendar And To Do Registration</title>
-        <meta name='description' content='free to do and mini calendar app, just need to register and app is free for ever! ' />
+        <title>Free Weekly To Do List And Advanced To-do List Registration</title>
+        <meta name='description' content='We offer two awesome applications for free, register an account and use the free Weekly to-do List and advanced To-do list ...' />
       </Head>
       <h2 className='text-lg font-semibold text-gray-700 capitalize '>
         Account settings
