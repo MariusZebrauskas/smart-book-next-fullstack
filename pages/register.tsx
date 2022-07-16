@@ -105,7 +105,7 @@ const register = () => {
       .catch((err) => {
         // set error on screen
         setError('Backend Message: Data invalid');
-        // turn off spinner
+        // turn off spin
         return dispach(lodingOFF());
       });
   };
