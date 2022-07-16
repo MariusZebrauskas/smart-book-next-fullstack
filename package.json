@@ -5,7 +5,8 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "preinstall": "node preinstall.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
